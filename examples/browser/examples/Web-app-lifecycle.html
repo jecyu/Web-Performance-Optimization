@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web app lifecycle</title>
+</head>
+<style>
+  #first {
+    color: green;
+  }
+  #second {
+    color: red;
+  }
+</style>
+<body>
+  <ul id="first"></ul>
+  <script>
+    /**
+     * @description 定义一个函数用于向一个元素增加一条信息
+     */
+    function addMessage(element, message) {
+      const messageElement = document.createElement('li');
+      messageElement.textContent = message;
+      element.appendChild(messageElement);
+    }
+    console.log(document.getElementById('second')); // 这个时候 脚本阻塞了 dom 的构建
+    const first = document.getElementById('first');
+    addMessage(first, "Page loading");
+    window.addEventListener('DOMContentLoaded', (event) => {
+        console.log('DOM fully loaded and parsed');
+    });
+    window.addEventListener('load', (event) => {
+      console.log('page is fully loaded');
+    });
+  </script>
+  <ul id="second"></ul>
+  <script>
+    document.body.addEventListener('mousemove', function() {
+      const second = document.getElementById('second');
+      addMessage(second, "Event: mousemove");
+    })
+
+    document.body.addEventListener('click', function() {
+      const second = document.getElementById('second');
+      addMessage(second, 'Event: click');
+    })
+    console.log(document.getElementById('third'))
+    </script>
+    <ul id="third"></ul>
+</body>
+</html>

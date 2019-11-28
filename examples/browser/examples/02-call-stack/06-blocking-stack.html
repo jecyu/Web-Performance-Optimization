@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>同步阻塞调用栈</title>
+</head>
+<body>
+  <script>
+    let foo = null;
+    let bar = null;
+    let qux = null;
+    // 创建 XMLHttpRequest 对象
+   const foo_xhr = new XMLHttpRequest();
+   // 创建响应 XMLHttpRequest 对象状态 变化的函数
+   foo_xhr.onreadystatechange = function() {
+    if (foo_xhr.readyState === 4) { // 异步调用完毕
+      if ((foo_xhr.status >= 200 && foo_xhr.status < 300) || foo_xhr.status == 304) {
+        // 获得服务器返回的数据
+        foo =  foo_xhr.responseText;
+      }
+    }
+   };
+   // 创建 http  请求
+   foo_xhr.open('get', 'http://127.0.0.1:57401/browser/examples/02-call-stack/mockdata/foo.txt', false); // 同步阻塞调用栈，从而阻塞了页面
+   // 发送 http 请求
+   foo_xhr.send(null);
+   
+  //  const bar_xhr = new XMLHttpRequest();
+  //  // 创建响应 XMLHttpRequest 对象状态 变化的函数
+  //  bar_xhr.onreadystatechange = function() {
+  //   if (bar_xhr.readyState === 4) { // 异步调用完毕
+  //     if ((bar_xhr.status >= 200 && bar_xhr.status < 300) || bar_xhr.status == 304) {
+  //       // 获得服务器返回的数据
+  //       bar =  bar_xhr.responseText;
+  //     }
+  //   }
+  //  };
+  //  // 创建 http 请求
+  //  bar_xhr.open('get', 'http://127.0.0.1:57401/browser/examples/02-call-stack/mockdata/bar.txt', false); // 同步阻塞页面 UI，请求成功后才能进行下一步的页面操作
+  //  // 发送 http 请求
+  //  bar_xhr.send(null);
+
+    // const foo = $.getSync('//foo.com') // 同步请求
+    // const bar = $.getSync('//bar.com') // 同步请求
+    // const qux = $.getSync('//qux.com') // 同步请求
+
+    console.log(foo);
+    console.log(bar);
+    console.log(qux);
+  </script>
+</body>
+</html>
