@@ -1,6 +1,6 @@
 {
-  "name": "VueAnalysis",
-  "short_name": "VueAnalysis",
+  "name": "JS-Event-Loop",
+  "short_name": "JS-Event-Loop",
   "icons": [
     {
       "src": "/icons/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/Fe-Auto-Testing/",
+  "start_url": "/JS-Event-Loop/",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#3eaf7c"
