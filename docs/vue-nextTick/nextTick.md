@@ -183,7 +183,3 @@ function add (
 }
 ...
 ```
-
-### nextTick为什么要microtask优先？
-
-渲染性能

@@ -1,6 +1,6 @@
 # 栈
 
-栈是一种遵从后进先出（LIFO）原则的有序集合。新添加或待删除的元素都保存在栈的同一端，称作栈顶，另一端就叫栈底。在栈里，新元素都靠近栈顶，旧元素都接近栈底。
+栈是一种遵从**后进先出**（LIFO）原则的有序集合。新添加或待删除的元素都保存在栈的同一端，称作栈顶，另一端就叫栈底。在栈里，新元素都靠近栈顶，旧元素都接近栈底。
 
 在现实生活中也能发现很多栈的例子。例如，下图里的一摞书或者餐厅里叠放的盘子。
 
@@ -71,14 +71,17 @@ class Stack {
 
 ### 利用栈解决十进制转二进制的问题
 
+它的计算规则满足：先顺序求余数值，再从逆序获得值。
+
 ![](../.vuepress/public/assets/decimal-to-Binary.png)
 
 ```js
 /**
- * 把十进制转换成二进制。
+ * 把十进制转换成基数为 2～36 的任意进制。
  * @param {*} decNumber 十进制
+ * @param {*} base 基数
  */
-export function decimalToBinary(decNumber) {
+export function decimalToBinary(decNumber, base) {
   const remStack = new Stack();
   let number = decNumber; // 十进制数字
   let rem; // 余数
@@ -128,6 +131,8 @@ main();
 2. 这个时候调用并进入 Student 构造函数内部，遇到 SetName() 方法，把这里的位置B 作为 return 地址存入栈中记录下来存入栈中。
 3. 这时调用并进入 setName() 方法内部执行完毕后，之后从栈中拿出 B 地址，返回到 Student 函数内部继续执行。
 4. Student 函数执行完毕后，然后从栈中继续拿出 A 地址，进入到一开始的 main 函数内部执行，至此完毕。
+
+查看附带例子：`examples/browser/01-call-stack.html`
 
 #### 内存区域
 
@@ -209,6 +214,8 @@ try {
 }
 ```
 在 Chrome 78 中，该函数执行了 15689 次，之后抛出错误 RangeError: Maximum call stack size exceeded（超限错误：超过最大调用栈大小）。
+
+附带例子：`examples/browser/05-stack-overflow.html`
 
 解决方案是可以使用尾递归优化。
 

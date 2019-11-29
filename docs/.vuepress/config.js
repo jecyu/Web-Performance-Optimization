@@ -41,7 +41,7 @@ module.exports = {
         nav: [
             {
                 text: '配套例子',
-                link: 'https://github.com/Jecyu/JS-Event-Loop/tree/master'
+                link: 'https://github.com/Jecyu/JS-Event-Loop/tree/master/examples'
             }
         ],
         sidebar: [
@@ -91,13 +91,20 @@ module.exports = {
                     'vue-nextTick/nextTick',
                 ]
             },
-            // {
-            //     title: '扩展应用',
-            //     collapsable: false,
-            //     children: [
-            //         ['refs/', 'Introduction'],
-            //     ]
-            // },
+            {
+                title: '问题',
+                collapsable: false,
+                children: [
+                    ['tip/', '介绍'],
+                ]
+            },
+            {
+                title: '参考资料',
+                collapsable: false,
+                children: [
+                    ['refs/', 'Introduction'],
+                ]
+            },
         ]
     }
 }

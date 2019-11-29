@@ -25,29 +25,37 @@
       messageElement.textContent = message;
       element.appendChild(messageElement);
     }
-    console.log(document.getElementById('second')); // 这个时候 脚本阻塞了 dom 的构建
+    console.log(document.getElementById('second')); // 这个时候 脚本阻塞了 dom 的构建，second dom 为 null
     const first = document.getElementById('first');
+
     addMessage(first, "Page loading");
+
     window.addEventListener('DOMContentLoaded', (event) => {
         console.log('DOM fully loaded and parsed');
+        console.log(document.getElementById('second')); // 这个时候 脚本阻塞了 dom 的构建，second dom 为 null
     });
     window.addEventListener('load', (event) => {
       console.log('page is fully loaded');
     });
+
   </script>
-  <ul id="second"></ul>
+
+  <ul id="second">nnn</ul>
+
   <script>
+    // 添加事件监听
     document.body.addEventListener('mousemove', function() {
       const second = document.getElementById('second');
       addMessage(second, "Event: mousemove");
     })
-
+    
+    // 添加事件监听
     document.body.addEventListener('click', function() {
       const second = document.getElementById('second');
       addMessage(second, 'Event: click');
     })
     console.log(document.getElementById('third'))
     </script>
-    <ul id="third"></ul>
+    <!-- <ul id="third">thrid</ul> -->
 </body>
 </html>

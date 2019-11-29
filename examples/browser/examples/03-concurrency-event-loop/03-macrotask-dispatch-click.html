@@ -32,19 +32,15 @@
   
     // 单击事件
     function onClick() {
-      debugger;
       console.log('click');
+      debugger;
 
       setTimeout(() => {
-        var container = document.getElementById('container');
-        console.log('container :', container); // 执行第二次 macroTask 已经进行渲染了。
         console.log('timeout')
       }, 0);
 
       Promise.resolve().then(function() {
         console.log('promise');
-        // dom 操作
-        // inner.style.backgroundColor = "red";
       })
     }
 
@@ -52,5 +48,6 @@
     inner.addEventListener('click', onClick);
     outer.addEventListener('click', onClick);
   </script>
+  <div id="container"></div>
 </body>
 </html>

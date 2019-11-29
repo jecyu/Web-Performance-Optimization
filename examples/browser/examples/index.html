@@ -12,115 +12,141 @@
       crossorigin="anonymous"
     />
     <base target="myFrame" />
+    <style>
+      html {
+        height: 100%;
+      }
+    </style>
   </head>
-  <body>
-    <div>
-      <header></header>
-      <main class="container">
-        <div class="row">
-          <div class="col">
-            <section class="card">
-              <div class="card-header">
-                <h2 class="mb-0">
-                  02-call-stack
-                </h2>
-              </div>
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../examples/02-call-stack/01-call-stack.html"
-                    >01-call-stack</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../examples/02-call-stack/02-call-stack-printSquare.html"
-                    >02-call-stack-printSquare</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../examples/02-call-stack/03-call-stack-trace.html"
-                    >03-call-stack-trace</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../examples/02-call-stack/04-recursion.html"
-                    >04-recursion.html</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../examples/02-call-stack/05-stack-overflow.html"
-                    >05-stack-overflow</a
-                  >
-                </li>
-              </ul>
-            </section>
-            <section class="card">
-              <div class="card-header">
-                <h2 class="mb-0">
-                  03-concurrency-event-loop
-                </h2>
-              </div>
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../examples/03-concurrency-event-loop/01-solution-async-callback.html"
-                    >01-solution-async-callback</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../examples/03-concurrency-event-loop/02-microtask-macrotask.html"
-                    >02-microtask-macrotask</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../examples/03-concurrency-event-loop/03-macrotask-dispatch-click.html"
-                    >03-macrotask-dispatch-click</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../examples/03-concurrency-event-loop/04-microtask-mutationObserver.html"
-                    >04-microtask-mutationObserver</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../examples/03-concurrency-event-loop/05-task-render-task.html"
-                    >05-task-render-task</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="../examples/03-concurrency-event-loop/07-Async-await-microTask.html"
-                    >07-Async-await-microTask</a
-                  >
-                </li>
-              </ul>
-            </section>
-          </div>
-          <!-- Where the examples will be displayed -->
-          <div id="myFrame" class="col">
-            <iframe name="myFrame" src=""></iframe>
-          </div>
+  <body class="h-100">
+    <header></header>
+    <main class="container" class="h-75">
+      <div class="row">
+        <div class="col">
+          <section class="card">
+            <div class="card-header">
+              <h2 class="mb-0">
+                01-render-process
+              </h2>
+            </div>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/01-render-process/Web-app-lifecycle.html"
+                >Web-app-lifecycle</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/01-render-process/JS-Script-block.html"
+                  >JS-Script-block.html</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section class="card">
+            <div class="card-header">
+              <h2 class="mb-0">
+                02-call-stack
+              </h2>
+            </div>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/02-call-stack/01-call-stack.html"
+                  >01-call-stack</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/02-call-stack/02-call-stack-printSquare.html"
+                  >02-call-stack-printSquare</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/02-call-stack/03-call-stack-trace.html"
+                  >03-call-stack-trace</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/02-call-stack/04-recursion.html"
+                  >04-recursion.html</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/02-call-stack/05-stack-overflow.html"
+                  >05-stack-overflow</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section class="card">
+            <div class="card-header">
+              <h2 class="mb-0">
+                03-concurrency-event-loop
+              </h2>
+            </div>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/03-concurrency-event-loop/01-solution-async-callback.html"
+                  >01-solution-async-callback</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/03-concurrency-event-loop/02-microtask-macrotask.html"
+                  >02-microtask-macrotask</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/03-concurrency-event-loop/03-macrotask-dispatch-click.html"
+                  >03-macrotask-dispatch-click</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/03-concurrency-event-loop/04-microtask-mutationObserver.html"
+                  >04-microtask-mutationObserver</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/03-concurrency-event-loop/05-task-render-task.html"
+                  >05-task-render-task</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="../examples/03-concurrency-event-loop/07-Async-await-microTask.html"
+                  >07-Async-await-microTask</a
+                >
+              </li>
+            </ul>
+          </section>
         </div>
-      </main>
-    </div>
+        <!-- Where the examples will be displayed -->
+        <div id="myFrame" class="col h-100">
+          <iframe name="myFrame" src="" class="h-100" style="height: 500px;"></iframe>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
