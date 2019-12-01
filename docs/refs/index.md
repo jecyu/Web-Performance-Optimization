@@ -4,6 +4,7 @@
 
 - [tasks-microtasks-queues-and-schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/) - 清晰明了，可以在线运行例子，需要科学上网。
 - [JavaScript 运行原理](https://mp.weixin.qq.com/s/W83ABsZOPWEflc1wFC0h2Q) - 说下 JS 代码是如何被解释执行的。
+- [Vue 技术揭秘](https://ustbhuangyi.github.io/vue-analysis/)
 
 ## 工具
 
