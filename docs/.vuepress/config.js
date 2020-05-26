@@ -18,7 +18,7 @@ module.exports = {
         ],
     base: '/JS-Event-Loop/',
     dest: 'dist',
-    title: 'JS 事件循环原理与异步机制解析',
+    title: 'Web 性能优化',
     description: 'Analysis vue.js deeply',
     head: [
         ['link', { rel: 'icon', href: `/logo.png` }],
@@ -41,28 +41,10 @@ module.exports = {
         nav: [
             {
                 text: '配套例子',
-                link: 'https://github.com/Jecyu/JS-Event-Loop/tree/master/examples'
+                link: 'https://github.com/Jecyu/Web-Performance-Optimization/tree/master/examples'
             }
         ],
         sidebar: [
-            {
-                title: '回顾硬核知识：栈和队列',
-                collapsable: false,
-                children: [
-                    ['dataStructure/', "介绍"],
-                    'dataStructure/stack',
-                    'dataStructure/queue',
-                ]
-            },
-            {
-                title: '说说 CPU 层面的运作',
-                collapsable: false,
-                children: [
-                    ['cpu/', '介绍'],
-                    'cpu/program-workflow',
-                    'cpu/concept',
-                ]
-            },
             {
                 title: '谈谈浏览器背后的运行机制',
                 collapsable: false,
@@ -72,39 +54,7 @@ module.exports = {
                     'browser/thread-relationship',
                     'browser/render-process',
                 ]
-            },
-            {
-                title: '深入剖析 JS 事件循环原理',
-                collapsable: false,
-                children: [
-                    ['event-loop/', '介绍'],
-                    "event-loop/eventloop",
-                    "event-loop/eventloop-more"
-                ]
-            },
-            {
-                title: 'Vue 异步更新策略：nextTick',
-                collapsable: false,
-                children: [
-                    ['vue-nextTick/', '介绍'],
-                    'vue-nextTick/reactive-object',
-                    'vue-nextTick/nextTick',
-                ]
-            },
-            {
-                title: '问题',
-                collapsable: false,
-                children: [
-                    ['tip/', '介绍'],
-                ]
-            },
-            {
-                title: '参考资料',
-                collapsable: false,
-                children: [
-                    ['refs/', 'Introduction'],
-                ]
-            },
+            }
         ]
     }
 }

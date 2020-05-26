@@ -1,0 +1,386 @@
+== Info: Rebuilt URL to: www.jecyu.com/
+== Info:   Trying 120.79.3.126...
+== Info: TCP_NODELAY set
+== Info: Connected to www.jecyu.com (120.79.3.126) port 80 (#0)
+=> Send header, 77 bytes (0x4d)
+0000: GET / HTTP/1.1
+0010: Host: www.jecyu.com
+0025: User-Agent: curl/7.54.0
+003e: Accept: */*
+004b: 
+<= Recv header, 17 bytes (0x11)
+0000: HTTP/1.1 200 OK
+<= Recv header, 15 bytes (0xf)
+0000: Server: nginx
+<= Recv header, 37 bytes (0x25)
+0000: Date: Thu, 27 Feb 2020 13:01:50 GMT
+<= Recv header, 40 bytes (0x28)
+0000: Content-Type: text/html; charset=UTF-8
+<= Recv header, 28 bytes (0x1c)
+0000: Transfer-Encoding: chunked
+<= Recv header, 24 bytes (0x18)
+0000: Connection: keep-alive
+<= Recv header, 23 bytes (0x17)
+0000: Vary: Accept-Encoding
+<= Recv header, 26 bytes (0x1a)
+0000: X-Powered-By: PHP/5.6.36
+<= Recv header, 65 bytes (0x41)
+0000: Link: <http://www.jecyu.com/wp-json/>; rel="https://api.w.org/"
+<= Recv header, 2 bytes (0x2)
+0000: 
+<= Recv data, 1163 bytes (0x48b)
+0000: 5530
+0006: <!DOCTYPE HTML>.<html class="no-js">..<head>...<title>..........
+0046: ..... - ...........................</title>...<meta charset="UTF
+0086: -8">...<meta http-equiv="X-UA-Compatible" content="IE=edge">...<
+00c6: meta name="robots" content="index,follow">...<meta name="viewpor
+0106: t" content="width=device-width, user-scalable=no, minimum-scale=
+0146: 1.0, maximum-scale=1.0">...<meta name="format-detection" content
+0186: ="telphone=no, email=no">...<meta name="description" content="" 
+01c6: />...<meta name="keywords" content="" />...<meta itemprop="image
+0206: " content="https://www.json.org/img/object.png"/>...<meta name="
+0246: description" itemprop="description" content="" />...<link rel='d
+0286: ns-prefetch' href='//cdn.jsdelivr.net' />.<link rel='stylesheet'
+02c6:  id='prism-theme-default-css'  href='https://cdn.jsdelivr.net/wp
+0306: /wp-editormd/tags/10.0.8/assets/Prism.js/themes/prism.css?ver=1.
+0346: 15.0' type='text/css' media='all' />.<link rel='stylesheet' id='
+0386: ez-icomoon-css'  href='http://www.jecyu.com/wp-content/plugins/e
+03c6: asy-table-of-contents/vendor/icomoon/style.min.css?ver=1.7' type
+0406: ='text/css' media='all' />.<link rel='stylesheet' id='ez-toc-css
+0446: '  href='http://www.jecyu.com/wp-content/plugins/easy-table-of-c
+0486: onten
+<= Recv data, 4320 bytes (0x10e0)
+0000: ts/assets/css/screen.min.css?ver=1.7' type='text/css' media='all
+0040: ' />.<style id='ez-toc-inline-css' type='text/css'>.div#ez-toc-c
+0080: ontainer p.ez-toc-title {font-size: 120%;}div#ez-toc-container p
+00c0: .ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {fon
+0100: t-size: 95%;}.</style>.<link rel='stylesheet' id='animate-css'  
+0140: href='http://www.jecyu.com/wp-content/themes/Kratos-2/css/animat
+0180: e.min.css?ver=3.5.1' type='text/css' media='all' />.<link rel='s
+01c0: tylesheet' id='awesome-css'  href='http://www.jecyu.com/wp-conte
+0200: nt/themes/Kratos-2/css/font-awesome.min.css?ver=4.7.0' type='tex
+0240: t/css' media='all' />.<link rel='stylesheet' id='bootstrap-css' 
+0280:  href='http://www.jecyu.com/wp-content/themes/Kratos-2/css/boots
+02c0: trap.min.css?ver=3.3.7' type='text/css' media='all' />.<link rel
+0300: ='stylesheet' id='superfish-css'  href='http://www.jecyu.com/wp-
+0340: content/themes/Kratos-2/css/superfish.min.css?ver=r7' type='text
+0380: /css' media='all' />.<link rel='stylesheet' id='layer-css'  href
+03c0: ='http://www.jecyu.com/wp-content/themes/Kratos-2/css/layer.min.
+0400: css?ver=2.8' type='text/css' media='all' />.<link rel='styleshee
+0440: t' id='kratos-css'  href='http://www.jecyu.com/wp-content/themes
+0480: /Kratos-2/style.css?ver=2.8' type='text/css' media='all' />.<lin
+04c0: k rel='https://api.w.org/' href='http://www.jecyu.com/wp-json/' 
+0500: />...<style type="text/css">.recentcomments a{display:inline !im
+0540: portant;padding:0 !important;margin:0 !important;}</style>...<li
+0580: nk rel="icon" href="http://www.jecyu.com/wp-content/uploads/2019
+05c0: /12/cropped-logo-32x32.jpeg" sizes="32x32" />.<link rel="icon" h
+0600: ref="http://www.jecyu.com/wp-content/uploads/2019/12/cropped-log
+0640: o-192x192.jpeg" sizes="192x192" />.<link rel="apple-touch-icon-p
+0680: recomposed" href="http://www.jecyu.com/wp-content/uploads/2019/1
+06c0: 2/cropped-logo-180x180.jpeg" />.<meta name="msapplication-TileIm
+0700: age" content="http://www.jecyu.com/wp-content/uploads/2019/12/cr
+0740: opped-logo-270x270.jpeg" />...<script type='text/javascript' src
+0780: ='http://www.jecyu.com/wp-content/themes/Kratos-2/js/jquery.min.
+07c0: js?ver=2.1.4'></script>....</head>...<body data-spy="scroll" dat
+0800: a-target=".scrollspy">...<div id="kratos-wrapper">....<div id="k
+0840: ratos-page">.....<div id="kratos-header">......<header id="krato
+0880: s-header-section">.......<div class="container">........<div cla
+08c0: ss="nav-header">..................<a href="#" class="js-kratos-n
+0900: av-toggle kratos-nav-toggle"><i></i></a>........................
+0940: ..........<h1 id="kratos-logo"><a href="http://www.jecyu.com">..
+0980: .............</a></h1>........................ <nav id="kratos-m
+09c0: enu-wrap" class="menu-%e5%85%b3%e4%ba%8e%e6%9c%ac%e7%ab%99-conta
+0a00: iner"><ul id="kratos-primary-menu" class="sf-menu"><li class="cu
+0a40: rrent-menu-item"><a href="http://www.jecyu.com/" aria-current="p
+0a80: age">......</a></li>.<li><a href="http://www.jecyu.com/%e5%85%b3
+0ac0: %e4%ba%8e%e6%9c%ac%e7%ab%99/">............</a></li>.<li><a href=
+0b00: "http://www.jecyu.com/%e5%8f%8b%e6%83%85%e9%93%be%e6%8e%a5/">...
+0b40: .........</a></li>.</ul></nav>.......</div>.......</div>......</
+0b80: header>.....</div><div class="kratos-start kratos-hero-2"><div c
+0bc0: lass="kratos-overlay"></div><div class="kratos-cover kratos-cove
+0c00: r_2 text-center" style="background-image: url(http://www.jecyu.c
+0c40: om/wp-content/themes/Kratos-2/images/background.jpg);"><div clas
+0c80: s="desc desc2 animate-box"><h2>.........</h2><span>.............
+0cc0: ..</span></div></div></div><div id="kratos-blog-post" style="bac
+0d00: kground:#f5f5f5">..<div class="container">...<div class="row">..
+0d40: ..<section id="main" class="col-md-8">....            <article c
+0d80: lass="kratos-hentry clearfix">.<div class="kratos-entry-border-n
+0dc0: ew clearfix">..<div class="kratos-entry-thumb-new">...<a href="h
+0e00: ttp://www.jecyu.com/2020/02/21/%e8%af%91%e6%96%87%e4%bd%bf%e7%94
+0e40: %a8javascript-%e6%89%8b%e5%86%99-json-parser/"><img src="https:/
+0e80: /www.json.org/img/object.png" /></a>.</div>..<div class="kratos-
+0ec0: post-inner-new">...<header class="kratos-entry-header-new">....<
+0f00: a class="label" href="http://www.jecyu.com/category/%e8%af%91%e6
+0f40: %96%87/">......<i class="label-arrow"></i></a>....<h2 class="kra
+0f80: tos-entry-title-new"><a href="http://www.jecyu.com/2020/02/21/%e
+0fc0: 8%af%91%e6%96%87%e4%bd%bf%e7%94%a8javascript-%e6%89%8b%e5%86%99-
+1000: json-parser/">[......]......JavaScript ...... JSON Parser</a></h
+1040: 2>...</header>...<div class="kratos-entry-content-new">....<p>..
+1080: .... ..................er.......................................
+10c0:  JSON.parse ......... JSON .....
+<= Recv data, 8640 bytes (0x21c0)
+0000: ................................................................
+0040: ... JSON Parser ........................ Tan Li Hau ............
+0080:  .........&hellip;</p>...</div>..</div>..<div class="kratos-post
+00c0: -meta-new">...<span class="visible-lg visible-md visible-sm pull
+0100: -left">....<a href="http://www.jecyu.com/2020/02/21/%e8%af%91%e6
+0140: %96%87%e4%bd%bf%e7%94%a8javascript-%e6%89%8b%e5%86%99-json-parse
+0180: r/"><i class="fa fa-calendar"></i> 2020...2...21...</a>....<a hr
+01c0: ef="http://www.jecyu.com/2020/02/21/%e8%af%91%e6%96%87%e4%bd%bf%
+0200: e7%94%a8javascript-%e6%89%8b%e5%86%99-json-parser/#respond"><i c
+0240: lass="fa fa-commenting-o"></i> 0.........</a>...</span>...<span 
+0280: class="pull-left">....<a href="http://www.jecyu.com/2020/02/21/%
+02c0: e8%af%91%e6%96%87%e4%bd%bf%e7%94%a8javascript-%e6%89%8b%e5%86%99
+0300: -json-parser/"><i class="fa fa-eye"></i> 21.........</a>....<a h
+0340: ref="http://www.jecyu.com/2020/02/21/%e8%af%91%e6%96%87%e4%bd%bf
+0380: %e7%94%a8javascript-%e6%89%8b%e5%86%99-json-parser/"><i class="f
+03c0: a fa-thumbs-o-up"></i> 2.........</a>...</span>...<span class="p
+0400: ull-right">....<a class="read-more" href="http://www.jecyu.com/2
+0440: 020/02/21/%e8%af%91%e6%96%87%e4%bd%bf%e7%94%a8javascript-%e6%89%
+0480: 8b%e5%86%99-json-parser/" title="............">............ <i c
+04c0: lass="fa fa-chevron-circle-right"></i></a>...</span>..</div>.</d
+0500: iv>.</article><article class="kratos-hentry clearfix">.<div clas
+0540: s="kratos-entry-border-new clearfix">..<div class="kratos-entry-
+0580: thumb-new">...<a href="http://www.jecyu.com/2020/01/16/web-%e5%b
+05c0: c%80%e5%8f%91%e4%b8%ad%e5%ad%97%e7%ac%a6%e3%80%81%e7%bc%96%e7%a0
+0600: %81%e4%b8%8e%e4%ba%8c%e8%bf%9b%e5%88%b6%ef%bc%88%e4%b8%80%ef%bc%
+0640: 89/"><img src="http://img.jecyu.com/char-encode-decode.png" /></
+0680: a>.</div>..<div class="kratos-post-inner-new">...<header class="
+06c0: kratos-entry-header-new">....<a class="label" href="http://www.j
+0700: ecyu.com/category/web-%e7%bb%bc%e5%90%88/">Web ......<i class="l
+0740: abel-arrow"></i></a>....<h2 class="kratos-entry-title-new"><a hr
+0780: ef="http://www.jecyu.com/2020/01/16/web-%e5%bc%80%e5%8f%91%e4%b8
+07c0: %ad%e5%ad%97%e7%ac%a6%e3%80%81%e7%bc%96%e7%a0%81%e4%b8%8e%e4%ba%
+0800: 8c%e8%bf%9b%e5%88%b6%ef%bc%88%e4%b8%80%ef%bc%89/">web ..........
+0840: ...................................</a></h2>...</header>...<div 
+0880: class="kratos-entry-content-new">....<p>...... .................
+08c0: ...................... HTML ........................&lt;meta cha
+0900: rset="UTF-8" /&gt;............................................. 
+0940: ................................................................
+0980: ................. dataUR&hellip;</p>...</div>..</div>..<div clas
+09c0: s="kratos-post-meta-new">...<span class="visible-lg visible-md v
+0a00: isible-sm pull-left">....<a href="http://www.jecyu.com/2020/01/1
+0a40: 6/web-%e5%bc%80%e5%8f%91%e4%b8%ad%e5%ad%97%e7%ac%a6%e3%80%81%e7%
+0a80: bc%96%e7%a0%81%e4%b8%8e%e4%ba%8c%e8%bf%9b%e5%88%b6%ef%bc%88%e4%b
+0ac0: 8%80%ef%bc%89/"><i class="fa fa-calendar"></i> 2020...1...16...<
+0b00: /a>....<a href="http://www.jecyu.com/2020/01/16/web-%e5%bc%80%e5
+0b40: %8f%91%e4%b8%ad%e5%ad%97%e7%ac%a6%e3%80%81%e7%bc%96%e7%a0%81%e4%
+0b80: b8%8e%e4%ba%8c%e8%bf%9b%e5%88%b6%ef%bc%88%e4%b8%80%ef%bc%89/#res
+0bc0: pond"><i class="fa fa-commenting-o"></i> 0.........</a>...</span
+0c00: >...<span class="pull-left">....<a href="http://www.jecyu.com/20
+0c40: 20/01/16/web-%e5%bc%80%e5%8f%91%e4%b8%ad%e5%ad%97%e7%ac%a6%e3%80
+0c80: %81%e7%bc%96%e7%a0%81%e4%b8%8e%e4%ba%8c%e8%bf%9b%e5%88%b6%ef%bc%
+0cc0: 88%e4%b8%80%ef%bc%89/"><i class="fa fa-eye"></i> 122.........</a
+0d00: >....<a href="http://www.jecyu.com/2020/01/16/web-%e5%bc%80%e5%8
+0d40: f%91%e4%b8%ad%e5%ad%97%e7%ac%a6%e3%80%81%e7%bc%96%e7%a0%81%e4%b8
+0d80: %8e%e4%ba%8c%e8%bf%9b%e5%88%b6%ef%bc%88%e4%b8%80%ef%bc%89/"><i c
+0dc0: lass="fa fa-thumbs-o-up"></i> 1.........</a>...</span>...<span c
+0e00: lass="pull-right">....<a class="read-more" href="http://www.jecy
+0e40: u.com/2020/01/16/web-%e5%bc%80%e5%8f%91%e4%b8%ad%e5%ad%97%e7%ac%
+0e80: a6%e3%80%81%e7%bc%96%e7%a0%81%e4%b8%8e%e4%ba%8c%e8%bf%9b%e5%88%b
+0ec0: 6%ef%bc%88%e4%b8%80%ef%bc%89/" title="............">............
+0f00:  <i class="fa fa-chevron-circle-right"></i></a>...</span>..</div
+0f40: >.</div>.</article><article class="kratos-hentry clearfix">.<div
+0f80:  class="kratos-entry-border-new clearfix">..<div class="kratos-e
+0fc0: ntry-thumb-new">...<a href="http://www.jecyu.com/2019/12/21/%e6%
+1000: 90%ad%e5%bb%ba%e4%b8%80%e4%b8%aa%e8%87%aa%e6%9c%89%e5%9f%9f%e5%9
+1040: 0%8d%e7%9a%84-wordpress-%e5%8d%9a%e5%ae%a2/"><img src="http://im
+1080: g.jecyu.com/vultr.png" /></a>.</div>..<div class="kratos-post-in
+10c0: ner-new">...<header class="kratos-entry-header-new">....<a class
+1100: ="label" href="http://www.jecyu.com/category/web-%e7%bb%bc%e5%90
+1140: %88/">Web ......<i class="label-arrow"></i></a>....<h2 class="kr
+1180: atos-entry-title-new"><a href="http://www.jecyu.com/2019/12/21/%
+11c0: e6%90%ad%e5%bb%ba%e4%b8%80%e4%b8%aa%e8%87%aa%e6%9c%89%e5%9f%9f%e
+1200: 5%90%8d%e7%9a%84-wordpress-%e5%8d%9a%e5%ae%a2/">................
+1240: ........... wordpress ......</a></h2>...</header>...<div class="
+1280: kratos-entry-content-new">....<p>...... ..................... he
+12c0: xo ........................... github ..........................
+1300: ................................................. Markdown .....
+1340: .......... Git .................................................
+1380: ...............................................&hellip;</p>...</
+13c0: div>..</div>..<div class="kratos-post-meta-new">...<span class="
+1400: visible-lg visible-md visible-sm pull-left">....<a href="http://
+1440: www.jecyu.com/2019/12/21/%e6%90%ad%e5%bb%ba%e4%b8%80%e4%b8%aa%e8
+1480: %87%aa%e6%9c%89%e5%9f%9f%e5%90%8d%e7%9a%84-wordpress-%e5%8d%9a%e
+14c0: 5%ae%a2/"><i class="fa fa-calendar"></i> 2019...12...21...</a>..
+1500: ..<a href="http://www.jecyu.com/2019/12/21/%e6%90%ad%e5%bb%ba%e4
+1540: %b8%80%e4%b8%aa%e8%87%aa%e6%9c%89%e5%9f%9f%e5%90%8d%e7%9a%84-wor
+1580: dpress-%e5%8d%9a%e5%ae%a2/#respond"><i class="fa fa-commenting-o
+15c0: "></i> 0.........</a>...</span>...<span class="pull-left">....<a
+1600:  href="http://www.jecyu.com/2019/12/21/%e6%90%ad%e5%bb%ba%e4%b8%
+1640: 80%e4%b8%aa%e8%87%aa%e6%9c%89%e5%9f%9f%e5%90%8d%e7%9a%84-wordpre
+1680: ss-%e5%8d%9a%e5%ae%a2/"><i class="fa fa-eye"></i> 128.........</
+16c0: a>....<a href="http://www.jecyu.com/2019/12/21/%e6%90%ad%e5%bb%b
+1700: a%e4%b8%80%e4%b8%aa%e8%87%aa%e6%9c%89%e5%9f%9f%e5%90%8d%e7%9a%84
+1740: -wordpress-%e5%8d%9a%e5%ae%a2/"><i class="fa fa-thumbs-o-up"></i
+1780: > 1.........</a>...</span>...<span class="pull-right">....<a cla
+17c0: ss="read-more" href="http://www.jecyu.com/2019/12/21/%e6%90%ad%e
+1800: 5%bb%ba%e4%b8%80%e4%b8%aa%e8%87%aa%e6%9c%89%e5%9f%9f%e5%90%8d%e7
+1840: %9a%84-wordpress-%e5%8d%9a%e5%ae%a2/" title="............">.....
+1880: ....... <i class="fa fa-chevron-circle-right"></i></a>...</span>
+18c0: ..</div>.</div>.</article>.        .........</section>....<aside
+1900:  id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm scr
+1940: ollspy">.                <div id="sidebar">.                    
+1980: <aside id="kratos_about-3" class="widget amadeus_about clearfix"
+19c0: >                                <div class="photo-background" s
+1a00: tyle="background:url(http://www.jecyu.com/wp-content/themes/Krat
+1a40: os-2/images/about.jpg) no-repeat center center; -webkit-backgrou
+1a80: nd-size: cover; -moz-background-size: cover; -o-background-size:
+1ac0:  cover; background-size: cover;"></div>.                        
+1b00:                         <div class="photo-wrapper clearfix">.   
+1b40:                  <div class="photo-wrapper-tip text-center">.   
+1b80:                      <a href="http://www.jecyu.com/wp-login.php"
+1bc0: ><img class="about-photo" src="http://img.jecyu.com/28448589.jpe
+1c00: g" /></a>.                    </div>.                </div>.    
+1c40:                                             <div class="textwidg
+1c80: et">.                    <p>....................................
+1cc0: ......................................................
+1cf8: 
+1cfa: 
+1cfc: <p>............<a href="mailto:jecyu.lin@gmail.com" itemprop="em
+1d3c: ail">jecyu.lin@gmail.com</a></p></p>.                </div>.    
+1d7c:                     </aside><aside id="kratos_search-3" class="w
+1dbc: idget widget_kratos_search clearfix">                <h4 class="
+1dfc: widget-title">............</h4>.                 <form role="sea
+1e3c: rch" method="get" action="http://www.jecyu.com/">.            <d
+1e7c: iv class="form-group">.                 <input type="text" name=
+1ebc: 's' id='s' placeholder="Search..." class="form-control" placehol
+1efc: der="" x-webkit-speech>.            </div>.        </form>..    
+1f3c:     </aside>..<aside id="recent-posts-4" class="widget widget_re
+1f7c: cent_entries clearfix">..<h4 class="widget-title">............</
+1fbc: h4>..<ul>............<li>......<a href="http://www.jecyu.com/202
+1ffc: 0/02/21/%e8%af%91%e6%96%87%e4%bd%bf%e7%94%a8javascript-%e6%89%8b
+203c: %e5%86%99-json-parser/">[......]......JavaScript ...... JSON Par
+207c: ser</a>..........</li>............<li>......<a href="http://www.
+20bc: jecyu.com/2020/01/16/web-%e5%bc%80%e5%8f%91%e4%b8%ad%e5%ad%97%e7
+20fc: %ac%a6%e3%80%81%e7%bc%96%e7%a0%81%e4%b8%8e%e4%ba%8c%e8%bf%9b%e5%
+213c: 88%b6%ef%bc%88%e4%b8%80%ef%bc%89/">web .........................
+217c: ....................</a>..........</li>............<li>......<a 
+21bc: href
+<= Recv data, 1440 bytes (0x5a0)
+0000: ="http://www.jecyu.com/2019/12/21/%e6%90%ad%e5%bb%ba%e4%b8%80%e4
+0040: %b8%aa%e8%87%aa%e6%9c%89%e5%9f%9f%e5%90%8d%e7%9a%84-wordpress-%e
+0080: 5%8d%9a%e5%ae%a2/">........................... wordpress ......<
+00c0: /a>..........</li>......</ul>...</aside><aside id="archives-4" c
+0100: lass="widget widget_archive clearfix"><h4 class="widget-title">.
+0140: ...........</h4>..<ul>.....<li><a href='http://www.jecyu.com/202
+0180: 0/02/'>2020.........</a></li>..<li><a href='http://www.jecyu.com
+01c0: /2020/01/'>2020.........</a></li>..<li><a href='http://www.jecyu
+0200: .com/2019/12/'>2019............</a></li>...</ul>....</aside><asi
+0240: de id="ezw_tco-3" class="widget ez-toc clearfix"><div class="ez-
+0280: toc-widget-container counter-hierarchy counter-decimal">.......<
+02c0: h4 class="widget-title">......<span class="ez-toc-title-containe
+0300: r">........<style type="text/css">........#ezw_tco-3 .ez-toc-wid
+0340: get-container ul.ez-toc-list li.active::before {.........backgro
+0380: und-color: #ebedef;........}.......</style>........<span class="
+03c0: ez-toc-title">............</span>........<span class="ez-toc-tit
+0400: le-toggle">.........<a class="ez-toc-pull-right ez-toc-btn ez-to
+0440: c-btn-xs ez-toc-btn-default ez-toc-toggle"><i class="ez-toc-glyp
+0480: hicon ez-toc-icon-toggle"></i></a>.......</span>.......</span>..
+04c0: .....</h4>......<nav><ul class="ez-toc-list">.<li><a href="#i" t
+0500: itle="......">......</a></li><li><a href="#i-2" title=".........
+0540: ...">............</a></li><li><a href="#_parser" title="........
+0580: ....... parser">............... 
+<= Recv data, 2880 bytes (0xb40)
+0000: parser</a></li><li><a href="#i-3" title="..................">...
+0040: ...............</a><ul><li><a href="#_token" title="...... token
+0080: ">...... token</a></li><li><a href="#i-4" title="...............
+00c0: .........">........................</a></li></ul></li><li><a hre
+0100: f="#i-5" title="............">............</a><ul><li><a href="#
+0140: i-6" title=".................................">.................
+0180: ................</a></li><li><a href="#i-7" title=".............
+01c0: ....................">.................................</a></li>
+0200: <li><a href="#i-8" title="...........................">.........
+0240: ..................</a></li></ul></li><li><a href="#i-9" title=".
+0280: .....">......</a></li><li><a href="#i-10" title="...............
+02c0: ">...............</a></li></ul></nav>.</div>.</aside>           
+0300:      </div>.            </aside>...</div>..</div>.</div>.....<fo
+0340: oter>......<div id="footer">.                        <div class=
+0380: "cd-tool text-center">.                                         
+03c0:                <div class="gotop-box"><div class="gotop-btn"><sp
+0400: an class="fa fa-chevron-up"></span></div></div>.                
+0440:                                         <div class="search-box">
+0480: .                                <span class="fa fa-search"></sp
+04c0: an>.                                <form class="search-form" ro
+0500: le="search" method="get" id="searchform" action="http://www.jecy
+0540: u.com/">.                                    <input type="text" 
+0580: name="s" id="search" placeholder="Search..." style="display:none
+05c0: "/>.                                </form>.                    
+0600:         </div>.                        </div>.......<div class="
+0640: container">........<div class="row">.........<div class="col-md-
+0680: 6 col-md-offset-3 footer-list text-center">..........<p class="k
+06c0: ratos-social-icons">............................................
+0700: ....................</p>..........<p>Copyright 2020 <a href="htt
+0740: p://www.jecyu.com">...............</a>. All Rights Reserved.<br>
+0780: Theme <a href="https://github.com/vtrois/kratos" target="_blank"
+07c0:  rel="nofollow">Kratos</a> made by <a href="https://www.vtrois.c
+0800: om/" target="_blank" rel="nofollow">Vtrois</a>..........<br><a h
+0840: ref="http://www.miitbeian.gov.cn/" rel="external nofollow" targe
+0880: t="_blank">...ICP...19155291...-1</a><br><a href="http://www.bei
+08c0: an.gov.cn/portal/registerSystemInfo?recordcode=44010502001460" r
+0900: el="external nofollow" target="_blank"><i class="govimg"></i>...
+0940: ......... 44010502001460</a></p><p></p>.........</div>........</
+0980: div>.......</div>......</div>.....</footer>....</div>...</div>..
+09c0: .<script type='text/javascript' src='https://cdn.jsdelivr.net/wp
+0a00: /wp-editormd/tags/10.0.8/assets/ClipBoard/clipboard.min.js?ver=2
+0a40: .0.1'></script>.<script type='text/javascript' src='https://cdn.
+0a80: jsdelivr.net/wp/wp-editormd/tags/10.0.8/assets/Prism.js/componen
+0ac0: ts/prism-core.min.js?ver=1.15.0'></script>.<script type='text/ja
+0b00: vascript' src='https://cdn.jsdelivr.net/wp/wp-editormd/tags/10.0
+<= Recv data, 3378 bytes (0xd32)
+0000: .8/assets/Prism.js/plugins/autoloader/prism-autoloader.min.js?ve
+0040: r=1.15.0'></script>.<script type='text/javascript' src='https://
+0080: cdn.jsdelivr.net/wp/wp-editormd/tags/10.0.8/assets/Prism.js/plug
+00c0: ins/copy-to-clipboard/prism-copy-to-clipboard.min.js?ver=1.15.0'
+0100: ></script>.<script type='text/javascript' src='http://www.jecyu.
+0140: com/wp-content/themes/Kratos-2/js/jquery.easing.min.js?ver=1.3.0
+0180: '></script>.<script type='text/javascript' src='http://www.jecyu
+01c0: .com/wp-content/themes/Kratos-2/js/jquery.qrcode.min.js?ver=2.8'
+0200: ></script>.<script type='text/javascript' src='http://www.jecyu.
+0240: com/wp-content/themes/Kratos-2/js/layer.min.js?ver=3.0.3'></scri
+0280: pt>.<script type='text/javascript' src='http://www.jecyu.com/wp-
+02c0: content/themes/Kratos-2/js/modernizr.min.js?ver=2.6.2'></script>
+0300: .<script type='text/javascript' src='http://www.jecyu.com/wp-con
+0340: tent/themes/Kratos-2/js/bootstrap.min.js?ver=3.3.7'></script>.<s
+0380: cript type='text/javascript' src='http://www.jecyu.com/wp-conten
+03c0: t/themes/Kratos-2/js/jquery.waypoints.min.js?ver=4.0.0'></script
+0400: >.<script type='text/javascript' src='http://www.jecyu.com/wp-co
+0440: ntent/themes/Kratos-2/js/jquery.stellar.min.js?ver=0.6.2'></scri
+0480: pt>.<script type='text/javascript' src='http://www.jecyu.com/wp-
+04c0: content/themes/Kratos-2/js/hoverIntent.min.js?ver=r7'></script>.
+0500: <script type='text/javascript' src='http://www.jecyu.com/wp-cont
+0540: ent/themes/Kratos-2/js/superfish.js?ver=1.0.0'></script>.<script
+0580:  type='text/javascript'>./* <![CDATA[ */.var kratos = {"site":"h
+05c0: ttp:\/\/www.jecyu.com"};./* ]]> */.</script>.<script type='text/
+0600: javascript' src='http://www.jecyu.com/wp-content/themes/Kratos-2
+0640: /js/kratos.js?ver=2.8'></script>.<script type='text/javascript'>
+0680: ./* <![CDATA[ */.var q2w3_sidebar_options = [{"sidebar":"sidebar
+06c0: _tool","margin_top":10,"margin_bottom":0,"stop_id":"","screen_ma
+0700: x_width":0,"screen_max_height":0,"width_inherit":false,"refresh_
+0740: interval":1500,"window_load_hook":false,"disable_mo_api":false,"
+0780: widgets":["ezw_tco-3"]}];./* ]]> */.</script>.<script type='text
+07c0: /javascript' src='http://www.jecyu.com/wp-content/plugins/q2w3-f
+0800: ixed-widget/js/q2w3-fixed-widget.min.js?ver=5.1.9'></script>.<sc
+0840: ript type='text/javascript' src='http://www.jecyu.com/wp-include
+0880: s/js/wp-embed.min.js?ver=5.2.5'></script>.<script type='text/jav
+08c0: ascript' src='http://www.jecyu.com/wp-content/plugins/easy-table
+0900: -of-contents/vendor/smooth-scroll/jquery.smooth-scroll.min.js?ve
+0940: r=1.5.5'></script>.<script type='text/javascript' src='http://ww
+0980: w.jecyu.com/wp-content/plugins/easy-table-of-contents/vendor/js-
+09c0: cookie/js.cookie.min.js?ver=2.0.3'></script>.<script type='text/
+0a00: javascript' src='http://www.jecyu.com/wp-content/plugins/easy-ta
+0a40: ble-of-contents/vendor/sticky-kit/jquery.sticky-kit.min.js?ver=1
+0a80: .9.2'></script>.<script type='text/javascript' src='http://www.j
+0ac0: ecyu.com/wp-content/plugins/easy-table-of-contents/vendor/waypoi
+0b00: nts/jquery.waypoints.min.js?ver=1.9.2'></script>.<script type='t
+0b40: ext/javascript'>./* <![CDATA[ */.var ezTOC = {"smooth_scroll":"1
+0b80: ","visibility_hide_by_default":"","width":"auto","scroll_offset"
+0bc0: :"30"};./* ]]> */.</script>.<script type='text/javascript' src='
+0c00: http://www.jecyu.com/wp-content/plugins/easy-table-of-contents/a
+0c40: ssets/js/front.min.js?ver=1.7'></script>...<script type="text/ja
+0c80: vascript">....Prism.plugins.autoloader.languages_path = "https:/
+0cc0: /cdn.jsdelivr.net/wp/wp-editormd/tags/10.0.8/assets/Prism.js/com
+0d00: ponents/";...</script>......</body>.</html>
+0d2d: 0
+0d30: 
+== Info: Connection #0 to host www.jecyu.com left intact

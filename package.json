@@ -1,14 +1,14 @@
 {
-  "name": "JS-event-loop",
+  "name": "Web-Performance-Optimization",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vuepress dev docs",
+    "dev": "vuepress dev docs --port=9100 --open",
     "build": "vuepress build docs",
     "push": "bash push.sh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jecyu/JS-Event-Loop"
+    "url": "git+https://github.com/Jecyu/Web-Performance-Optimization"
   },
   "author": "Jecyu",
   "license": "MIT",
