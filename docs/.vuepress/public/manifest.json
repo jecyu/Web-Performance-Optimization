@@ -1,6 +1,6 @@
 {
-  "name": "JS-Event-Loop",
-  "short_name": "JS-Event-Loop",
+  "name": "Web-Performance-Optimization",
+  "short_name": "Web-Performance-Optimization",
   "icons": [
     {
       "src": "/icons/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/JS-Event-Loop/",
+  "start_url": "/Web-Performance-Optimization/",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#3eaf7c"

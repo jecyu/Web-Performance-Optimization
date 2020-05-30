@@ -2,7 +2,7 @@
   "name": "Web-Performance-Optimization",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vuepress dev docs --port=9100 --open",
+    "dev": "vuepress dev docs --port=9300 --open",
     "build": "vuepress build docs",
     "push": "bash push.sh"
   },

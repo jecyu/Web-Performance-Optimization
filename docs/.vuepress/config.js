@@ -16,7 +16,7 @@ module.exports = {
         'vuepress-plugin-smooth-scroll',
         'vuepress-plugin-table-of-contents'
         ],
-    base: '/JS-Event-Loop/',
+    base: '/Web-Performance-Optimization/',
     dest: 'dist',
     title: 'Web 性能优化',
     description: 'Analysis vue.js deeply',
@@ -33,7 +33,7 @@ module.exports = {
     ],
     serviceWorker: false,
     themeConfig: {
-        repo: 'Jecyu/JS-Event-Loop',
+        repo: 'Jecyu/Web-Performance-Optimization',
         editLinks: true,
         docsDir: 'docs',
         editLinkText: '在 GitHub 上编辑此页',
