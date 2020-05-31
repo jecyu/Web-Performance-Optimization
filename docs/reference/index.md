@@ -1,8 +1,20 @@
 # 参考资料
 
-## 文章
-
-- [前端tree组件，10000个树节点，从14.65s到0.49s
+- 大数据
+  - [vue能否做到支持3W条数据复选、全选、行点击不卡顿？
+](https://www.zhihu.com/question/323476114/answer/682723821?utm_source=wechat_session&utm_medium=social&utm_oi=710800537397764096&hb_wx_block=1)
+  - [聊聊前端开发中的长列表](https://zhuanlan.zhihu.com/p/26022258)
+  - [前端tree组件，10000个树节点，从14.65s到0.49s
 ](https://zhuanlan.zhihu.com/p/55528376)
-
-## 视频
+  - [「中高级前端」高性能渲染十万条数据（时间分片）](https://juejin.im/post/5d76f469f265da039a28aff7?utm_source=gold_browser_extension) —— 看到这篇文章后，至少可以明白什么是闪屏现象，以及 EventLoop 的原理了。
+- 其他
+  - 掘金小册：前端性能优化原理与实践
+  - 《JavaScript 高级程序设计》
+  - [8 个提高 JS 性能的方法](https://mp.weixin.qq.com/s/wG08-mhjqgLToOKvQNvOgg)
+  - [如何快速提升 JSON.stringify() 的性能？](https://mp.weixin.qq.com/s/zg_AMRqDO5w-M1RePlDZRQ)——保存表单条件就是用的JSON.stringify()，另外后端抱怨存的东西太大了。还有在使用 `get` 请求接口时，参数是对象时，也需要做`stringify()`的处理。
+- 调试工具
+  - [使用 chrome-devtools Memory 面板](https://zhuanlan.zhihu.com/p/80792297](https://zhuanlan.zhihu.com/p/80783973)
+  - [使用 chrome-devtools Performance 面板]*
+  - [解决内存问题](https://developers.google.com/web/tools/chrome-devtools/memory-problems?hl=zh-cn#%E4%BD%BF%E7%94%A8%E5%88%86%E9%85%8D%E6%97%B6%E9%97%B4%E7%BA%BF%E7%A1%AE%E5%AE%9A_js_%E5%A0%86%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F)
+  - [前端性能优化之利用 Chrome Dev Tools 进行页面性能分析](https://zhuanlan.zhihu.com/p/105561186)
+  - [Improving Load Performance - Chrome DevTools 101](https://www.youtube.com/watch?v=5fLW5Q5ODiE)
