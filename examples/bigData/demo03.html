@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>懒渲染</title>
+    <style>
+      .lazy-render-list {
+        border: 1px solid #666;
+        overflow: auto;
+        width: 500px;
+        height: 500px;
+      }
+
+      .lazy-render-list-item {
+        box-sizing: border-box;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 5px;
+        border-bottom: 1px solid #666;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lazy-render-list">
+    </div>
+    <script src="./demo03.js"></script>
+  </body>
 </html>

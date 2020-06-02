@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>可视区域渲染</title>
+  <style>
+    .list-view {
+      overflow: auto;
+      position: relative;
+      height: 400px;
+      border: 1px solid #666;
+    }
+    .list-view-phantom {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: -1;
+    }
+    .list-view-content {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
+    .list-view-item {
+      height: 30px;
+      line-height: 30px;
+      padding-left: 5px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #666;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="list-view">
+    <div class="list-view-phantom"></div>
+    <div class="list-view-content">
+      <!-- <div class="list-view-item"></div> -->
+    </div>
+  </div>
+  <script src="./demo04.js"></script>
+</body>
+</html>

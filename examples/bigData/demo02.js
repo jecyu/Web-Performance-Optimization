@@ -2,7 +2,7 @@
  * @Description: 尝试使用不同的 DOM API
  * @Author: Jecyu
  * @Date: 2020-05-30 18:22:25
- * @LastEditTime: 2020-05-30 18:24:20
+ * @LastEditTime: 2020-06-02 16:14:17
  * @LastEditors: Jecyu
  */ 
 
@@ -53,7 +53,7 @@ var createElements = function(count) {
     element.appendChild(document.createTextNode("" + i));
     fragment.appendChild(element);
   }
-  document.body.appendChild(element);
+  document.body.appendChild(fragment);
   setTimeout(() => {
     alert(new Date() - start);
   }, 0);
