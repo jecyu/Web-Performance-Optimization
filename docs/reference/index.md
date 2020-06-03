@@ -3,6 +3,7 @@
 - 大数据
   - 如果要用在生产上，建议使用 [Clusterize](https://github.com/NeXTs/Clusterize.js/blob/master/clusterize.js) 或者 React Virtualized。
   - 如果要应用在生产上，建议使用成熟的类库，可以通过 "框架名 + infinite scroll"来进行搜索。
+  - [infinite-scroll](https://github.com/metafizzy/infinite-scroll)
   - [vue能否做到支持3W条数据复选、全选、行点击不卡顿？
 ](https://www.zhihu.com/question/323476114/answer/682723821?utm_source=wechat_session&utm_medium=social&utm_oi=710800537397764096&hb_wx_block=1)
   - [聊聊前端开发中的长列表](https://zhuanlan.zhihu.com/p/26022258)
@@ -16,8 +17,10 @@
   - [如何快速提升 JSON.stringify() 的性能？](https://mp.weixin.qq.com/s/zg_AMRqDO5w-M1RePlDZRQ)——保存表单条件就是用的JSON.stringify()，另外后端抱怨存的东西太大了。还有在使用 `get` 请求接口时，参数是对象时，也需要做`stringify()`的处理。
   - [如何实现高性能的在线 PDF 预览](https://juejin.im/post/5ed3974ae51d45784d7ca7a5?utm_source=gold_browser_extension)
 - 调试工具
-  - [使用 chrome-devtools Memory 面板](https://zhuanlan.zhihu.com/p/80792297](https://zhuanlan.zhihu.com/p/80783973)
-  - [使用 chrome-devtools Performance 面板]*
+  - [Tools for Web Developers ](https://developers.google.com/web/tools/chrome-devtools/) chrome 官网
+  - [Chrome 开发者工具中文文档](https://www.html.cn/doc/chrome-devtools/)
+  - [使用 chrome-devtools Memory 面板](https://zhuanlan.zhihu.com/p/80792297)
+  - [使用 chrome-devtools Performance 面板](https://zhuanlan.zhihu.com/p/80783973)
   - [解决内存问题](https://developers.google.com/web/tools/chrome-devtools/memory-problems?hl=zh-cn#%E4%BD%BF%E7%94%A8%E5%88%86%E9%85%8D%E6%97%B6%E9%97%B4%E7%BA%BF%E7%A1%AE%E5%AE%9A_js_%E5%A0%86%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F)
   - [前端性能优化之利用 Chrome Dev Tools 进行页面性能分析](https://zhuanlan.zhihu.com/p/105561186)
   - [Improving Load Performance - Chrome DevTools 101](https://www.youtube.com/watch?v=5fLW5Q5ODiE)
@@ -25,6 +28,9 @@
 - 框架工具
   - [Vue版的团队代码规范](https://mp.weixin.qq.com/s/egMtT34rMe8L5p3eiZeqsQ)
   - [[译]尤雨溪：Vue3的设计过程](https://juejin.im/post/5ecf58b9f265da76e97d39da?utm_source=gold_browser_extension#heading-9) vue3 中如何克服虚拟 dom 的性能瓶颈
+  - [对 virtual-dom 的一些理解](https://zhuanlan.zhihu.com/p/25630842)
 - 综合
-  - [饿了么前端知识专栏]
+  - [饿了么前端知识专栏](https://zhuanlan.zhihu.com/ElemeFE)
   - 《JavaScript 高级程序设计3》
+  - [前端性能优化](https://ppt.baomitu.com/d/24cd4995#/)
+  - 《计算机网路》

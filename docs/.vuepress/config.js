@@ -46,14 +46,7 @@ module.exports = {
         ],
         sidebar: [
             {
-                title: '谈谈浏览器背后的运行机制',
-                collapsable: false,
-                children: [
-                    ['browser/', '介绍'],
-                    'browser/multi-process',
-                    'browser/thread-relationship',
-                    'browser/render-process',
-                ]
+                title: '',
             }
         ]
     }
