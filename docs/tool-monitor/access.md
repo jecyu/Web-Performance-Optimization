@@ -19,17 +19,17 @@
 
 **网页动画的每一帧（frame）都是一次重新渲染。**每秒低于24帧的动画，人眼就能感受到停顿。**一般的网页动画，需要达到每秒30帧到60帧的频率，才能比较流畅。**如果能达到每秒70帧甚至80帧，就会极其流畅。
 
-![](../../.vuepress/public/assets/fps-comparison.jpg)
+![](../.vuepress/public/assets/fps-comparison.jpg)
 
 帧率为25fps，即一秒变化25次，而帧率为 100 fps，即一秒变化100次，虽然基于时间的运动速度是一样，但是帧率低的由于变化次数少，变化的速率太慢骗不过眼睛，会让玩家明显感觉画面卡顿不流畅。
 
 大多数显示器的刷新频率是60Hz，为了与系统一致，以及节省电力，浏览器会自动按照这个频率，刷新动画（如果可以做到的话）。
 
-![](../../.vuepress/public/assets/fps-comparison-2.jpg)
+![](../.vuepress/public/assets/fps-comparison-2.jpg)
 
 所以，如果网页动画能够做到每秒60帧，就会跟显示器同步刷新，达到最佳的视觉效果。这意味着，**一秒之内进行60次重新渲染，每次重新渲染的时间不能超过 16.66 毫秒。**
 
-![](../../.vuepress/public/assets/fps-3.png)
+![](../.vuepress/public/assets/fps-3.png)
 
 **一秒之间能够完成多少次重新渲染，这个指标就被称为“刷新率”，英文为 FPS（frame per second）**。60次重新渲染，就是60 FPS。
 

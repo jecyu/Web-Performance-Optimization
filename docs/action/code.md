@@ -49,7 +49,7 @@ document.querySelector("input").addEventListener("input", validate);
 
 函数防抖（Debounce）对事件触发的响应时机：
 
-![debounce](../public/assets/debounce-1.png)
+![debounce](../.vuepress/public/assets/debounce-1.png)
 
 具体运行 demo，可以看 examples/code/debounce_throttle/debounce/index.html。
 
@@ -100,7 +100,7 @@ document.querySelector("input").addEventListener("input", validate);
 
 查看对应函数节流（Throttle）的触发与响应时机：
 
-![throttle](../public/assets/throttle-1.png)
+![throttle](../.vuepress/public/assets/throttle-1.png)
 
 具体运行 demo，可以看 examples/code/debounce_throttle/debounce/index.html。
 
@@ -110,7 +110,7 @@ document.querySelector("input").addEventListener("input", validate);
 
 如果还是不能完全替换 `debounce` 和 `throttle` 的差异，可以到 examples/code/debounce_throttle/intuitive/ 运行 demo，直观地对比。
 
-![debounce_throttle](../public/assets/debunce_throttle_intuitive.png)
+![debounce_throttle](../.vuepress/public/assets/debunce_throttle_intuitive.png)
 
 ### 小结
 

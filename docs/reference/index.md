@@ -1,4 +1,4 @@
-# 参考资料
+# 资源合集
 
 - 大数据
   - 如果要用在生产上，建议使用 [Clusterize](https://github.com/NeXTs/Clusterize.js/blob/master/clusterize.js) 或者 React Virtualized。
