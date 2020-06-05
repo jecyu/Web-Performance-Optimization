@@ -1,6 +1,7 @@
 # 大数据量的渲染优化
 
 基本策略：
+
 - 延迟（执行、加载）
 - 按需（加载）
 - 缓存（资源）
@@ -122,7 +123,7 @@ let loadData = (el) => {
   let tempCount = count;
   let delta = 100000; // 增量，一次加载 40 条
   createElements(el, tempCount, delta);
-  count += delta; 
+  count += delta;
 };
 
 let updated = (e) => {
@@ -139,7 +140,6 @@ let init = () => {
 };
 
 init();
-
 ```
 
 ### 可视区域渲染
@@ -150,18 +150,128 @@ init();
 
 因此，为了解决这个问题，我们需要可视区域渲染。
 
-`可视区域`指的是只渲染可视区域的列表项，非可见区域的完全不渲染，在滚动条滚动时动态更新列表项（跟断点续传的套路一样，进行分片切割，网络缓冲区）。可视区域渲染适合下面这种场景：
+`可视区域`指的是只渲染可视区域的列表项，非可见区域的完全不渲染，在滚动条滚动时动态更新列表项（跟`断点续传`的套路很像，进行分片切割，网络缓冲区）。可视区域渲染适合下面这种场景：
 
-思路：
-1. 
+1. 每个数据的展现形式的高度需要一致（非必须）。
+
+2. 产品设计上，一次需要加载的数据量比较大「1000条以上」。
+
+3. 产品设计上，滚动条需要挂载在一个固定高度的区域（在 window 上也可以，但是需要整个区域都只显示这个列表）。
+
 
 <!-- TODO 动画演示思路，ppt 或编码 -->
 
-性能对比。
+<!-- 性能对比。 -->
 
-思路：
-详解：
+思路详解：
+
+- HTML 结构上使用 phantom 作为幽灵元素，占位高度，使得容器可以滚动。
+- 根据可视区域的高度以及每条数据的固定高度，计算出可以显示的条数 visibleCount，对整个的数据 data 切割出初始化显示的数据 visibleData。
+- 然后触发滚动事件，根据 `this.start = Math.floor(scrollTop / this.itemHeight)` 计算出起点位置，以及 start + visibleCount 计算终点位置，切割出当前要显示的数据。
+- 由于滚动了列表内容元素，因此需要使用 transform 把列表容器移回可视区域，移动Y 为`fixedScrollTop = scrollTop - scrollTop % this.itemHeight;`
+
 1. HTML 结构
+
+```html
+<div class="list-view">
+  <div class="list-view-phantom"></div>
+  <div class="list-view-content">
+    <!-- <div class="list-view-item"></div> -->
+  </div>
+</div>
+```
+
+2. CSS
+
+```css
+.list-view {
+  overflow: auto;
+  position: relative;
+  height: 400px;
+  border: 1px solid #666;
+}
+.list-view-phantom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.list-view-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.list-view-item {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 5px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #666;
+  color: #666;
+}
+```
+
+3. JS
+
+```js
+handleScroll(e) {
+    const target = e.target || e.srcElement;
+    const scrollTop = target.scrollTop;
+    // 减去整除 itemHeigt 多出来的距离，得到整倍数，并进行 transformY 移动，使listViewContentDom容器的位置回到可见区域（因为滚动导致）
+    const fixedScrollTop = scrollTop - scrollTop % this.itemHeight; // 跟下面的 start 求值做对应处理，因此只需要移动整倍数。
+    // const fixedScrollTop = scrollTop; // 直接采用这个的话，拖到底部后会出现页面抖动现象。
+    this.listViewContentDom.style.webkitTransform = `translate3d(0, ${fixedScrollTop}px, 0)`;
+
+    // 改变要渲染的数据
+    this.start = Math.floor(scrollTop / this.itemHeight); // 起点数据不会计算上余数，因此不会多请求额外的数据，保证整个容器高度容纳了所有显示的数据。
+    this.visibleData = this.getVisibleData(target, this.start);
+    this.renderListViewContentDom();
+  },
+    /**
+   * @description: 获得渲染的数据
+   * @param {type}
+   * @return:
+   */
+  getVisibleData(el, start = 0) {
+    this.start = start;
+    this.visibleCount = Math.ceil(el.clientHeight / this.itemHeight); // 向上取整
+    this.end = this.start + this.visibleCount;
+    const visibleData = this.data.slice(this.start, this.end);
+    return visibleData;
+  },
+init() {
+    this.data = this.mockData(100);
+    this.listViewDom = document.querySelector(".list-view");
+    const phantomDom = document.querySelector(".list-view-phantom"); // 幽灵元素，用于占位高度，使容器可以一直滚动
+    phantomDom.style.height = this.data.length * this.itemHeight + "px";
+    this.listViewContentDom = document.querySelector(".list-view-content");
+
+    this.visibleData = this.getVisibleData(this.listViewDom);
+    this.renderListViewContentDom().bindEvent(this.listViewDom);
+  },
+```
+
+#### 可视区域渲染 + 懒渲染
+
+只需要把在 handleScroll 添加滚动至底部的时候，进行数据的增加，并重新渲染即可。
+
+```js
+handleScroll(e) {
+    const target = e.target || e.srcElement;
+    // 加载更多的数据
+    if (this.isCloseToBottom(target, 0)) {
+      setTimeout(() => {
+        this.data.push(...this.mockData(this.delta, this.data.length));
+        console.log("loadmore =>", this.data);
+        this.start = Math.floor(scrollTop / this.itemHeight); // 改变起始位置
+        this.render();
+      }, 500);
+    }
+  // .....
+}
+```
 
 ## 虚拟列表
 
@@ -176,6 +286,8 @@ vue 组件数据
 ### 类虚拟列表方案
 
 ## vue 树组件
+
+响应式的设计，更适合对节点进行增删改查的操作，所以才有 vue 树的需求，不仅仅是原生的树节点。但是当整个列表节点非常多的时候，就不建议移动了，但是修改还是有必要的。
 
 tree 的性能缓慢原因，树以及它为什么能够解决初始大数据渲染的原因（重绘），然后应用到自己写的 tree 中。
 
