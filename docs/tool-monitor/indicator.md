@@ -18,7 +18,7 @@ FPS 是来自视频或者游戏里的概念，即是每秒的帧数，代表视�
 
 打开 chrome 浏览器控制台，点击左上角工具栏，找到 `More Tools` 中的 `rendering`，勾选上 `FPS meter`。
 
-![more-tools 打开 fps](../.vuepress/public/images/open-fps.png)
+![more-tools 打开 fps](../.vuepress/public/assets/open-fps.png)
 
 即可看到左上觉出现帧率的面板显示。
 
@@ -35,7 +35,7 @@ FPS 是来自视频或者游戏里的概念，即是每秒的帧数，代表视�
 1. 打开 `performance` 面板工具，看到 `reload` 后，进行点击。
 2. 等待加载完毕后，即可查看记录。
 
-![performance 查看 fps](../.vuepress/public/images/open-fps-2.png)
+![performance 查看 fps](../.vuepress/public/assets/open-fps-2.png)
 
 绿色的直方图即代表在页面重新绘制时的帧率，Frames 为每一帧渲染所花的时间。
 
@@ -45,15 +45,15 @@ FPS 是来自视频或者游戏里的概念，即是每秒的帧数，代表视�
 
 **网页动画的每一帧（frame）都是一次重新渲染。**每秒低于 24 帧的动画，人眼就能感受到停顿。**一般的网页动画，需要达到每秒 30 帧到 60 帧的频率，才能比较流畅。**如果能达到每秒 70 帧甚至 80 帧，就会极其流畅。
 
-![](../public/assets/fps-3.png)
+![](../.vuepress/public/assets/fps-3.png)
 
 大多数显示器的刷新频率是 60Hz，为了与系统一致，以及节省电力，浏览器会自动按照这个频率，刷新动画（如果可以做到的话）。
 
-![](../public/assets/fps-comparison-2.jpg)
+![](../.vuepress/public/assets/fps-comparison-2.jpg)
 
 所以，如果网页动画能够做到每秒 60 帧，就会跟显示器同步刷新，达到最佳的视觉效果。这意味着，**一秒之内进行 60 次重新渲染，每次重新渲染的时间不能超过 16.66 毫秒。**
 
-![](../public/assets/fps-3.png)
+![](../.vuepress/public/assets/fps-3.png)
 
 **一秒之间能够完成多少次重新渲染，这个指标就被称为“刷新率”，英文为 FPS（frame per second）**。60 次重新渲染，就是 60 FPS。
 
@@ -71,7 +71,7 @@ FPS 是 web 性能优化中的一个重要指标，我们可以通过监控这�
 2. 点击重新加载记录
 3. 加载完毕，即可看到 Timings 时间线上，分别显示 FP、FCP、FMP、DCL、L、LCP 等几个指标，进行点击可以看到各个指标的使用时间。
 
-![fp、fcp](../public/assets/index-1.png)
+![fp、fcp](../.vuepress/public/assets/index-1.png)
 
 ### FP（First Paint） 首次渲染
 
@@ -79,7 +79,7 @@ FPS 是 web 性能优化中的一个重要指标，我们可以通过监控这�
 
 它是时间（Timing）上的第一个“时间点”，代表浏览器第一次向屏幕传输像素的时间，也就是页面在屏幕上首次发生视觉变化的时间，即浏览器渲染任何在视觉上不同于导航前的屏幕内容的时间点。
 
-![FP](../public/assets/index-2.png)
+![FP](../.vuepress/public/assets/index-2.png)
 
 这里说明下，在 FP 之前，整个界面是白色的，现在 FP 时，body 已经是灰色的背景。
 
@@ -90,7 +90,7 @@ FPS 是 web 性能优化中的一个重要指标，我们可以通过监控这�
 
 `FP` 与 `FCP` 这两个指标之间的主要区别是：`FP` 是当浏览器开始绘制内容到屏幕上的时候，只要在视觉上开始发生变化，无论是什么内容触发的视觉变化，在这一刻，这个时间点，叫做`FP`。
 
-![FCP](../public/assets/index-3.png)
+![FCP](../.vuepress/public/assets/index-3.png)
 
 可以看到图片右下角出现了评论图标。
 
@@ -99,7 +99,7 @@ FPS 是 web 性能优化中的一个重要指标，我们可以通过监控这�
 `FMP`：首次有效绘制，标记主角元素渲染完成的时间点，主角元素可以是视频网站的视频控件，内容网站的页面框架也可以是资源网站的头图等。
 反映主要内容出现在页面上所需的时间，也侧面反映了服务器输出任意数据的速度。`FMP` 时间过长一般意味着 `JavaScript` 阻塞了主线程，也有可能是后端/服务器的问题。
 
-![FMP](../public/assets/index-4.png)
+![FMP](../.vuepress/public/assets/index-4.png)
 
 ### DCL（DOMContentLoaded Event）
 
@@ -109,7 +109,7 @@ FPS 是 web 性能优化中的一个重要指标，我们可以通过监控这�
 
 表示可视区“内容”最大的可见元素开始出现在屏幕上的时间点，也就是下面的文章封面图的区域。
 
-![LCP](../public/assets/index-5.png)
+![LCP](../.vuepress/public/assets/index-5.png)
 
 ### L（Onload Event）加载事件
 
