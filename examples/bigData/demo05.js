@@ -9,13 +9,14 @@
 3. 产品设计上，滚动条需要挂载在一个固定高度的区域（在 window 上也可以，但是需要整个区域都只显示这个列表）。
  * @Author: Jecyu
  * @Date: 2020-06-02 11:21:10
- * @LastEditTime: 2020-06-05 13:34:08
+ * @LastEditTime: 2020-06-05 15:25:41
  * @LastEditors: Jecyu
  */
 
 const app = {
   data: [], // 总数据
   itemHeight: 30, // listItem 高度
+  contentHeight: 0, // 占位高度
   start: 0,
   end: null,
   visibleCount: null, // 可见的条数
@@ -118,7 +119,8 @@ const app = {
     return this;
   },
   render() {
-    this.phantomDom.style.height = this.data.length * this.itemHeight + "px";
+    this.contentHeight = this.data.length * this.itemHeight + "px";
+    this.phantomDom.style.height = this.contentHeight;
     this.visibleData = this.getVisibleData(this.listViewDom, this.start);
     this.renderListViewContentDom();
     return this;

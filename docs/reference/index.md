@@ -1,12 +1,20 @@
 # 资源合集
 
 - 大数据
-  - 如果要用在生产上，建议使用 [Clusterize](https://github.com/NeXTs/Clusterize.js/blob/master/clusterize.js) 或者 React Virtualized。
-  - 如果要应用在生产上，建议使用成熟的类库，可以通过 "框架名 + infinite scroll"来进行搜索。
+  - 生产环境可选择
+    - 虚拟化列表 [Clusterize](https://github.com/NeXTs/Clusterize.js/blob/master/clusterize.js) 或者 React Virtualized。
+    - 滚动，可以通过 "框架名 + infinite scroll"来进行搜索。
+    - 虚拟化树 react-trees 
+    - ztree
+    - jqTree
+    - jquery.treeselect
+    - angular Select Tree
   - [infinite-scroll](https://github.com/metafizzy/infinite-scroll)
   - [vue能否做到支持3W条数据复选、全选、行点击不卡顿？
 ](https://www.zhihu.com/question/323476114/answer/682723821?utm_source=wechat_session&utm_medium=social&utm_oi=710800537397764096&hb_wx_block=1)
   - [聊聊前端开发中的长列表](https://zhuanlan.zhihu.com/p/26022258)
+  - [再谈前端虚拟列表的实现](https://zhuanlan.zhihu.com/p/34585166)
+  - [使用 vue-virtual-collection 优化滚动性能](https://zhuanlan.zhihu.com/p/34380557)
   - [前端tree组件，10000个树节点，从14.65s到0.49s
 ](https://zhuanlan.zhihu.com/p/55528376)
   - [「中高级前端」高性能渲染十万条数据（时间分片）](https://juejin.im/post/5d76f469f265da039a28aff7?utm_source=gold_browser_extension) —— 看到这篇文章后，至少可以明白什么是闪屏现象，以及 EventLoop 的原理了。

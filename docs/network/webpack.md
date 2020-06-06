@@ -1,7 +1,7 @@
-<!--
- * @Description: 
- * @Author: Jecyu
- * @Date: 2020-06-03 10:38:18
- * @LastEditTime: 2020-06-03 10:38:18
- * @LastEditors: Jecyu
---> 
+# webpack 优化
+
+- 使用 Tree Shaking
+- 分割代码以按需加载
+- 输出分析
+
+## vueCli 的优化配置
