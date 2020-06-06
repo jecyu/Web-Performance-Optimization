@@ -2,7 +2,7 @@
 # @Description: 
  # @Author: linjy
  # @Date: 2019-08-09 22:39:03
- # @LastEditTime: 2020-05-26 17:49:40
+ # @LastEditTime: 2020-06-06 17:22:47
  # @LastEditors: Jecyu
  ###
 #!/usr/bin/env sh
@@ -25,6 +25,6 @@ git commit -m '🎉deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:Jecyu/Web-Performance-Optimization.git:gh-pages
+git push -f git@github.com:Jecyu/Web-Performance-Optimization.git master:gh-pages
 
 cd -
