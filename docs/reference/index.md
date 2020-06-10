@@ -5,7 +5,7 @@
     - 虚拟化列表 [Clusterize](https://github.com/NeXTs/Clusterize.js/blob/master/clusterize.js) 或者 React Virtualized。
     - 滚动，可以通过 "框架名 + infinite scroll"来进行搜索。
     - 虚拟化树 react-trees 
-    - ztree
+    - [ztree](http://ww1.ztree.me/)
     - jqTree
     - jquery.treeselect
     - angular Select Tree

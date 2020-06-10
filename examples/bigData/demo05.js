@@ -9,7 +9,7 @@
 3. 产品设计上，滚动条需要挂载在一个固定高度的区域（在 window 上也可以，但是需要整个区域都只显示这个列表）。
  * @Author: Jecyu
  * @Date: 2020-06-02 11:21:10
- * @LastEditTime: 2020-06-05 15:25:41
+ * @LastEditTime: 2020-06-09 13:24:10
  * @LastEditors: Jecyu
  */
 
@@ -25,9 +25,9 @@ const app = {
   listViewContentDom: null,
   delta: 100, // 增量，一次加载 100 条
   /**
+   * @return:
    * @description: 解决底部一定距离，如提前加载数据
    * @param {type}
-   * @return:
    */
   isCloseToBottom(el, distance) {
     const maxScrollTop = el.scrollHeight - el.clientHeight;

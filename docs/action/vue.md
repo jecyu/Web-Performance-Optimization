@@ -1,8 +1,7 @@
-<!--
- * @Description: 
- * @Author: Jecyu
- * @Date: 2020-05-30 16:55:34
- * @LastEditTime: 2020-06-01 09:48:37
- * @LastEditors: Jecyu
---> 
+# vue 项目性能优化
+
 冻结不必要的属性，比如 column
+
+## 应用
+
+改写 viewUI 的树组件，使它支持 10 万以上的节点操作（checkbox、click、初次渲染），除了虚拟化列表技术外，其他依赖收集与派发更新的优化。

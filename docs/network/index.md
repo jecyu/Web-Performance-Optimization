@@ -2,13 +2,20 @@
  * @Description: 
  * @Author: linjy
  * @Date: 2020-02-23 23:12:13
- * @LastEditors: linjy
+ * @LastEditors: Jecyu
  -->
 
-# 首屏渲染
+# 网络篇
 
-## 分段传输
+涉及网络层面：
+- DNS 解析
+- TCP 链接
+- HTTP 请求/响应
 
-## Big
+HTTP 优化方向
+- 减少请求次数
+- 减少单次请求所花费的时间
 
-## 参考资料
+资源的压缩与合并
+- [Webpack 性能优化](./webpack.md)
+- [图片优化](./image.md)
