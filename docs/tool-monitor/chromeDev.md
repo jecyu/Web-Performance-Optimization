@@ -29,7 +29,7 @@ Chrome 的开发者工具各有自己的侧重点，如 Network 工具的瀑布�
 1. 隐身模式，避免插件影响。
 2. 禁用缓存：disable cache
 3. 调整网络情况为一般设备网络：slow 3G
-4. 测试网站：输入https://wq.jd.com/wxportal/index_v6 
+4. 测试网站：输入https://wq.jd.com/wxportal/index_v6
 5. 从 Lighthouse 查看总览（总览）
 6. 网络层面
    1. 从网路面板分析
@@ -41,7 +41,7 @@ Chrome 的开发者工具各有自己的侧重点，如 Network 工具的瀑布�
 
 ## Lighthouse
 
-LightHouse（以前版本是 Audits），LightHouse 是Google开源的一个自动化测试工具，它通过一系列的规则来对网页进行评估分析，最终给出一份评估报告。
+LightHouse（以前版本是 Audits），LightHouse 是 Google 开源的一个自动化测试工具，它通过一系列的规则来对网页进行评估分析，最终给出一份评估报告。
 
 Lighthouse 主要从 5 个方面给网页打分，在选择了设备、评估方面、网络情况等选项后，点击生成 report。
 
@@ -50,6 +50,7 @@ Lighthouse 主要从 5 个方面给网页打分，在选择了设备、评估方
 ### 整体情况
 
 性能指标：
+
 - `First Contentful Paint`：首次内容绘制，标记的是浏览器渲染第一帧内容 **DOM** 的时间点，浏览器首次渲染任何文本，图像（包括背景图像），SVG 或者 `<canvas>` 等元素。
 - `First Meaningful Paint`：首次有效绘制，标记主角元素渲染完成的时间点，主角元素可以是视频网站的视频控件，内容网站的页面框架也可以是资源网站的头图等。
 - `Speed Index`：速度指标是一个页面加载性能指标，向你展示明显填充页面内容的速度，此指标的分数越低越好。
@@ -99,13 +100,14 @@ Lighthouse 主要从 5 个方面给网页打分，在选择了设备、评估方
 1. Controls（控件）：使用这些选项可以控制 Network（网络）面板的外观和性能
 2. Filters（过滤器）：使用这些选项可以控制在请求列表中显示哪些资源。
 3. 细分过滤：
-     - Show overview：记录各个资源请求的时间线（Waiting TTFB 和 Content Download）
-     - Capture screenshots 捕获截图，双击屏幕截图放大，可以切换每一张图片。
-     - ![](../.vuepress/public/assets/2020-06-03-15-04-40-chrome-devtool-network-02.png)
+   - Show overview：记录各个资源请求的时间线（Waiting TTFB 和 Content Download）
+   - Capture screenshots 捕获截图，双击屏幕截图放大，可以切换每一张图片。
+   - ![](../.vuepress/public/assets/2020-06-03-15-04-40-chrome-devtool-network-02.png)
 4. Requests Table（请求列表）：此列表列出了检索的每个资源。默认情况下，此表按时间顺序排序，也就是最早的资源在顶部。单击资源名称可以获得更多信息。
 5. Summary（概要）：告诉你请求的总数，传输的总数据量和加载时间。
 
 默认情况下，请求列表显示以下列。
+
 - `Name（名称）`：资源的名称。
 - `Status（状态）`：HTTP 状态码
 - `Type（类型）`：请求的资源 的 MIME 类型。
@@ -128,6 +130,7 @@ Lighthouse 主要从 5 个方面给网页打分，在选择了设备、评估方
 #### 查看网络时序
 
 生命周期显示在以下类别中花费的时间：
+
 - `Queuing`（排队）
 - `Stalled`（停滞）
 - 如果适用：`DNS lookup`（DNS 查找），`initial connection`（初始连接）、`SSL handshake`（SSL 握手）
@@ -149,7 +152,7 @@ Lighthouse 主要从 5 个方面给网页打分，在选择了设备、评估方
 
 #### 排队或停止阻塞
 
-很多个请求排队或被阻塞。这表示单个客户端检索的资源太多。在 HTTP 1.0/1.1 连接协议中，Chrome 限制每个域名最多执行 6 个 TCP 连接。如果你一次请求十二个资源，前 6 个将开始，后 6个开始排队。一旦其中一个请求完成，队列中的第一个请求项目将开始其请求过程。
+很多个请求排队或被阻塞。这表示单个客户端检索的资源太多。在 HTTP 1.0/1.1 连接协议中，Chrome 限制每个域名最多执行 6 个 TCP 连接。如果你一次请求十二个资源，前 6 个将开始，后 6 个开始排队。一旦其中一个请求完成，队列中的第一个请求项目将开始其请求过程。
 
 要解决传统 HTTP 1 的此问题，你需要实现`分域`。即用多个子域名提供服务资源，将资源拆分到多个`子域`中，均匀分配。（或者 Websocket 协议）
 
@@ -157,13 +160,13 @@ Lighthouse 主要从 5 个方面给网页打分，在选择了设备、评估方
 
 #### 接收第一个字节的时间很慢
 
-TTFB就是等待第一个响应字节的时间，建议在200ms以下，以下情况可能会导致高TTFB:
+TTFB 就是等待第一个响应字节的时间，建议在 200ms 以下，以下情况可能会导致高 TTFB:
 
 客户端和服务器之间的网络条件差，
 要么，服务器端程序响应很慢。
 
 为了解决高 TTFB，首先要去除尽可能多的网络连接。其次，提供服务端应用的响应速度，比如数据库查询、缓存、web 服务器配置等。
-  
+
 #### 加载缓慢
 
 如果你看到 Content Download（内容下载）阶段花费了很多时间，提高服务响应速度、并行下载等优化措施帮助不大。主要的解决方案是<u>发送更少的字节</u>。（比如，下载一张高质量的大图，可能是几兆，这个时候你需要优化图片）。
@@ -182,6 +185,7 @@ Performance 工具的侧重点则在于前端渲染过程，进行时间轴录�
 Too long; didn't read
 
 TL；DR
+
 - 进行时间轴录制来分析在网页加载或用户互动后发生的每个事件
 - 在 `Overview` (概览)窗格中查看 FPS、CPU 和网络请求。
 - 单击 `Flame Chart` （火焰）图表中的事件可查看其详细信息。
@@ -190,6 +194,7 @@ TL；DR
 ![](../.vuepress/public/assets/2020-06-10-16-06-15-chrome-performance-02.png)
 
 这是 Performance 的默认引导页面。
+
 1. 第一句提示语表示的操作为立即开始记录当前发生的所有事件，点击停止按钮才会记录。
 2. 第二句对应的操作则是重载页面并记录事件，工具会自动在页面加载完毕处于`可交互状态时`停止记录，两者最终都会生成报告（生成报告需要大量运算，会花费一些时间）。
 
@@ -200,33 +205,88 @@ TL；DR
 ![](../.vuepress/public/assets/2020-06-10-17-29-54-chrome-performance-03.png)
 
 图中的四个区域：
-1. 控制面板，用来控制工具的特性。
-   - `Network` 与 `CPU`：分别限制网络和计算资源，模拟不同终端环境，可以更容易观察到性能瓶颈。
-   - `Disable JavaScript samples` 选项开启会使工具忽略 JS 的调用栈
-   - 打开 `Enable advanced paint instrumentation` 则会详细记录某些渲染事件的细节。
-2. 概览面板
-   - 描述帧率（FPS）：描绘每秒钟渲染多少帧图像的指标，帧率越高则在观感上更流畅。
-   - 网络资源情况：以瀑布图的形式呈现，图中可以观察到各资源的加载时间与顺序。
-   - CPU（使用率）：一张连续的堆积柱状图。
-     - ![](../.vuepress/public/assets/2020-06-10-17-19-14-chrome-performance-04.png)
-     - 其中纵轴是 CPU 使用率，横轴是时间，不同的颜色代表不同的事件类型
-       - 蓝色：加载（Loading）事件 
-       - 黄色：脚本运算（Scripting）事件
-       - 紫色：渲染（Rendering）事件
-       - 绿色：绘制（Painting）事件
-       - 灰色：其他（Other）
-       - 闲置：浏览器空闲。
-     - 第一列：总 CPU 使用率为 18，加载事件（蓝色）和脚本运算事件（黄色）各占了一半（9）。随着时间增加，脚本运算事件的 CPU 使用率逐渐增加，而加载事件的使用率在 600ms 左右降为 0；另一方面渲染事件（紫色）的使用率先升后降，在 1100ms 左右降为 0。整张图可以清晰地体现哪个时间段什么事件占据 CPU 多少比例的使用率。
-3. 线程面板，用以观察细节事件。
-4. 详情面板
 
-#### 查看录制详情
+##### 控制面板，用来控制工具的特性。
 
-#### 分析 JavaScript
+- `Network` 与 `CPU`：分别限制网络和计算资源，模拟不同终端环境，可以更容易观察到性能瓶颈。
+- `Disable JavaScript samples` 选项开启会使工具忽略 JS 的调用栈
+- 打开 `Enable advanced paint instrumentation` 则会详细记录某些渲染事件的细节。
 
-##### 火焰图
+##### 概览面板
+
+- 描述帧率（FPS）：描绘每秒钟渲染多少帧图像的指标，帧率越高则在观感上更流畅。
+- 网络资源情况：以瀑布图的形式呈现，图中可以观察到各资源的加载时间与顺序。
+- CPU（使用率）：一张连续的堆积柱状图。
+  - ![](../.vuepress/public/assets/2020-06-10-17-19-14-chrome-performance-04.png)
+- 其中纵轴是 CPU 使用率，横轴是时间，不同的颜色代表不同的`事件类型`
+  - 蓝色：加载（Loading）事件
+  - 黄色：脚本运算（Scripting）事件
+  - 紫色：渲染（Rendering）事件
+  - 绿色：绘制（Painting）事件
+  - 灰色：其他（Other）
+  - 闲置：浏览器空闲。
+  - 第一列：总 CPU 使用率为 18，加载事件（蓝色）和脚本运算事件（黄色）各占了一半（9）。随着时间增加，脚本运算事件的 CPU 使用率逐渐增加，而加载事件的使用率在 600ms 左右降为 0；另一方面渲染事件（紫色）的使用率先升后降，在 1100ms 左右降为 0。整张图可以清晰地体现哪个时间段什么事件占据 CPU 多少比例的使用率。
+
+运行例子 xxx 进行录制
+
+##### 线程面板
+
+- 帧线程时序图（Frames）和网络瀑布图（Network）可以从时间维度和空间维度分布查看绘制的页面。
+  - ![](../.vuepress/public/assets/2020-06-12-14-20-07-chrome-perforomance-frame-compose.png)
+    灰色虚线之间记录了绘制每一帧的事件间隔。
+- `main 主线程`，每个渲染进程都有一个主线程，并且主线程非常繁忙，既要处理 DOM，又要计算样式，还要处理布局，同时还需要处理 JavaScript 任务以及各种输入事。task 任务即是每一帧的执行任务：负责执行 Javascript, 解析 HTML/CSS，完成绘制，最后在 composite layer
+  合并合各个图层，将数据由 `CPU` 输出给 `GPU` 最终绘制在屏幕上。它记录了触发的所有`事件`，这里记录的[事件](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/performance-reference#scripting_%E4%BA%8B%E4%BB%B6)来自于各个线程：JS 引擎线程解释执行 JS、GUI 线程（解析 HTML，CSS，构建 DOM 树和 RenderObject 树，布局和绘制）、http 请求线程、事件触发线程、定时触发器线程。
+  - 默认情况下火焰图会记录已执行 JS 程序调用栈的每层函数（精确到单个函数的粒度），非常详细。
+    - ![](../.vuepress/public/assets/2020-06-12-15-01-35-chrome-performance-frame-graph-01.png)
+  - 而开启 [Disable JS Samples] 后，火焰图只会精确到`事件级别`（调用某个 JS 文件中的函数是一个事件），忽略该事件下所有的 JS 函数调用栈。
+    - ![](../.vuepress/public/assets/2020-06-12-15-02-53-chrome-performance-frame-graph-02.png)
+  - 当记录一个网站加载过程中，在事件瀑布图会有三条虚线，红色线代表第一次开始绘制页面，蓝色线代表 DOM 已加载完成，绿色线表示页面加载完成（包括资源引用）。
+    - ![](../.vuepress/public/assets/2020-06-12-11-21-12-chrome-main.png)
+- Raster(光栅化)
+  - Raster 线程，负责完成某个 layer 或者某些块(tile)的绘制。
+- GPU
+- Chrome_ChildIOThead
+- Compisitor
+
+##### 详情面板
+
+### 分析 JavaScript
+
+#### 火焰图
+
+##### 标准火焰图
+
+##### 浏览器火焰图
+
+浏览器的火焰图与标准火焰图有两点差异：它是倒置的（即调用栈最顶端的函数在最下方）；x 轴是时间轴，而不是抽样次数。y 轴是栈的调用层。
+
+![](../.vuepress/public/assets/2020-06-12-15-01-35-chrome-performance-frame-graph-01.png)
+
+即这里随着程序时间的运行，对应事件的运行顺序是：Animation Frame Fired -> Function call -> Recalculate Style -> Layout 。
+
+事件的宽度代表执行的次数，如果一个事件或函数的宽度越宽，就表示它被执行的时间越长。
+
+这里既有 Function call 和 Recalculate Style 分别由 js 引擎线程和 GUI 线程执行的，这两个线程互斥，只有一方在执行。
+
+也就是说，在执行 Parse HTML 的时候，如果遇到 JavaScript 脚本，那么会暂停当前的 HTML 解析而去执行 JavaScript 脚本。
+
+<!-- 而 js 引擎执行完一轮`宏任务 + 微任务`后，主线成就会只执行 GUI 的渲染任务，这个得看主线程的调度，主线程就执行 GUI 的渲染任务。
+- 宏任务：script（全局任务）, setTimeout, setInterval, setImmediate, I/O, UI rendering
+– 微任务：process.nextTick, Promise, Object.observer, MutationObserver. -->
+
+### 浏览器是如何绘制每一帧的
+
+这里每一帧都做了 任务 task 包括执行 js，计算样式、布局、绘制等，之后在 composite layer 后，调动 gui 线程进行帧涂层的绘制。
+
+![](../.vuepress/public/assets/2020-06-12-16-59-07-chrome-frame-01.png)
 
 ### 分析运行时性能
+
+#### 动画分析
+
+css + js
+
+重排与重绘
 
 ## Memory
 
@@ -240,6 +300,10 @@ TL；DR
 ## Elements
 
 ## Sources -->
+
+<!-- ## 应用例子
+
+### 分析一个动画性能问题 -->
 
 ## 更进一步
 

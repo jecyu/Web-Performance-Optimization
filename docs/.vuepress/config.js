@@ -70,9 +70,32 @@ module.exports = {
     ],
     sidebar: [
       {
-        title: "性能监测篇",
+        title: "开篇",
+        collapsable: false,
+        children: ["concept/"],
+      },
+      {
+        title: "工具监测篇",
         collapsable: false,
         children: ["tool-monitor/chromeDev"],
+      },
+      {
+        title: "网络篇",
+        sidebarDepth: 4,
+        collapsable: false,
+        children: ["network/"],
+      },
+      {
+        title: "缓存篇",
+        sidebarDepth: 4,
+        collapsable: false,
+        children: ["cache/"],
+      },
+      {
+        title: "渲染篇",
+        sidebarDepth: 4,
+        collapsable: false,
+        children: ["browser/render"],
       },
       {
         title: "应用篇",
