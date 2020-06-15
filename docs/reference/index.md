@@ -45,6 +45,10 @@
   - [前端性能优化之利用 Chrome Dev Tools 进行页面性能分析](https://zhuanlan.zhihu.com/p/105561186)
   - [Improving Load Performance - Chrome DevTools 101](https://www.youtube.com/watch?v=5fLW5Q5ODiE)
   - [狙杀页面卡顿 —— Performance 工具指北](https://zhuanlan.zhihu.com/p/41017888)
+- 图表性能优化：
+  - [三种图表技术SVG、Canvas、WebGL 3D比较](https://cloud.tencent.com/developer/article/1506088)
+  - [SVG 与 HTML5 的 canvas 各有什么优点，哪个更有前途？](https://www.zhihu.com/question/19690014)
+  - [渲染引擎：Canvas or SVG](https://g2.antv.vision/zh/docs/manual/tutorial/renderer)
 - 框架工具
   - [Vue版的团队代码规范](https://mp.weixin.qq.com/s/egMtT34rMe8L5p3eiZeqsQ)
   - [[译]尤雨溪：Vue3的设计过程](https://juejin.im/post/5ecf58b9f265da76e97d39da?utm_source=gold_browser_extension#heading-9) vue3 中如何克服虚拟 dom 的性能瓶颈

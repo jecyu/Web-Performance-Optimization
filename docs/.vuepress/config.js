@@ -83,7 +83,7 @@ module.exports = {
         title: "网络篇",
         sidebarDepth: 4,
         collapsable: false,
-        children: ["network/"],
+        children: ["network/", "network/image"],
       },
       {
         title: "缓存篇",

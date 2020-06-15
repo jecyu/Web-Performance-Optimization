@@ -89,7 +89,7 @@ SVG 的局限性，<u>一方面是它的渲染成本比较高？，这点对性�
   <img src="文件名.svg" alt="">
   ```
 
-实际开发中，使用更多的是后者。
+实际开发中，使用更多的是后者。关于 svg 与 canvas 的性能问题，可以看 [图表的性能优化](../action/chart.md)
 
 ### Base64
 
@@ -126,16 +126,15 @@ Webp 像 JPEG 一样对细节丰富的图片信手拈来，像 PNG 一样支持�
 - base64
 - iconf
 
-对于图标、矢量图，svg 为首，容易维护管理。而对于位图，则考虑 jpg、png，做进一步的压缩。
+对于小的图标、矢量图，直接导出 svg 为首，结合 `svg-sprite-loader` 处理，容易维护管理。
 
-对于线框图，svg 小图标也容易维护。ps 输出的图标。ai 输出 svg。
+而对于位图，则考虑 jpg、png，做进一步的压缩。
 
-目前 vuecli 是直接 svg 写入 html 中。
+<!-- 对于线框图，svg 小图标也容易维护。ps 输出的图标。ai 输出 svg。 -->
 
-### 为什么 arcgis 4.0 采用了 canvas 替代了 svg 显示地图
-
-svg 的渲染成本比较高，因为 dom 节点过多。而 canvas 呢？
+svg-sprite-loader 是直接 svg 写入 html 中。
 
 ### 一些图片处理工具（压缩、转换）
 
+- https://www.picdiet.com/zh-cn  Picdiet是一款在线批量压缩图片神器，它不需要后端服务器或者API的支持，仅通过你的浏览器来压缩图片大小，这意味着它压缩图片极快并且不会导致隐私或敏感图片泄漏。
 
