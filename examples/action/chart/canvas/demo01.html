@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      var svgNS = "http://www.w3.org/2000/svg";
+      function createCircle1() {
+        var t3 = performance.now();
+        for (var x = 1; x <= 1000; x++) {
+          for (var y = 1; y <= 100; y++) {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, 2 * Math.PI);
+            ctx.stroke();
+          }
+        }
+        var t4 = performance.now();
+
+        console.log("canvas time " + (t4 - t3) + " milliseconds.");
+
+        // var t0 = performance.now();
+        // for (var x = 1; x <= 100; x++) {
+        //     for (var y = 1; y <= 100; y++) {
+        //         var myCircle = document.createElementNS(svgNS, "circle"); //to create a circle, for rectangle use rectangle
+        //         myCircle.setAttributeNS(null, "cx", x);
+        //         myCircle.setAttributeNS(null, "cy", y);
+        //         myCircle.setAttributeNS(null, "r", 5);
+        //         myCircle.setAttributeNS(null, "stroke", "none");
+        //         document.getElementById("mySVG").appendChild(myCircle);
+        //     }
+        // }
+        // var t1 = performance.now();
+
+        // console.log("svg time " + (t1 - t0) + " milliseconds.")
+      }
+    </script>
+  </head>
+  <body onload="createCircle1();">
+    <!-- <svg id="mySVG" width="500" height="500" style="border:1px solid #d3d3d3;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg> -->
+    <canvas
+      id="myCanvas"
+      width="500"
+      height="500"
+      style="border:1px solid #d3d3d3;"
+    ></canvas>
+  </body>
+</html>

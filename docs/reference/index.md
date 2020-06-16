@@ -35,6 +35,7 @@
   - [如何快速提升 JSON.stringify() 的性能？](https://mp.weixin.qq.com/s/zg_AMRqDO5w-M1RePlDZRQ)——保存表单条件就是用的JSON.stringify()，另外后端抱怨存的东西太大了。还有在使用 `get` 请求接口时，参数是对象时，也需要做`stringify()`的处理。
   - [如何实现高性能的在线 PDF 预览](https://juejin.im/post/5ed3974ae51d45784d7ca7a5?utm_source=gold_browser_extension)
 - 调试工具
+  - [解读新一代 Web 性能体验和质量指标](https://segmentfault.com/a/1190000022744550)
   - [如何读懂火焰图？](http://www.ruanyifeng.com/blog/2017/09/flame-graph.html)
   - [Tools for Web Developers ](https://developers.google.com/web/tools/chrome-devtools/) chrome 官网
   - [如何使用 Timeline 工具](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool?hl=zh-cn)
@@ -49,6 +50,12 @@
   - [三种图表技术SVG、Canvas、WebGL 3D比较](https://cloud.tencent.com/developer/article/1506088)
   - [SVG 与 HTML5 的 canvas 各有什么优点，哪个更有前途？](https://www.zhihu.com/question/19690014)
   - [渲染引擎：Canvas or SVG](https://g2.antv.vision/zh/docs/manual/tutorial/renderer)
+  - [web 地图引擎的技术演进](https://mp.weixin.qq.com/s/U8wGi85BavBxFa8DcxAurw) 百度地图引擎的技术演讲，从 SVG 到 Canvas、WebGL。
+  - [2D Canvas 的渲染优化](https://zhuanlan.zhihu.com/p/110495143) Canvas 渲染优化，从思路上讲解异步渲染、拾取加速和局部渲染三个方面。
+  - [WebGL 性能问题定位和常见优化手段|WebGL地图引擎系列第六期](https://mp.weixin.qq.com/s/t1GlNLoiJ8Mtdnt79atBVA)
+  - [WebGL 教程](https://xem.github.io/articles/webgl-guide.html#3acc)
+  - [Canvas or SVG？一张好图，两手准备，就在 ECharts 4.0](https://zhuanlan.zhihu.com/p/33093211)
+  - [When to Use SVG vs. When to Use Canvas](https://css-tricks.com/when-to-use-svg-vs-when-to-use-canvas/)
 - 框架工具
   - [Vue版的团队代码规范](https://mp.weixin.qq.com/s/egMtT34rMe8L5p3eiZeqsQ)
   - [[译]尤雨溪：Vue3的设计过程](https://juejin.im/post/5ecf58b9f265da76e97d39da?utm_source=gold_browser_extension#heading-9) vue3 中如何克服虚拟 dom 的性能瓶颈

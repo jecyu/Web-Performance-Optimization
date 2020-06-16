@@ -101,7 +101,7 @@ module.exports = {
         title: "应用篇",
         sidebarDepth: 4,
         collapsable: false,
-        children: ["action/bigData", "action/code"],
+        children: ["action/bigData", "action/code", "action/chart"],
       },
       {
         title: "参考资料",
