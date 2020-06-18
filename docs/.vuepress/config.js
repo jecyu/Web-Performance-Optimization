@@ -1,6 +1,6 @@
 module.exports = {
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
   },
   plugins: [
     "vuepress-plugin-zooming",
@@ -77,19 +77,19 @@ module.exports = {
       {
         title: "工具监测篇",
         collapsable: false,
-        children: ["tool-monitor/chromeDev"],
+        children: ["tool-monitor/indicator", "tool-monitor/chromeDev"],
       },
       {
         title: "网络篇",
         sidebarDepth: 4,
         collapsable: false,
-        children: ["network/", "network/image"],
+        children: ["network/", "network/image", "network/webpack"],
       },
       {
         title: "缓存篇",
         sidebarDepth: 4,
         collapsable: false,
-        children: ["cache/"],
+        children: ["cache/", "cache/local"],
       },
       {
         title: "渲染篇",

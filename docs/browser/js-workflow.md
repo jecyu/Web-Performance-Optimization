@@ -1,5 +1,7 @@
 # 从 Event Loop 谈 JS 的运行机制
 
+重拾 JS 主线程与 Service Worker 线程，了解线程与进程，如何新建线程与进程。
+
 单线程 == 一个调用栈 == one thing at a time（一个时间点做一件事）
 
 我们知道 JS 引擎是单线程的，这里会用到上文中的几个概念：
