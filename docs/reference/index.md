@@ -1,5 +1,13 @@
 # 资源合集
 
+- 浏览器原理
+  - [Web Worker 使用教程](http://www.ruanyifeng.com/blog/2018/07/web-worker.html)
+  - [史上最全！图解浏览器的工作原理](https://www.infoq.cn/article/CS9-WZQlNR5h05HHDo1b)
+  - [javascript既然是单线程语言 ， 为什么会分主线程和消息线程(event loop) ?](https://www.zhihu.com/question/35905242)
+  - [JavaScript多线程编程](https://juejin.im/post/5bcc1887f265da0aff177227)
+  - [JavaScript 运行机制详解：再谈Event Loop](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
+  - [一文看懂Chrome浏览器运行机制](https://zhuanlan.zhihu.com/p/102149546)
+  - [Web Worker 使用场景](https://juejin.im/post/5d0c84f8518825317213bb46)
 - 综合
   - [饿了么前端知识专栏](https://zhuanlan.zhihu.com/ElemeFE)
   - 《JavaScript 高级程序设计3》
