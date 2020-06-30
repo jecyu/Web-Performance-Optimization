@@ -95,7 +95,7 @@ module.exports = {
         title: "渲染篇",
         sidebarDepth: 4,
         collapsable: false,
-        children: ["browser/render"],
+        children: ["browser/", "browser/render"],
       },
       {
         title: "应用篇",

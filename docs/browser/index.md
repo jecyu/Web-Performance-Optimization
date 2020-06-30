@@ -10,3 +10,12 @@
 <!-- ## 线程与进程
 
 - https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html#%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%B6%E4%BB%A3 -->
+
+<!-- TODO 这块可以考虑放到单独的浏览器笔记里，渲染部分只讲实战，穿插理论 -->
+
+## 渲染进程和线程
+
+## 渲染流程
+
+- [渲染流程](./render.md)
+

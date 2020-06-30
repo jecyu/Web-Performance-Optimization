@@ -1,7 +1,9 @@
 # 资源合集
 
 - 浏览器原理
+  - [《浏览器工作原理与实践》](https://blog.poetries.top/browser-working-principle/guide/part5/lesson24.html#%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E5%88%86%E5%B1%82%E6%8A%80%E6%9C%AF%E4%BC%98%E5%8C%96%E4%BB%A3%E7%A0%81) 
   - [Web Worker 使用教程](http://www.ruanyifeng.com/blog/2018/07/web-worker.html)
+  - [你不知道的 Web Workers ](https://juejin.im/post/5ef2a554f265da02e47d952b?utm_source=gold_browser_extension#heading-21)
   - [史上最全！图解浏览器的工作原理](https://www.infoq.cn/article/CS9-WZQlNR5h05HHDo1b)
   - [javascript既然是单线程语言 ， 为什么会分主线程和消息线程(event loop) ?](https://www.zhihu.com/question/35905242)
   - [JavaScript多线程编程](https://juejin.im/post/5bcc1887f265da0aff177227)
@@ -9,11 +11,11 @@
   - [一文看懂Chrome浏览器运行机制](https://zhuanlan.zhihu.com/p/102149546)
   - [Web Worker 使用场景](https://juejin.im/post/5d0c84f8518825317213bb46)
 - 综合
+  - [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#next_steps) Chrome 官方博客性能优化系列
   - [饿了么前端知识专栏](https://zhuanlan.zhihu.com/ElemeFE)
   - 《JavaScript 高级程序设计3》
   - [前端性能优化](https://ppt.baomitu.com/d/24cd4995#/)
   - 《计算机网路》
-  - [《浏览器工作原理与实践》](https://blog.poetries.top/browser-working-principle/guide/part5/lesson24.html#%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E5%88%86%E5%B1%82%E6%8A%80%E6%9C%AF%E4%BC%98%E5%8C%96%E4%BB%A3%E7%A0%81) 
   - [浏览器渲染过程及JS引擎浅析](https://www.clloz.com/programming/front-end/js/2019/04/25/how-browser-work/#i-6)
 - 缓存
   - [不要用JWT替代session管理（上）：全面了解Token,JWT,OAuth,SAML,SSO](https://zhuanlan.zhihu.com/p/38942172?utm_source=wechat_session&utm_medium=social&utm_oi=710800537397764096)
@@ -60,6 +62,7 @@
   - [前端性能优化之利用 Chrome Dev Tools 进行页面性能分析](https://zhuanlan.zhihu.com/p/105561186)
   - [Improving Load Performance - Chrome DevTools 101](https://www.youtube.com/watch?v=5fLW5Q5ODiE)
   - [狙杀页面卡顿 —— Performance 工具指北](https://zhuanlan.zhihu.com/p/41017888)
+  - [今天,搞定Chrome运行时的性能、内存问题 [太实用了](https://mp.weixin.qq.com/s/SP5MvdT3rVKuzB8tap6zvw)
 - 图表性能优化：
   - [三种图表技术SVG、Canvas、WebGL 3D比较](https://cloud.tencent.com/developer/article/1506088)
   - [SVG 与 HTML5 的 canvas 各有什么优点，哪个更有前途？](https://www.zhihu.com/question/19690014)
@@ -70,8 +73,13 @@
   - [WebGL 教程](https://xem.github.io/articles/webgl-guide.html#3acc)
   - [Canvas or SVG？一张好图，两手准备，就在 ECharts 4.0](https://zhuanlan.zhihu.com/p/33093211)
   - [When to Use SVG vs. When to Use Canvas](https://css-tricks.com/when-to-use-svg-vs-when-to-use-canvas/)
+  - [图片处理不用愁，给你十个小帮手](https://juejin.im/post/5ef0dfe26fb9a058753589ac?utm_source=gold_browser_extension#heading-20)
+  - [Tinypng](https://tinypng.com/)  图片无损压缩网站
+  - [Docsmall](https://docsmall.com/) 不仅仅能压缩图片的压缩网站，还支持GIF、PDF的压缩
 - 框架工具
   - [Vue版的团队代码规范](https://mp.weixin.qq.com/s/egMtT34rMe8L5p3eiZeqsQ)
   - [[译]尤雨溪：Vue3的设计过程](https://juejin.im/post/5ecf58b9f265da76e97d39da?utm_source=gold_browser_extension#heading-9) vue3 中如何克服虚拟 dom 的性能瓶颈
   - [对 virtual-dom 的一些理解](https://zhuanlan.zhihu.com/p/25630842)
   - [2020 ArcGIS空间信息技术开发者大会](http://developer.geoscene.cn/)
+- 编码优化
+  - [避免大型、复杂的布局和布局抖动](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing?utm_source=devtools#%E9%81%BF%E5%85%8D%E5%B8%83%E5%B1%80%E6%8A%96%E5%8A%A8)
