@@ -17,6 +17,7 @@
   - [前端性能优化](https://ppt.baomitu.com/d/24cd4995#/)
   - 《计算机网路》
   - [浏览器渲染过程及JS引擎浅析](https://www.clloz.com/programming/front-end/js/2019/04/25/how-browser-work/#i-6)
+  - 视频 https://coding.imooc.com/class/chapter/130.html#Anchor
 - 缓存
   - [不要用JWT替代session管理（上）：全面了解Token,JWT,OAuth,SAML,SSO](https://zhuanlan.zhihu.com/p/38942172?utm_source=wechat_session&utm_medium=social&utm_oi=710800537397764096)
   - [Web 缓存机制系列](http://www.alloyteam.com/2012/03/web-cache-1-web-cache-overview/)
@@ -26,6 +27,8 @@
   - [indexedDB 使用](https://juejin.im/post/5dbcdd7cf265da4d407125c9)
   - [使用 IndexedDB](https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - 大数据
+  - [前端内存优化的探索与实践](https://mp.weixin.qq.com/s/xmb9gtECWvSRoFdz69BOGQ) 
+  - [如何实现高性能的在线 PDF 预览](https://mp.weixin.qq.com/s/Wx_gJLrZftJ_dm2phoUf8g)
   - 生产环境可选择
     - 虚拟化列表 [Clusterize](https://github.com/NeXTs/Clusterize.js/blob/master/clusterize.js) 或者 React Virtualized。
     - 滚动，可以通过 "框架名 + infinite scroll"来进行搜索。
@@ -83,3 +86,5 @@
   - [2020 ArcGIS空间信息技术开发者大会](http://developer.geoscene.cn/)
 - 编码优化
   - [避免大型、复杂的布局和布局抖动](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing?utm_source=devtools#%E9%81%BF%E5%85%8D%E5%B8%83%E5%B1%80%E6%8A%96%E5%8A%A8)
+- 监控
+  - [如何优雅处理前端异常？](https://mp.weixin.qq.com/s/unMuI4Niuat6UDYdwsSJHA)

@@ -161,6 +161,12 @@ vue key 的优化，是如何实现的，如何通过性能指标进行实现
 
 ## node -->
 
+## 如何比较 Object 对象
+
+- [精读《如何比较 Object 对象》](https://github.com/dt-fe/weekly/blob/v2/157.%20%E7%B2%BE%E8%AF%BB%E3%80%8A%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%20Object%20%E5%AF%B9%E8%B1%A1%E3%80%8B.md)
+
+## 深拷贝与浅拷贝
+
 ## 参考资料
 
 - [【性能优化】0202 年了，函数节流与防抖还不用起来？](https://juejin.im/post/5de8bc73e51d45580e58e5b8)
