@@ -13,6 +13,8 @@ dom 节点一次渲染1000条左右。
 
 如何分析 chunk-vendors 的文件来源
 
+清远 demo
+
 ## 前言
 
 HTTP 优化两个大的方向：
@@ -141,11 +143,10 @@ vuecli 直接的启用
     }
 ```
 
-
 ```json
 {
   "scripts": {
-     "analysis": "use_analyzer=true yarn build"
+    "analysis": "use_analyzer=true yarn build"
   }
 }
 ```
@@ -164,7 +165,9 @@ vuecli 直接的启用
 
 重要的是，您的服务器可以返回 gzip 和未压缩的响应，具体取决于该标头的存在和值。如果客户端没有发送 Accept-Encoding 标头，则您不应该压缩它。
 
+```ap
 accept-encoding:gzip
+```
 
 这个还要服务端开启 gzip 的压缩，看看是否发送的文件大小有问题。
 
@@ -185,71 +188,66 @@ accept-encoding:gzip
 Accept-Encoding 数据以哪种编码方式传输，限制服务端如何进行数据压缩，浏览器会自动加上这些头信息。
 
 ```js
-
-var DOCUMENT_ROOT = './app';
-var DIRECTORY_INDEX = '/index.html';
+var DOCUMENT_ROOT = "./app";
+var DIRECTORY_INDEX = "/index.html";
 
 var port = process.env.PORT || 9993;
 
-var zlib = require('zlib');
-var http = require('http');
-var path = require('path');
-var fs = require('fs');
+var zlib = require("zlib");
+var http = require("http");
+var path = require("path");
+var fs = require("fs");
 
-http.createServer(function(request, response) {
+http
+  .createServer(function(request, response) {
+    // Remove query strings from uri
+    if (request.url.indexOf("?") > -1) {
+      request.url = request.url.substr(0, request.url.indexOf("?"));
+    }
 
-	// Remove query strings from uri
-	if (request.url.indexOf('?')>-1) {
-		request.url = request.url.substr(0, request.url.indexOf('?'));
-	}
+    // Remove query strings from uri
+    if (request.url == "/") {
+      request.url = DIRECTORY_INDEX;
+    }
+    var filePath = DOCUMENT_ROOT + request.url;
 
-	// Remove query strings from uri
-	if (request.url == '/') {
-		request.url = DIRECTORY_INDEX;
-	}
-	var filePath = DOCUMENT_ROOT + request.url;
+    var extname = path.extname(filePath);
 
-	var extname = path.extname(filePath);
+    var acceptEncoding = request.headers["accept-encoding"];
+    if (!acceptEncoding) {
+      acceptEncoding = "";
+    }
 
-	var acceptEncoding = request.headers['accept-encoding'];
-	if (!acceptEncoding) {
-		acceptEncoding = '';
-	}
+    fs.exists(filePath, function(exists) {
+      if (exists) {
+        fs.readFile(filePath, function(error, content) {
+          if (error) {
+            response.writeHead(500);
+            response.end();
+          } else {
+            var raw = fs.createReadStream(filePath);
 
-	fs.exists(filePath, function(exists) {
+            if (acceptEncoding.match(/\bdeflate\b/)) {
+              response.writeHead(200, { "content-encoding": "deflate" });
+              raw.pipe(zlib.createDeflate()).pipe(response);
+            } else if (acceptEncoding.match(/\bgzip\b/)) {
+              response.writeHead(200, { "content-encoding": "gzip" });
+              raw.pipe(zlib.createGzip()).pipe(response);
+            } else {
+              response.writeHead(200, {});
+              raw.pipe(response);
+            }
+          }
+        });
+      } else {
+        response.writeHead(404);
+        response.end();
+      }
+    });
+  })
+  .listen(port);
 
-		if (exists) {
-			fs.readFile(filePath, function(error, content) {
-				if (error) {
-					response.writeHead(500);
-					response.end();
-				}
-				else {
-					var raw = fs.createReadStream(filePath);
-
-					if (acceptEncoding.match(/\bdeflate\b/)) {
-						response.writeHead(200, { 'content-encoding': 'deflate' });
-						raw.pipe(zlib.createDeflate()).pipe(response);
-					} else if (acceptEncoding.match(/\bgzip\b/)) {
-						response.writeHead(200, { 'content-encoding': 'gzip' });
-						raw.pipe(zlib.createGzip()).pipe(response);
-					} else {
-						response.writeHead(200, {});
-						raw.pipe(response);
-					}
-				}
-			});
-		}
-		else {
-			response.writeHead(404);
-			response.end();
-		}
-	});
-
-}).listen(port);
-
-console.log('Serving files on http://localhost:' + port);
-
+console.log("Serving files on http://localhost:" + port);
 ```
 
 ![](../.vuepress/public/assets/2020-07-14-18-09-33-gzip.png)
@@ -257,6 +255,8 @@ console.log('Serving files on http://localhost:' + port);
 把 dist 文件，放到写的 gzip demo 中（examples/network/），对 vendor 进行压缩后，从 5M 缩小到 2M：
 
 ![](../.vuepress/public/assets/2020-07-14-18-13-02-gzip.png)
+
+可以根据宽带的速度来计算合适的大小。（在计算机网络中,其网络传输速率的单位用 b/s(比特每秒)表示 Byte 字节 1B = 8bit1Mb/s = 1024*1024 b/s = 1024 *1024 /8 B/s = 128KB/s 理论上:2M（即 2Mb/s）宽带理论速率是：256KB/s，实际速率大约为 150~240KB/s；（其原因是受用户计算机性能、网络设备质量、资源使用情况、网络高峰期、网站服务能力、线路衰耗，信号衰减等多因素的影响而造成的）。4M（即 4Mb/s）的宽带理论速率是：512KB/s，实际速率大约为 200~440kB，网络传输与比特为单位，而计算机读取是字节为单位）
 
 #### 如何查看
 
@@ -287,13 +287,16 @@ console.log('Serving files on http://localhost:' + port);
 - [有没有简单的方法来查看 Chrome 中的压缩量？](https://www.it-swarm.asia/zh/gzip/%e6%9c%89%e6%b2%a1%e6%9c%89%e7%ae%80%e5%8d%95%e7%9a%84%e6%96%b9%e6%b3%95%e6%9d%a5%e6%9f%a5%e7%9c%8bchrome%e4%b8%ad%e7%9a%84%e5%8e%8b%e7%bc%a9%e9%87%8f%ef%bc%9f/957350015/)
 - [如何使用 GZIP 来优化你的网站](https://zhuanlan.zhihu.com/p/64973956)
 - [你知道 Chrome Network ，Size 和 Time 为什么有两行参数吗？](https://juejin.im/post/5c78aa2ae51d4575e963dc62)
-- [HTTP压缩，浏览器是如何解析的](http://caibaojian.com/http-gzip.html)
+- [HTTP 压缩，浏览器是如何解析的](http://caibaojian.com/http-gzip.html)
 - [vue cli 加载速度优化](https://www.jianshu.com/p/0d58dd08f5d1)
 - [如何使用 GZIP 来优化你的网站](https://zhuanlan.zhihu.com/p/64973956)
-- [探索HTTP传输中gzip压缩的秘密](https://segmentfault.com/a/1190000012800222)
+- [探索 HTTP 传输中 gzip 压缩的秘密](https://segmentfault.com/a/1190000012800222)
 - [你真的了解 gzip 吗？](https://juejin.im/entry/58709b9a128fe1006b29cd5d)
 - [gZip compression with Node Express.js server explained. Enable Text Compression.
-](https://www.youtube.com/watch?v=vt3jGhy56qI) 视频 
-- [Tomcat启用GZIP压缩，提升web性能](https://www.cnblogs.com/DDgougou/p/8675504.html)
+  ](https://www.youtube.com/watch?v=vt3jGhy56qI) 视频
+- [Tomcat 启用 GZIP 压缩，提升 web 性能](https://www.cnblogs.com/DDgougou/p/8675504.html)
 - demo
   - https://github.com/wimagguc/nodejs-static-http-with-gzip/blob/master/http-with-gzip.js
+- [http 数据协商](https://zhuanlan.zhihu.com/p/45140046)
+- [Comparing jspdf vs. pdfkit vs. pdfmake
+](https://npmcompare.com/compare/jspdf,pdfkit,pdfmake)

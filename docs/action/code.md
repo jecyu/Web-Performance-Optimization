@@ -68,6 +68,24 @@ document.querySelector("input").addEventListener("input", validate);
 
 除了输入验证、搜索外，其他的应用场合还有提交按钮的点击事件。
 
+#### 应用：dme 项目，向左拉动不断触发响应，导致页面崩溃问题
+
+![](../.vuepress/public/assets/2020-07-16-16-19-19-debounce.png)
+
+
+首先 Performance Monitor 以及 render 帧率分析，发现触发移动侧边栏的时候，CPU 急速上升和帧率明显低于 60 fps，导致页面卡顿。
+
+然后通过 Performance 进一步分析得出
+
+![](../.vuepress/public/assets/2020-07-19-12-41-42-performace.png)
+
+handleStrectchMove 用时，相反，vue.runtime.esm.js 的微任务（猜测是 nextick 做的时间长），因此采用的解决方案是：
+
+使用 Object.freeze 冻结树的数据，然后使用节流函数来控制函数的触发，通过测试后大大降低了 CPU 的使用率以及帧率的提升。还有就需要进一步看看 nextTick 的函数做了哪些事情。(这个 vue 的渲染例子，也可以放到渲染篇)
+
+更进一步就是使用虚拟化树列表来处理了。
+
+
 ### 函数节流
 
 函数节流，throttle。节流的概念可以想象一个水坝，你建了水坝在河道中，不能让水流动不了，你只能让水流慢写。换言之，你不能让用户的方法都不执行。如果这样干，就是 debounce 了。<u>为了让用户的方法在某个时间段内只执行一次，我们需要保存上次执行的时间点与定时器。</u>

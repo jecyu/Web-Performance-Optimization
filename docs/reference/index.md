@@ -11,6 +11,7 @@
   - [一文看懂Chrome浏览器运行机制](https://zhuanlan.zhihu.com/p/102149546)
   - [Web Worker 使用场景](https://juejin.im/post/5d0c84f8518825317213bb46)
 - 综合
+  - [My website now loads in less than 2 sec! Here's how I did it! ⚡](https://dev.to/cmcodes/my-website-now-loads-in-less-than-2-sec-here-s-how-i-did-it-hoj?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email)
   - [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#next_steps) Chrome 官方博客性能优化系列
   - [饿了么前端知识专栏](https://zhuanlan.zhihu.com/ElemeFE)
   - 《JavaScript 高级程序设计3》
@@ -18,6 +19,7 @@
   - 《计算机网路》
   - [浏览器渲染过程及JS引擎浅析](https://www.clloz.com/programming/front-end/js/2019/04/25/how-browser-work/#i-6)
   - 视频 https://coding.imooc.com/class/chapter/130.html#Anchor
+  - [9 Examples of building your own version of React](https://dev.to/iainfreestone/9-examples-of-building-your-own-version-of-react-51a8?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email)
 - 缓存
   - [不要用JWT替代session管理（上）：全面了解Token,JWT,OAuth,SAML,SSO](https://zhuanlan.zhihu.com/p/38942172?utm_source=wechat_session&utm_medium=social&utm_oi=710800537397764096)
   - [Web 缓存机制系列](http://www.alloyteam.com/2012/03/web-cache-1-web-cache-overview/)
@@ -86,5 +88,7 @@
   - [2020 ArcGIS空间信息技术开发者大会](http://developer.geoscene.cn/)
 - 编码优化
   - [避免大型、复杂的布局和布局抖动](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing?utm_source=devtools#%E9%81%BF%E5%85%8D%E5%B8%83%E5%B1%80%E6%8A%96%E5%8A%A8)
+  - [Vue 应用性能优化指南](https://juejin.im/post/5b960fcae51d450e9d645c5f#heading-6)
+  - [Vue 项目性能优化—实践指南（网上最全 / 详细）](https://zhuanlan.zhihu.com/p/83180326)
 - 监控
   - [如何优雅处理前端异常？](https://mp.weixin.qq.com/s/unMuI4Niuat6UDYdwsSJHA)
