@@ -13,6 +13,7 @@
 - 综合
   - [My website now loads in less than 2 sec! Here's how I did it! ⚡](https://dev.to/cmcodes/my-website-now-loads-in-less-than-2-sec-here-s-how-i-did-it-hoj?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email)
   - [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#next_steps) Chrome 官方博客性能优化系列
+  - [网站性能优化实战——从12.67s到1.06s的故事](http://0.0.0.0:9300/Web-Performance-Optimization/reference/)
   - [饿了么前端知识专栏](https://zhuanlan.zhihu.com/ElemeFE)
   - 《JavaScript 高级程序设计3》
   - [前端性能优化](https://ppt.baomitu.com/d/24cd4995#/)
@@ -90,5 +91,6 @@
   - [避免大型、复杂的布局和布局抖动](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing?utm_source=devtools#%E9%81%BF%E5%85%8D%E5%B8%83%E5%B1%80%E6%8A%96%E5%8A%A8)
   - [Vue 应用性能优化指南](https://juejin.im/post/5b960fcae51d450e9d645c5f#heading-6)
   - [Vue 项目性能优化—实践指南（网上最全 / 详细）](https://zhuanlan.zhihu.com/p/83180326)
+  - [whatthefork.is   ·   memoization](https://whatthefork.is/memoization) 函数缓存
 - 监控
   - [如何优雅处理前端异常？](https://mp.weixin.qq.com/s/unMuI4Niuat6UDYdwsSJHA)

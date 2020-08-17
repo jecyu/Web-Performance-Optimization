@@ -1,5 +1,11 @@
 # Chrome 调试工具性能分析
 
+对于前端开发工程师来说，我们应该更加关注以下指标：白屏时间、首屏时间、整页时间、DNS时间、CPU占用率。
+
+[内存怪兽 Chrome 被黑的最惨](https://mp.weixin.qq.com/s/x6VLSi6eCRp9r0BA6sxbnA)
+
+虽然说 Chrome 吃内存得多，应用程序还是要避免内存泄漏。
+
 ## 前言
 
 - 什么会影响你的性能

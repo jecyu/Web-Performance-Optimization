@@ -1,5 +1,7 @@
 # 图片优化
 
+[嗯，手搓一个 TinyPng 压缩图片的 WebpackPlugin 也 SoEasy 啦](https://mp.weixin.qq.com/s/5LzXEb7d9-F8XB_LqyNYVg)
+
 |文件类型|优缺点|
 |--|--|
 |PNG|通常用于万维网。无损压缩，带透明通道|
