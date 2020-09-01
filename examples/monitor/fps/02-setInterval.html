@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>setInterval</title>
+</head>
+<body>
+  <script>
+   setInterval(function() {
+     console.log('Hi') 
+     // 如果这里花费时间很长的话（超过1s），将会导致一个问题，当前的事件还没执行完，后续的事件继续添加进来。
+     // 那么后续的回调执行事件频率会小于 1s 的间隔进行触发，因此可以使用 setTimeout 来执行。
+   }, 1000); 
+  </script>
+</body>
+</html>

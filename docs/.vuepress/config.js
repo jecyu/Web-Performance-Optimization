@@ -22,7 +22,7 @@ module.exports = {
   ],
   base: "/Web-Performance-Optimization/",
   dest: "dist",
-  title: "Web 性能优化",
+  title: "微谈 Web 前端性能优化",
   description: "Analysis vue.js deeply",
   head: [
     ["link", { rel: "icon", href: `/logo.png` }],
@@ -75,9 +75,9 @@ module.exports = {
         children: ["concept/"],
       },
       {
-        title: "工具监测篇",
+        title: "工具篇",
         collapsable: false,
-        children: ["tool-monitor/indicator", "tool-monitor/chromeDev"],
+        children: ["tool-monitor/","tool-monitor/indicator", "tool-monitor/chromeDev"],
       },
       {
         title: "网络篇",

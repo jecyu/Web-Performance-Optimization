@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .content {
+        height: 30000px;
+        background: linear-gradient(green, yellow);
+      }
+      #btn {
+        position: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">scrollToTop</button>
+    <div class="content"></div>
+    <script>
+      const during = 300; // 300ms
+      const durFps = Math.ceil(during / 16.7);
+      // 动画运动实际上就是 0 ~ 动画总帧数 的过程
+      let start = 0;
+      const scrollToTop = () => {
+        const c = document.documentElement.scrollTop || document.body.scrollTop;
+        start++; // 帧数递增
+        // if (start <= durFps) { // ruguo 
+        //   window.requestAnimationFrame(scrollToTop);
+        //   window.scrollTo(0, c - c / 8); // 每次都滚动一点距离
+        // } 
+        if (c > 0) {
+          window.scrollTo(0, c - c / 8); // 每次都滚动一点距离
+          window.requestAnimationFrame(scrollToTop);
+        }
+      };
+
+      document.querySelector("#btn").addEventListener("click", () => {
+        scrollToTop();
+      });
+    </script>
+  </body>
+</html>

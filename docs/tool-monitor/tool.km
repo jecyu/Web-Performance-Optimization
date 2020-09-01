@@ -1,0 +1,97 @@
+{
+    "root": {
+        "data": {
+            "id": "c5a54usk09c0",
+            "created": 1598771323910,
+            "text": "性能监控"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c5a559kkfgo0",
+                    "created": 1598771356079,
+                    "text": "测试工具"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c5a55fve1gw0",
+                            "created": 1598771369794,
+                            "text": "Chrome"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c5a55hc8bxs0",
+                            "created": 1598771372989,
+                            "text": "webpageTest"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c5a55kghk9k0",
+                            "created": 1598771379777,
+                            "text": "PhantomJS"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c5a55nlk0nk0",
+                            "created": 1598771386613,
+                            "text": "JSPerf"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c5a55psa2wo0",
+                            "created": 1598771391374,
+                            "text": "Pingdom"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c5a55sbbhvc0",
+                    "created": 1598771396878,
+                    "text": "指标分类"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c5a576pi2cg0",
+                            "created": 1598771506575,
+                            "text": "视觉稳定性"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c5a57ag3uw80",
+                                    "created": 1598771514714,
+                                    "text": "资源加载错误耦"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c5a57ch18u00",
+                                    "created": 1598771519124,
+                                    "text": "JS 执行报错"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

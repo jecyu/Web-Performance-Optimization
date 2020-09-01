@@ -6,10 +6,16 @@ web 性能优化是什么？相信不少开发过 web 应用的小伙伴可能�
 
 本文通过《从浏览器地址栏输入 URL 到页面渲染出来经历的过程》涉及到的性能知识这样的路线做一个概述，以此来提升读者对 web 性能优化的基础认知，给读者提供一个框架，之后读者能够就可以在这个框架上引入各种性能元素。
 
-### 目标读者
+**目标读者**
 
 - who：对 web 应用做过一些性能优化但没有建立对 web 性能优化的全局了解。
 - when：当他读完本文后，能够对 web 网站性能优化有基础的认知，从大体上能够知道什么是性能优化、为什么要做性能优化、怎么做性能优化。
+
+**文章大纲**
+- 访问页面
+- 文档加载完成
+- 导致页面响应缓慢的原因
+- 如何优化
 
 ## 访问页面
 
@@ -53,7 +59,7 @@ PING www.taobao.com.danuoyi.tbcache.com (116.253.26.214): 56 data bytes
 ^C
 --- www.taobao.com.danuoyi.tbcache.com ping statistics ---
 6 packets transmitted, 6 packets received, 0.0% packet loss
-round-trip min/avg/max/stddev = 2.190/2.797/3.874/0.656 ms
+round-trip min/avg/max/stddev = 2.190/2.797/3.874/0.656 ms 
 ```
 
 可以看到当前是这个 ip (116.253.26.214) 接受了我们的请求，因为淘宝做了集群处理，因此每次 ping 的时候，服务器的 ip 是不同的。例如，在 mac 中可以用 Host 命令（更多命令可以看 [How to determine the IP address of a computer or website](https://www.computerhope.com/issues/ch000962.htm#:~:text=Host-,Ping,displayed%20in%20the%20command%20output.)）：
@@ -220,9 +226,13 @@ C. 按照 A 中的元素对 B 解析的结果是：
 
 决定要做性能优化了，那应该如何优化呢？网络应用本质上是对数据的操作、显示，因此可以从下面的链路：
 
-数据生成的效率——服务器部署——缓存技术——客户端渲染效率，例如下面的 webgis 应用：
+提升数据生成的效率——服务器部署策略——缓存技术提升效率——客户端渲染效率，例如下面的 webgis 应用：
 
 ![](../.vuepress/public/assets/2020-06-03-09-50-59-web-multi-end-performance-01.png)
+
+我们需要从一个 web 应用的请求与响应的过程下手，即是网络层面与浏览器的渲染响应层面。
+
+![](../.vuepress/public/assets/2020-08-30-11-43-01-web-lifecycle.png)
 
 ### 关键指标
 
@@ -249,8 +259,9 @@ C. 按照 A 中的元素对 B 解析的结果是：
   - 内核（比如浏览器）
   - 中间件（web 服务器、数据库服务器等等）
   - 外壳（比如[应用外壳](https://developers.google.com/web/updates/2015/11/app-shell)，PWA）
-  - 前端（资源压缩、代码执行）
-  - 后端（负载均衡）
+  - 前端（资源压缩、代码执行、首评优化
+  内容优化）
+  - 后端（负载均衡、架构优化、并行优化、异步优化、算法优化、缓存优化）
 - 四种途径
   - 延迟（执行、加载）
   - 按需（加载，例如从一个组件库加载一个组件）

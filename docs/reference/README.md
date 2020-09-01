@@ -1,6 +1,7 @@
 # 资源合集
 
 - 浏览器原理
+  - [[译] 关于渐进式 Web 应用，你应该知道的一切](https://juejin.im/entry/6844903461645991943)
   - [《浏览器工作原理与实践》](https://blog.poetries.top/browser-working-principle/guide/part5/lesson24.html#%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E5%88%86%E5%B1%82%E6%8A%80%E6%9C%AF%E4%BC%98%E5%8C%96%E4%BB%A3%E7%A0%81) 
   - [Web Worker 使用教程](http://www.ruanyifeng.com/blog/2018/07/web-worker.html)
   - [你不知道的 Web Workers ](https://juejin.im/post/5ef2a554f265da02e47d952b?utm_source=gold_browser_extension#heading-21)
@@ -11,6 +12,7 @@
   - [一文看懂Chrome浏览器运行机制](https://zhuanlan.zhihu.com/p/102149546)
   - [Web Worker 使用场景](https://juejin.im/post/5d0c84f8518825317213bb46)
 - 综合
+  - [【译】唯快不破：Web 应用的 13 个优化步骤](https://zhuanlan.zhihu.com/p/21417465)
   - [My website now loads in less than 2 sec! Here's how I did it! ⚡](https://dev.to/cmcodes/my-website-now-loads-in-less-than-2-sec-here-s-how-i-did-it-hoj?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email)
   - [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#next_steps) Chrome 官方博客性能优化系列
   - [网站性能优化实战——从12.67s到1.06s的故事](http://0.0.0.0:9300/Web-Performance-Optimization/reference/)
@@ -50,7 +52,12 @@
   - [前端tree组件，10000个树节点，从14.65s到0.49s
 ](https://zhuanlan.zhihu.com/p/55528376)
   - [「中高级前端」高性能渲染十万条数据（时间分片）](https://juejin.im/post/5d76f469f265da039a28aff7?utm_source=gold_browser_extension) —— 看到这篇文章后，至少可以明白什么是闪屏现象，以及 EventLoop 的原理了。
+- 性能指标
+  - [Vue项目骨架屏注入实践](https://juejin.im/post/6844903661726859272)
+  - [认识Skeleton Screen【屏幕加载骨架】](https://juejin.im/post/6844903505958813710)
 - 其他
+  - [前端性能优化指南[6]--Web 性能标准](https://juejin.im/post/6844904152317820935#heading-0)
+  - [前端性能优化指南[7]--Web 性能指标](https://juejin.im/post/6844904153869713416#heading-10)
   - 掘金小册：前端性能优化原理与实践
   - 《JavaScript 高级程序设计》
   - [8 个提高 JS 性能的方法](https://mp.weixin.qq.com/s/wG08-mhjqgLToOKvQNvOgg)
@@ -94,3 +101,4 @@
   - [whatthefork.is   ·   memoization](https://whatthefork.is/memoization) 函数缓存
 - 监控
   - [如何优雅处理前端异常？](https://mp.weixin.qq.com/s/unMuI4Niuat6UDYdwsSJHA)
+  - 《大型网站性能监测、分析与优化》
