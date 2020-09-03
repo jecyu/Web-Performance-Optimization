@@ -64,6 +64,7 @@
   - [如何快速提升 JSON.stringify() 的性能？](https://mp.weixin.qq.com/s/zg_AMRqDO5w-M1RePlDZRQ)——保存表单条件就是用的JSON.stringify()，另外后端抱怨存的东西太大了。还有在使用 `get` 请求接口时，参数是对象时，也需要做`stringify()`的处理。
   - [如何实现高性能的在线 PDF 预览](https://juejin.im/post/5ed3974ae51d45784d7ca7a5?utm_source=gold_browser_extension)
 - 调试工具
+  - [脱离996，Chrome DevTools 面板全攻略！！！](https://juejin.im/post/6854573212412575757#heading-51)
   - [解读新一代 Web 性能体验和质量指标](https://segmentfault.com/a/1190000022744550)
   - [如何读懂火焰图？](http://www.ruanyifeng.com/blog/2017/09/flame-graph.html)
   - [Tools for Web Developers ](https://developers.google.com/web/tools/chrome-devtools/) chrome 官网
@@ -102,3 +103,7 @@
 - 监控
   - [如何优雅处理前端异常？](https://mp.weixin.qq.com/s/unMuI4Niuat6UDYdwsSJHA)
   - 《大型网站性能监测、分析与优化》
+  - [研究首屏时间？你先要知道这几点细节](http://www.alloyteam.com/2016/01/points-about-resource-loading/#prettyPhoto)
+  - [使用 chrome-devtools Network 面板](https://zhuanlan.zhihu.com/p/80782291)
+  - [Measure Resource Loading Times](https://developers.google.com/web/tools/chrome-devtools/network/resource-loading)
+  - [Chrome DevTools中的这些骚操作，你都知道吗？](https://zhuanlan.zhihu.com/p/142043614)

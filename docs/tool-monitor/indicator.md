@@ -330,6 +330,18 @@ function animate() {
 
 可以使用监控工具查看对应的帧率。
 
+<!-- 每一次调用 requestAnimationFrame 的时间是多长？这个函数会在浏览器每次重新渲染前调用，这个时间调用是不固定的。因此 
+const scrollToTop = () => {
+  const c = document.documentElement.scrollTop || document.body.scrollTop;
+  if (c > 0) {
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, c - c / 8); // 这里是平滑移动，但是时间是看情况的。
+  }
+};
+-->
+
+
+
 <!-- 这里可能有同学问，使用 `settimeout` 也能实现，这可能是因为带着「宏任务之间一定会伴随着浏览器绘制」的误解，计算会得到预料之外的结果。
 
 ```js
@@ -387,7 +399,7 @@ resize、scroll 这些事件是何时去派发的。 -->
 
 #### LCP（Larget Contentful Paint）
 
-衡量加载体验，为了提供良好的用户体验，LCP 应该在页面首次开始加载后的 2.5 秒内发生。
+最大内容绘制，衡量加载体验，为了提供良好的用户体验，LCP 应该在页面首次开始加载后的 2.5 秒内发生。
 
 通常关注下面的元素：
 - `<img>` 元素

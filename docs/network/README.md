@@ -10,6 +10,9 @@ HTTP 优化方向
 - 减少单次请求所花费的时间
 
 资源的压缩与合并
+
+<!-- 打包工具是如何处理生成的文件的，比如是如何做到动态加载、懒加载的 -->
+
 - [Webpack 性能优化](./webpack.md)
 - [图片优化](./image.md)
 
@@ -23,3 +26,7 @@ ArcGIS 地图 API 是否请求地图 URL 时，做了缓存的处理？
 链接：https://www.zhihu.com/question/20695647/answer/219141748
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+——研究首屏时间？你先要知道这几点细节 | AlloyTeam  http://www.alloyteam.com/2016/01/points-about-resource-loading/#prettyPhoto
+
+## prefetch 和 preload

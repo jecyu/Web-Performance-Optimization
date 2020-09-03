@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .content {
+        height: 200px;
+        width: 200px;
+        background: linear-gradient(green, yellow);
+      }
+      .opera-btn {
+        /* position: fixed; */
+      }
+      
+    </style>
+  </head>
+  <body>
+    <button class="opera-btn start">start</button>
+    <button class="opera-btn cancel">cancel</button>
+    <div class="content"></div>
+    <script>
+      let raf;
+      const target = 800; // 目标距离
+      let currentDistance = 0;
+      const element = document.querySelector(".content");
+
+      // 现在要引入 during 定制项目，利用闭包记录
+      const recordAnimationFrames = (
+        callback,
+        autoStart = true,
+        during = 3000
+      ) => {
+        const durFps = Math.ceil(during / 16.7); // 帧数
+        let startFps = 0; // 开始帧
+        let running = true,
+          raf;
+        const stop = () => {
+          running = false;
+          cancelAnimationFrame(raf);
+        };
+        const start = () => {
+          running = true;
+          run();
+        };
+        const run = () => {
+          startFps++; // 帧数递增
+          raf = requestAnimationFrame(() => {
+            callback();
+            // is
+            if (running && startFps <= durFps) run();
+          });
+        };
+        if (autoStart) start();
+        return { start, stop };
+      };
+
+      const animate = (callback) => {
+        // 配置
+        const during = 3000; // 持续时间
+        const durFps = Math.ceil(during / 16.7); // 帧数
+        // 动画运动实际上就是 0 ~ 动画总帧数 的过程
+        let start = 0; // 开始帧
+        const speed = Math.ceil(target / durFps); // 速度
+
+        // 动画函数
+        const goTo = () => {
+          start++; // 帧数递增
+
+          currentDistance = speed * start;
+          element.style.transform = // 当前的位置
+            "translateX(" + Math.min(currentDistance, target) + "px)";
+
+          if (start <= durFps) {
+            // 如果还没到达位置
+            raf = window.requestAnimationFrame(goTo);
+          }
+        };
+        goTo();
+      };
+
+      const cb = () => console.log("Animation frame fired");
+      const recorder = recordAnimationFrames(cb); // logs 'Animation frame fired' on each animation frame
+      // const recorder2 = recordAnimationFrames(cb, false); // `start` needs to be explicitly called to begin recording frames
+      document
+        .querySelector(".opera-btn.start")
+        .addEventListener("click", () => {
+          // animate();
+          recorder.start(); // starts again
+        });
+      document
+        .querySelector(".opera-btn.cancel")
+        .addEventListener("click", () => {
+          // cancelAnimationFrame(raf);
+          recorder.stop(); // stops logging
+        });
+    </script>
+  </body>
+</html>
