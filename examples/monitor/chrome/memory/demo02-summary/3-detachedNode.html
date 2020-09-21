@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>内存泄漏——分离的 DOM 节点</title>
+  </head>
+  <body>
+    <button id="createBtn">创建 DOM </button>
+    <script>
+      var detachedNodes;
+
+      function create() {
+        var ul = document.createElement("ul");
+        ul.className = "Jecyu"
+        for (var i = 0; i < 2000; i++) {
+          var li = document.createElement("li");
+          ul.appendChild(li);
+        }
+        detachedTree = ul;
+      }
+
+      document.getElementById("createBtn").addEventListener("click", create);
+    </script>
+  </body>
+</html>

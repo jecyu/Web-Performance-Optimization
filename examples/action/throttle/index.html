@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数节流</title>
+    <style>
+      #panel {
+        background: red;
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="panel"></div>
+    <script>
+      // 固定时间信号采样
+      function throttle(fn, threshold = 160) {
+        let timeout = null;
+        let start = new Date();
+        return function() {
+          const context = this;
+          const args = arguments;
+          let curr = new Date() - 0;
+
+          clearTimeout(timeout); // 总是干掉事件回调
+          if (curr - start >= threshold) {
+            console.log("now", curr, curr - start); // 注意这里差不多都是160左右
+            fn.apply(context, args); //
+            start = curr;
+          } else {
+            // 让方法脱离事件后也能执行一次
+            timeout = setTimeout(() => {
+              fn.apply(context, args);
+            }, threshold);
+          }
+        };
+      }
+
+      // 版本2 通过 valid 来判断
+      function throttle2(fn, threshold = 160) {
+        let validflag = true;
+        return function() {
+          const context = this;
+          const args = arguments;
+          if (!validflag) return false;
+
+          validflag = false;
+          timeout = setTimeout(() => {
+            fn.apply(context, args);
+            valid = true;
+          }, threshold);
+        };
+      }
+
+      const mousemove = throttle2((e) => {
+        console.log(e.pageX, e.pageY);
+      }, 300);
+
+      // 绑定监听
+      document.querySelector("#panel").addEventListener("mousemove", mousemove);
+    </script>
+  </body>
+</html>

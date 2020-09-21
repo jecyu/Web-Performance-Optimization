@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>内存泄漏——全局变量</title>
+  </head>
+  <body>
+    <button id="grow" style="width: 100px; height: 100px;">grow</button>
+    <script>
+      var x = [];
+      function grow() {
+        for (var i = 0; i < 10000; i++) {
+          document.body.appendChild(document.createElement("div"));
+        }
+        x.push(new Array(1000000).join("x"));
+      }
+      document.getElementById("grow").addEventListener("click", grow, false);
+    </script>
+  </body>
+</html>

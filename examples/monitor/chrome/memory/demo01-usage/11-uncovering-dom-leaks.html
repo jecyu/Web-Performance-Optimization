@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uncovering DOM Leaks</title>
+  </head>
+  <body>
+    <div id="p"></div>
+    <script>
+      // This page demonstrates how leaking of DOM nodes can be uncovered using the Heap Profiler.
+      function start() {
+        var p = document.getElementById("p");
+        detached = document.createElement("div"); // 全局
+        p.appendChild(detached);
+        p.removeChild(detached);
+        fill();
+      }
+
+      function fill() {
+        for (var i = 0; i < 25; ++i) {
+          var div = document.createElement("div");
+          div.data = new Array(10000);
+          for (var j = 0, l = div.data.length; j < l; ++j)
+            div.data[j] = j.toString();
+          detached.appendChild(div);
+        }
+      }
+      window.onload = () => start();
+      // Try this:
+
+      // Take a heap snapshot
+      // Open the Summary view
+      // Find the Detached DOM tree entry, expand it
+      // Alternatively, open the Containment view
+      // Expand the (Native objects) entry, locate the Detached DOM tree entry there
+      // In this example, a DOM node is detached from the tree, but it still holds DOM wrapper objects (HTMLDivElement objects) that reference script data, effectively preventing the data from being collected.
+
+      // DOM trees can be found in Summary and Containment views. Note that the number of entries displayed for DOM subtrees is the number of native DOM nodes it contains, not the number of wrapper objects it holds.
+
+      // By tracing paths to window objects, it can be observed, that the detached DOM tree is referenced as the native link from the DOM wrapper stored in the detached window property. To confirm this, do the following:
+
+      // Expand the Detached DOM tree entry
+      // Click on any of its HTMLDivElement descendants
+      // Select to window objects on the top of the Retaining paths view
+    </script>
+  </body>
+</html>

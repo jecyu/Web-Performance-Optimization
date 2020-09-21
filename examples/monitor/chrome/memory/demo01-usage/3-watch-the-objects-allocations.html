@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scattered objects</title>
+  </head>
+  <body>
+    <button id="create">Create scattered objects</button>
+    <script>
+      // Take a heap stapshot and watch the objects (Item) allocations.
+      // 尝试这个例子并使用堆分析器来进行分析。你应该看到（对象）项目分配次数。
+      function Item(x) {
+        this.x = x;
+      }
+
+      function numbers() {
+        var result = new Array(10000);
+        for (var i = 0, l = result.length; i < l; ++i) result[i] = new Item(i);
+        return new Item(result);
+      }
+
+      function strings() {
+        var result = new Array(10000);
+        for (var i = 0, l = result.length; i < l; ++i)
+          result[i] = new Item(i.toString());
+        return new Item(result);
+      }
+
+      function init() {
+        numberCache = numbers();
+        stringCache = strings();
+        documentCache = new Item(document.body.textContent.toLowerCase());
+      }
+      document
+        .querySelector("#create")
+        .addEventListener("click", () => init(), false);
+      // 请记住，黄色的对象表示有 JavaScript 对象引用了它们，而红色的对象是指从一个黄色背景节点引用的分离节点。
+    </script>
+  </body>
+</html>

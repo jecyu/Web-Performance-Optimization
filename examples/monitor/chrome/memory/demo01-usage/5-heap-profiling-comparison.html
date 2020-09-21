@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verifying Action Cleanness</title>
+  </head>
+  <body>
+    <button id="action">action</button>
+    <script>
+      /*
+       * 尝试这个例子（在选项卡中打开）来了解如何使用比较视图来监测内存泄露。
+       * This page demonstrates how action cleanness can be verified using the Heap Profiler. By cleanness, we mean that after starting and completing (or canceling) the action, no garbage is left. If an action leaves garbage, multiple invocations of it may result in excessive memory usage.
+       */
+
+      /*
+       * Try this:
+         - Take a heap snapshot
+         - Press the button: Action!
+         - Take another snapshot
+         - Open the Comparison view
+        The view will show how objects count has changed between two snapshots. In this example it can be seen that some garbage Item objects are left from the last loop iteration. They must be explicitly dereferenced on action completion in order to fix the leak.
+        You can also take multiple snapshots, and compare them arbitrarily (not necessary to complete the last one with the previous one.)
+      */
+      function Item(x) {
+        this.x = x;
+      }
+
+      Item.prototype = {
+        clone: function() {
+          return new Item(this.x);
+        },
+      };
+
+      function action() {
+        for (var i = 0; i < data.length - 1; ++i) {
+          line = new Array(data[i].length); // 全局 line
+          for (var j = 0, l = data[i].length; j < l; ++j)
+            line[j] = data[i][j].clone();
+          for (var j = 0, l = data[i].length; j < l; ++j) {
+            data[i][j] = data[i + 1][j].clone();
+            data[i + 1][j] = line[j].clone();
+          }
+        }
+      }
+
+      var data = new Array(10);
+      for (var i = 0; i < data.length; ++i) {
+        data[i] = new Array(1000);
+        for (var j = 0, l = data[i].length; j < l; ++j)
+          data[i][j] = new Item(i * l + j);
+      }
+      document.querySelector("#action").addEventListener("click", () => {
+        action();
+        // data = null;
+      }, false);
+    </script>
+  </body>
+</html>

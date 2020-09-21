@@ -183,6 +183,10 @@ accept-encoding:gzip
 
 4. 浏览器接到 Response 后，根据 Content-Encoding:gzip 来对 Response 进行解码。 获取到原始 response
 
+### 流式解压
+
+- [ZIP 也能边下载边解压？流式解压技术揭秘](https://mp.weixin.qq.com/s/NB12KQOHjso9wH8Ju1ueSA)
+
 #### 实践
 
 Accept-Encoding 数据以哪种编码方式传输，限制服务端如何进行数据压缩，浏览器会自动加上这些头信息。
@@ -299,4 +303,4 @@ console.log("Serving files on http://localhost:" + port);
   - https://github.com/wimagguc/nodejs-static-http-with-gzip/blob/master/http-with-gzip.js
 - [http 数据协商](https://zhuanlan.zhihu.com/p/45140046)
 - [Comparing jspdf vs. pdfkit vs. pdfmake
-](https://npmcompare.com/compare/jspdf,pdfkit,pdfmake)
+  ](https://npmcompare.com/compare/jspdf,pdfkit,pdfmake)

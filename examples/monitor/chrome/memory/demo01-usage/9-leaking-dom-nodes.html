@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaking DOM nodes</title>
+  </head>
+  <body>
+    <button onclick="createNodes()">
+      Create nodes (some of them leaked)
+    </button>
+    <script>
+      // If the compiler can use hidden classes, your code will execute MUCH faster and will use MUCH LESS memory.
+
+      // 1. Open Timeline/Performance tab.
+      // 2. Start recording activty.
+      // 3. Repeat the next steps and watch the Timeline
+      //   3.1 Create some nodes
+      //   3.2 GC
+      "use strict";
+
+      var leakedNodes = [];
+
+      function createNode(text) {
+        var div = document.createElement("div"),
+          innerDiv = document.createElement("div");
+        innerDiv.appendChild(
+          document.createTextNode(text + " - " + new Date().toTimeString())
+        );
+        div.appendChild(innerDiv);
+        return div;
+      }
+
+      function createLeakedNodes() {
+        var i;
+        for (i = 0; i < 20; i++) {
+          leakedNodes.push(createNode("Leaked:" + i));
+        }
+      }
+
+      function createGCNodes() {
+        var i;
+        for (i = 0; i < 20; i++) {
+          createNode("Collected:" + i);
+        }
+      }
+
+      function createNodes() {
+        // createLeakedNodes();
+        createGCNodes();
+      }
+    </script>
+  </body>
+</html>

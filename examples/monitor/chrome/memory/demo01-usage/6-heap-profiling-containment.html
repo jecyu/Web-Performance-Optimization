@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exploring the Heap Contents</title>
+  </head>
+  <body>
+    <div id="iframe-host"></div>
+    <script>
+      /*
+       * 通过这个页面（在新的选项卡中打开）来尝试如何在该视图中找到闭包和事件处理器。
+       This page demonstrates how object contents can be explored using the Heap Profiler. The entire contents can be viewed, regardless of the current context (as opposed to how debugger works). Moreover, it is possible to inspect variables of closures, and peek into objects internals.
+       */
+
+      function createClosure(a, b, c) {
+        var d = a + b;
+        return function() {
+          return c + d;
+        };
+      }
+
+      var closure = createClosure("a", "b", "c");
+      closure.a = "property a";
+      closure.d = "property d";
+
+      var consString = "aaa / " + document.URL + document.inputEncoding;
+
+      var top_in_page = "inside page";
+
+      function init() {
+        var iframe = document.createElement("iframe");
+        iframe.setAttribute(
+          "src",
+          "https://www.baidu.com/"
+        );
+        document.getElementById("iframe-host").appendChild(iframe);
+      }
+      window.onload = () => init();
+      // Try this:
+
+      // Take a heap snapshot
+      // Open the Containment view
+      /*
+      * The Containment view shows several top-level entries, including DOMWindow objects. By expanding a DOMWindow object, it is possible to examine all of its properties. This page contains several iframe, and it has its own DOMWindow object.
+
+    There are several interesting things to explore in the DOMWindow object of the page:
+
+    Find and expand the closure property. It will show the contents of the closure, as well as properties of the closure object itself. Color coding is used to distinguish closure variables from properties.
+    Find and expand the consString property. It will exhibit, that a concatenated string is stored as a linked list of its parts.
+    Simultaneously, you can view contents of an iframe without the need to switch contexts.
+      */
+    </script>
+  </body>
+</html>

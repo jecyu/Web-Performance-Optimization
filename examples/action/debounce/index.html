@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数防抖</title>
+</head>
+<body>
+  <div>
+    <label>搜索：</label><input type="text">
+  </div>
+  <script>
+
+    function deboundce(func, delay) {
+      let timeout;
+      return function() {
+        const context = this;
+        const args = arguments;
+
+        console.log("清除", timeout, args[0].target.value);
+        
+        if (timeout) {
+          clearTimeout(timeout); // 清除旧的
+        }
+       
+        console.log("新的", timeout, args[0].target.value);
+
+        timeout = setTimeout(() => {
+          console.log("----");
+          // console.log(args);
+          func.apply(context, args);
+        }, delay)
+      }
+    }
+
+    const validate = deboundce((e) => {
+      console.log("change", e.target.value, new Date-0);
+    }, 380);
+
+    // 绑定监听
+    document.querySelector('input').addEventListener("input", validate);
+  </script>
+</body>
+</html>

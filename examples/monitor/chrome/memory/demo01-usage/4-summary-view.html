@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gathering Scattered Objects</title>
+  </head>
+  <body>
+    <button id="create">Create scattered objects</button>
+    <script>
+      // 通过这个页面来了解如何使用总结视图。
+      // https://developer.chrome.com/devtools/docs/heap-profiling-summary
+      /*
+        1. Take a heap snapshot
+        2. Open the Summary view
+        Objects of the same kind can be scattered among application data, and unintentionally, form a significant group, wasting memory. The Summary view helps to discover excessive instantiations.
+
+        For example, Item objects are used for different storage purposes among application code. All objects are grouped in the Summary view, regardless of their origin, and statistics for them is provided.*/
+      //This page demonstrates how an overview of the space occupied by the objects of the same kind can be evaluated using the Heap Profiler.
+      function Item(x) {
+        this.x = x;
+      }
+
+      function numbers() {
+        var result = new Array(10000);
+        for (var i = 0, l = result.length; i < l; ++i) result[i] = new Item(i);
+        return new Item(result);
+      }
+
+      function strings() {
+        var result = new Array(10000);
+        for (var i = 0, l = result.length; i < l; ++i)
+          result[i] = new Item(i.toString());
+        return new Item(result);
+      }
+
+      function init() {
+        numberCache = numbers(); // 不使用 var，默认是全局变量
+        stringCache = strings();
+        documentCache = new Item(document.body.textContent.toLowerCase());
+        // 使用 var 声明的话，执行完函数后，会清空上下文以及垃圾回收堆内存
+        // var numberCache = numbers(); 
+        // var stringCache = strings();
+        // var documentCache = new Item(document.body.textContent.toLowerCase());
+      }
+      document
+        .querySelector("#create")
+        .addEventListener("click", () => init(), false);
+    </script>
+  </body>
+</html>

@@ -29,60 +29,75 @@
       const recordAnimationFrames = (
         callback,
         autoStart = true,
-        during // 如果 during 为 undefined 的话，跑之前的逻辑
+        during = 3000
       ) => {
         const durFps = Math.ceil(during / 16.7); // 帧数
         let startFps = 0; // 开始帧
-        let running = false,
+        let running = true,
           raf;
         const stop = () => {
-          // if (!running) return;
           running = false;
           cancelAnimationFrame(raf);
         };
         const start = () => {
-          // if (running) return;
           running = true;
           run();
         };
         const run = () => {
           startFps++; // 帧数递增
-          // console.log(startFps);
           raf = requestAnimationFrame(() => {
-            callback(startFps, durFps);
-            const hasTimer = during !== undefined;
-            if (hasTimer) {
-              if (running && startFps <= durFps) run();
-            } else {
-              if (running) run();
-            }
+            callback();
+            // is
+            if (running && startFps <= durFps) run();
           });
         };
         if (autoStart) start();
         return { start, stop };
       };
 
+      const animate = (callback) => {
+        // 配置
+        const during = 3000; // 持续时间
+        const durFps = Math.ceil(during / 16.7); // 帧数
+        // 动画运动实际上就是 0 ~ 动画总帧数 的过程
+        let start = 0; // 开始帧
+        const speed = Math.ceil(target / durFps); // 速度
+
+        // 动画函数
+        const goTo = () => {
+          start++; // 帧数递增
+
+          currentDistance = speed * start;
+          element.style.transform = // 当前的位置
+            "translateX(" + Math.min(currentDistance, target) + "px)";
+
+          if (start <= durFps) {
+            // 如果还没到达位置
+            raf = window.requestAnimationFrame(goTo);
+          }
+        };
+        goTo();
+      };
+
       const cb = () => console.log("Animation frame fired");
-      const cb2 = (currentFPS, duringFPS) => {
+      const cb2 = (currentfps) => {
         const targetDistance = 500;
-        const speed = Math.ceil(targetDistance / duringFPS);
-        // const moveElement = document.querySelector(".content");
-        currentDistance = speed * currentFPS;
+        currentDistance = speed * currentfps;
         element.style.transform = // 当前的位置
           "translateX(" + Math.min(currentDistance, targetDistance) + "px)";
       };
       const recorder = recordAnimationFrames(cb); // logs 'Animation frame fired' on each animation frame
       // const recorder2 = recordAnimationFrames(cb, false); // `start` needs to be explicitly called to begin recording frames
-      // const recorder2 = recordAnimationFrames(cb2, false);
-      // const recorder2 = recordAnimationFrames(cb2, false, 5000);
       document
         .querySelector(".opera-btn.start")
         .addEventListener("click", () => {
+          // animate();
           recorder.start(); // starts again
         });
       document
         .querySelector(".opera-btn.cancel")
         .addEventListener("click", () => {
+          // cancelAnimationFrame(raf);
           recorder.stop(); // stops logging
         });
     </script>

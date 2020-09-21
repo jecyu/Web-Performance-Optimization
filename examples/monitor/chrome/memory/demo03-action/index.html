@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>一体化</title>
+  </head>
+  <body>
+    <button id="btn">内存泄漏——闭包引用</button>
+    <script>
+      function SearchWidget() {
+        this.data = []; // 其实这里清空没什么用......
+        this.data = new Array(10000000); // Array()模拟获取的大数据
+        // 加多一个清空数据的方法
+        this.emptyData = function() {
+          this.data = null; // 手动触发垃圾回收
+        };
+      }
+
+      window.onload = function() {
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", () => {
+          var searchWidget = new SearchWidget();
+          // 这里用 console.log 模拟
+          console.log(searchWidget); // 对 searchWidget 引用+1，在传递给console.log的对象是不能被垃圾回收 ♻️，因为在代码运行之后需要在开发工具能查看对象信息。所以最好不要在生产环境中console.log任何对象。
+            // searchWidget = null;
+          searchWidget.emptyData();
+        });
+      };
+    </script>
+  </body>
+</html>

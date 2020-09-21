@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="collect">内存泄漏——全局变量</button>
+    <script>
+      var myArray = null; // 在 script标签内的最外层，相当于全局变量
+      window.onload = function() {
+        myArray = new Array(1000000);
+      };
+      document.querySelector("#collect").addEventListener("click", () => {
+        myArray = null;
+      })
+    </script>
+  </body>
+</html>
