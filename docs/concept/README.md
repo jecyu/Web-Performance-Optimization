@@ -91,8 +91,6 @@ traceroute to www.taobao.com.danuoyi.tbcache.com (113.16.206.233), 64 hops max, 
 
 现在我们看看，金木同学在电脑的浏览器地址输入：`http(s)://www.aaa.bbb.com/product/xxx.html` 后到整个界面出现可操作的过程，经历了哪些操作呢？
 
-<!-- 这里可以输入淘宝或者京东的网站，用来讲解 -->
-
 一个简单的图是这样的：
 
 ![browser-server](../.vuepress/public/assets/2020-05-02-11-27-22-client2server-1.png)
@@ -254,7 +252,6 @@ C. 按照 A 中的元素对 B 解析的结果是：
 ### 优化策略
 
 基于上面的分析，优化策略大体可以这样：
-<!-- （下面的图是否用 svg 更加容易理解呢） -->
 
 - 多端协作
   - 内核（比如浏览器）
