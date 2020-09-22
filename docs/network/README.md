@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-03 20:55:00
+ * @LastEditTime: 2020-09-22 10:21:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /Web-Performance-Optimization/docs/network/README.md
+-->
 # 介绍
 
 涉及网络层面：
@@ -9,6 +17,9 @@ HTTP 优化方向
 - 减少请求次数
 - 减少单次请求所花费的时间
 - 骨架屏
+- 图片压缩
+  - 采用 webpack 压缩 [嗯，手搓一个TinyPng压缩图片的WebpackPlugin也SoEasy啦](https://cloud.tencent.com/developer/article/1675365)。可以构建一个 plugin 图片压缩插件。
+  - 采用脚手架压缩 cli
 
 资源的压缩与合并
 

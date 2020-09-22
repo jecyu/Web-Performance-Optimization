@@ -45,19 +45,15 @@
 - 内容呈现相关（FP、FCP、FMP 等）
 - 交互响应相关（FID、FPS 等）
 
-<!-- unload 事件是？ -->
-
 上面的分类不太直观，我们直接看看整体的流程：DNS -> TCP -> Requesting -> WebServer -> Transfering -> Parsing。
 
 可以通过 Performance 接口可以获取到当前页面与性能相关的信息，与浏览器对应的状态如下图：
 
 ![](../.vuepress/public/assets/2020-08-31-09-19-07-http-process.png)
 
-<!-- TODO 画左右红线。 -->
-
 左边部分代表的是网络传输层面的过程，右边部分代表了服务器传输回字节后浏览器的各种事件状态，这个阶段包含了浏览器对文档的解析、DOM 树构建、布局、绘制等。
 
-<!-- - **查找域名**：开始查找域名到查找结束，计算公式为（domainLookupEnd - domainLookupStart）
+- **查找域名**：开始查找域名到查找结束，计算公式为（domainLookupEnd - domainLookupStart）
 - **建立连接**：开始发出连接请求到连接成功，计算公式为（connectEnd - connectStart）
 - **请求文档**：开始请求文档到开始接收文档，计算公式为（responseStart - requestStart）
 - **接收文档**：开始接收文档到文档接收完成，计算公式为（responseEnd - responseStart）
@@ -66,7 +62,7 @@
 - **完全加载**：开始解析文档到文档完全加载，计算公式为（domComplete - domLoading）
 - **首屏加载**：开始解析文档到首屏加载完毕，计算公式为（firstscreenready - domLoading）
 - **完全加载【全过程】**：此次浏览最开始时刻到完全加载完毕,计算公式为（domComplete - navigationStart）
-- **首屏加载【全过程】**：此次浏览最开始时刻到首屏加载完毕,计算公式为（firstscreenready - navigationStart） -->
+- **首屏加载【全过程】**：此次浏览最开始时刻到首屏加载完毕,计算公式为（firstscreenready - navigationStart）
 
 以上是 http 请求过程到页面显示的流程，接下来我们看看其中涉及到的具体指标。
 
@@ -84,7 +80,7 @@
 
 浏览器从请求页面开始到接收第一字节的时间，这个时间段包括 DNS 查找、TCP 连接和 SSL 连接。
 
-<!-- 待完善 -->
+![](../.vuepress/public/assets/2020-09-22-11-19-04-ttfb.png)
 
 #### FP（First Paint） 首次渲染
 
@@ -180,8 +176,6 @@ Chrome Performance 中的 Timing 没有记录 FSP（First Screen Paint）这个�
 ![](./fps.drawio.svg)
 
 单页面应用使用的是第二种方式。浏览器解析 HTML 是按照顺序解析的，因此看需求决定解析或者渲染某部分的元素即算是首屏完成了，就记录这段时间。
-
-<!-- 虽然没有直接的 FSP记录，但是我们也能通过 LCP、FID 等其他指标组合来评估。 -->
 
 ##### 如何改善 FSP
 
@@ -313,45 +307,26 @@ function animate() {
 }
 ```
 
-可以使用监控工具查看对应的帧率。
-
-<!-- 每一次调用 requestAnimationFrame 的时间是多长？这个函数会在浏览器每次重新渲染前调用，这个时间调用是不固定的。因此 
-const scrollToTop = () => {
-  const c = document.documentElement.scrollTop || document.body.scrollTop;
-  if (c > 0) {
-    window.requestAnimationFrame(scrollToTop);
-    window.scrollTo(0, c - c / 8); // 这里是平滑移动，但是时间是看情况的。
-  }
-};
--->
-
-
-
-<!-- 这里可能有同学问，使用 `settimeout` 也能实现，这可能是因为带着「宏任务之间一定会伴随着浏览器绘制」的误解，计算会得到预料之外的结果。
+可以使用监控工具查看对应的帧率。这里可能有同学问，使用 `settimeout` 也能实现，这可能是因为带着「宏任务之间一定会伴随着浏览器绘制」的误解，计算会得到预料之外的结果。
 
 ```js
-      // 这里宏任务之间不会渲染
-      setTimeout(() => {
-        document.body.style.background = "red";
-        setTimeout(() => {
-          document.body.style.background = "blue";
-        });
-      });
-      // 这里添加时间后，大概率渲染
-      // setTimeout(() => {
-      //   document.body.style.background = "red";
-      //   setTimeout(() => {
-      //     document.body.style.background = "blue";
-      //   }, 1000);
-      // });
-``` -->
+// 这里宏任务之间不会渲染
+setTimeout(() => {
+  document.body.style.background = "red";
+  setTimeout(() => {
+    document.body.style.background = "blue";
+  });
+});
+// 这里添加时间后，大概率渲染
+// setTimeout(() => {
+//   document.body.style.background = "red";
+//   setTimeout(() => {
+//     document.body.style.background = "blue";
+//   }, 1000);
+// });
+```
 
-<!-- 这里我们主要关注帧。关于 requestAnimationFrame 深入可以看：[深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系](https://zhuanlan.zhihu.com/p/142742003)。 -->
-
-<!-- 每一轮 Event Loop 都会伴随着渲染吗？
-requestAnimationFrame 在哪个阶段执行，在渲染前还是后？在 microTask 的前还是后？
-requestIdleCallback 在哪个阶段执行？如何去执行？在渲染前还是后？在 microTask 的前还是后？
-resize、scroll 这些事件是何时去派发的。 -->
+这里我们主要关注帧。关于 requestAnimationFrame 深入可以看：[深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系](https://zhuanlan.zhihu.com/p/142742003)。
 
 ##### 问题
 
@@ -373,8 +348,8 @@ resize、scroll 这些事件是何时去派发的。 -->
 - 浏览器会尽可能的保持帧率稳定，例如页面性能无法维持 60fps（每 16.66ms 渲染一次）的话，那么浏览器就会选择 30fps 的更新速率，而不是偶尔丢帧。
 - 如果浏览器上下文不可见，那么页面会降低到 4fps 左右甚至更低。
 - 如果满足以下条件，也会跳过渲染：
-- 浏览器判断更新渲染不会带来视觉上的改变。
-  map of animation frame callbacks 为空，也就是帧动画回调为空，可以通过 requestAnimationFrame 来请求帧动画。
+  - 浏览器判断更新渲染不会带来视觉上的改变。
+    map of animation frame callbacks 为空，也就是帧动画回调为空，可以通过 requestAnimationFrame 来请求帧动画。
 
 ### 扩展：新一代指标 LCP、FID、CLS
 
@@ -387,12 +362,13 @@ resize、scroll 这些事件是何时去派发的。 -->
 最大内容绘制，衡量加载体验，为了提供良好的用户体验，LCP 应该在页面首次开始加载后的 2.5 秒内发生。
 
 通常关注下面的元素：
+
 - `<img>` 元素
 - `<image>` 元素内的 `<svg>` 元素
 - 通过 `url()` 函数加载背景图片的元素
 - 包含文本节点或其他内联文本元素子级的块级元素。
 
-#### FID（First Input  Delay）
+#### FID（First Input Delay）
 
 即记录用户和页面首次交互操作所花费的时间。FID 指标影响用户对页面交互性和响应性的第一印象。为了提供良好的用户体验，页面的 FID 应当小于 100 毫秒。
 
@@ -413,11 +389,12 @@ resize、scroll 这些事件是何时去派发的。 -->
 
 ## 如何选择合适的指标
 
-如何选择合适而见效的指标，如果是一般情况下的性能排查问题，白屏时间、首屏时间、FPS 是可以快速监测的，而对于特定情况下，比如需要弄一个性能监控平台，我们还需要记录更多的指标 LCP、FMP等，还包括新一代的指标比如 FID、CLS等。
+如何选择合适而见效的指标，如果是一般情况下的性能排查问题，白屏时间、首屏时间、FPS 是可以快速监测的，而对于特定情况下，比如需要弄一个性能监控平台，我们还需要记录更多的指标 LCP、FMP 等，还包括新一代的指标比如 FID、CLS 等。
 
 ## 小结
 
 现在我们大概了解 `FP`、`FCP`、`FMP` 以及 `LCP` 这几个指标，`FP` 与 `FCP` 可以让我们知道，这个网站何时渲染；而 `FMP` 与 `LCP` 可以让我们了解我们的网站何时“有用”，站在用户的角度，`FMP` 与 `LCP` 可以表示我们的网站需要多久才能体现出价值。另外，除了使用 chrome Performance 可视化工具外，我们也可以`window.performance` API 进行代码层面自定义监控。
 
-<!-- 其他 TTI、TTFB、Speed Index 可以看
-w3c 性能优化工作组 - -->
+## 参考资料
+
+- [Web 性能优化资源合集（持续更新）](../reference/README.md)
