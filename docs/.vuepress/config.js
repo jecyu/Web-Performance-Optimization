@@ -81,9 +81,8 @@ module.exports = {
       },
       {
         title: "网络篇",
-        sidebarDepth: 4,
         collapsable: false,
-        children: ["network/", "network/image", "network/webpack"],
+        children: ["network/", "network/request", "network/download", "network/render"],
       },
       {
         title: "缓存篇",

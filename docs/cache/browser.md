@@ -11,6 +11,7 @@
 - Service Worker Cache
 - HTTP Cache 
 - Push Cache
+- DNS Cache
 
 ![](../.vuepress/public/assets/2020-06-14-12-27-22-browser-cache-01.png)
 

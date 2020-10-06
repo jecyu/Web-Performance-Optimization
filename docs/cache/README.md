@@ -1,4 +1,22 @@
-# 介绍
+# 永远不要加载相同的资源两次
+
+- 离线指南
+- 缓存
+
+平时清除缓存，到底清除了哪些东西？包括 DNS 吗？为什么一定要清除缓存，才能使改变生效。正常来说，应用刷新就自动更新资源。
+
+DNS解析的过程是什么，求详细的？ - wuxinliulei的回答 - 知乎
+https://www.zhihu.com/question/23042131/answer/66571369
+
+
+![](../.vuepress/public/assets/2020-10-06-12-24-14-dns-work.png)
+
+可以通过 在浏览器中地址栏输入：chrome://net-internals，删除 DNS 缓存。再次使用 lookup。
+
+如何删除主机上的缓存
+
+ArcGIS 地图 API 是否请求地图 URL 时，做了缓存的处理？
+
 
 ## 前言
 

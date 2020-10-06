@@ -173,7 +173,7 @@ Chrome Performance 中的 Timing 没有记录 FSP（First Screen Paint）这个�
 
 常见的打点记录以后端渲染和前端渲染区分有两种方式：
 
-![](./fps.drawio.svg)
+![](../.vuepress/public/assets/fps.drawio.svg)
 
 单页面应用使用的是第二种方式。浏览器解析 HTML 是按照顺序解析的，因此看需求决定解析或者渲染某部分的元素即算是首屏完成了，就记录这段时间。
 
