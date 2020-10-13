@@ -1,4 +1,6 @@
-# 本地存储——Cookie、Web Storage、IndexDB
+# Web 应用层缓存 
+
+本地存储——Cookie、Web Storage、IndexDB
 
 ## 前言
 

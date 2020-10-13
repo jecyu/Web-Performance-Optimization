@@ -1,0 +1,157 @@
+{
+    "root": {
+        "data": {
+            "id": "c68fplgxitc0",
+            "created": 1602254198889,
+            "text": "网络篇"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c68fs4v5a740",
+                    "created": 1602254397836,
+                    "text": "资源请求"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c68fvnnhmv40",
+                            "created": 1602254673824,
+                            "text": "请求",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c68fur235jk0",
+                                    "created": 1602254602873,
+                                    "text": "DNS 解析"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c68futvqu1k0",
+                                    "created": 1602254609020,
+                                    "text": "TCP"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c68fuvgx5ko0",
+                                    "created": 1602254612477,
+                                    "text": "HTTP"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c68fvokx6s80",
+                            "created": 1602254675846,
+                            "text": "响应",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c68fv1p4zw80",
+                                    "created": 1602254626035,
+                                    "text": "集群"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c68fvd4a6n40",
+                                    "created": 1602254650895,
+                                    "text": "分布式"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c68fuyrj0pk0",
+                                    "created": 1602254619649,
+                                    "text": "CDN"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c68fs746wmw0",
+                    "created": 1602254402737,
+                    "text": "资源下载"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c68fw85z3600",
+                            "created": 1602254718478,
+                            "text": "资源压缩与合并"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c68fwa798y00",
+                            "created": 1602254722909,
+                            "text": "资源拆分与按需加载"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c68fwd5wmqo0",
+                            "created": 1602254729358,
+                            "text": "图片资源优化"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c68fsb6sew00",
+                    "created": 1602254411601,
+                    "text": "资源渲染"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c68fwpm8kog0",
+                            "created": 1602254756467,
+                            "text": "客户端渲染"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c68fwwuv1o00",
+                            "created": 1602254772225,
+                            "text": "服务端渲染"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c68fwy9u3hc0",
+                            "created": 1602254775308,
+                            "text": "预渲染"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "classic",
+    "version": "1.4.43"
+}

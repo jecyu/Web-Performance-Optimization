@@ -1,0 +1,149 @@
+{
+    "root": {
+        "data": {
+            "id": "c6784nzwsps0",
+            "created": 1602131251017,
+            "text": "前端压缩"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c67858yyvb40",
+                    "created": 1602131296673,
+                    "text": "有损压缩"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c6785gmgh3s0",
+                            "created": 1602131313330,
+                            "text": "用途"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c6785j4efdc0",
+                                    "created": 1602131318769,
+                                    "text": "视频"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c6785k4yh2w0",
+                                    "created": 1602131320979,
+                                    "text": "图像"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c6785hqeku80",
+                            "created": 1602131315746,
+                            "text": "方式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c6785n3o2t40",
+                                    "created": 1602131327432,
+                                    "text": "canvas"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c6785r5ezmw0",
+                                    "created": 1602131336244,
+                                    "text": "二进制"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c6785b7msww0",
+                    "created": 1602131301550,
+                    "text": "无损压缩"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c6785t15rt40",
+                            "created": 1602131340341,
+                            "text": "用途"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c6785ubgc1s0",
+                                    "created": 1602131343140,
+                                    "text": "数据压缩"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c6785vrlk6w0",
+                                    "created": 1602131346293,
+                                    "text": "文本压缩"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c6785x6i64o0",
+                                    "created": 1602131349371,
+                                    "text": "图片压缩"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c6785z171eg0",
+                            "created": 1602131353404,
+                            "text": "方式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c6785zuv1m00",
+                                    "created": 1602131355197,
+                                    "text": "PNG 封装"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c67861suolk0",
+                                    "created": 1602131359429,
+                                    "text": "ZIP、RAR"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c678650gr680",
+                                            "created": 1602131366420,
+                                            "text": "二进制"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "classic",
+    "version": "1.4.43"
+}

@@ -1,19 +1,5 @@
 # 资源请求
 
-<!-- 头脑风暴
-
-前提要说明的是：客户端的带宽、CPU，与
-
-多个链接会分割用户的速率，就比如一条水管一样
-
-http/0.9 http/1 http/2
-
-这块可以看浏览器的渲染原理
-
-时长：20 min，因此有些内容可以外链省略。
-虚拟机地址
--->
-
 ## 前言
 
 本文将通过 network 工具分析结合请求发起、请求响应这两个方面来说明如何减少资源请求的时间。这里的请求响应不包括资源下载的时间。
@@ -27,11 +13,13 @@ http/0.9 http/1 http/2
 - 发起请求
   - DNS 解析
   - TCP
-  - HTTP1
+  - HTTP
 - 请求响应
+  - 集群
+  - 分布式
   - CDN
-  - 负载均衡、集群
-  - HTTP2 的性能提升
+
+**阅读时长**：20min
 
 ## 请求的发起
 
@@ -49,7 +37,7 @@ http/0.9 http/1 http/2
 
 浏览器要成功发起一个 HTTP 应用请求，先要进行 TCP 的连接，而要进行 TCP 的连接，则需要知道目标服务器的 IP 地址，而现在浏览器只知道用户输入的 URL 地址，因此需要解析协议以及路径名，然后向 DNS 服务器查询 Web 服务器的 IP 地址，下面我们访问一个新的地址，比如淘宝 www.taobao.com 地址具体的查询过程如下图：
 
-![](./dns.drawio.svg)
+![](../.vuepress/public/assets/dns.drawio.svg)
 
 1. 在浏览器中输入 www.taobao.com 域名，浏览器如果有缓存就采用浏览器的映射。否则操作系统会先检查自己本地的 hosts 文件是否有这个网址映射关系，如果有，就先调用这个 IP 地址映射，完成域名解析。
 2. 如果 hosts 里没有这个域名的映射，则查找本地 DNS 解析器缓存，是否有这个网址映射关系，如果有，直接返回，完成域名解析。
@@ -116,11 +104,11 @@ Link: <https://img.alicdn.com>; rel=dns-prefetch
 
 经过 DNS 查询到 IP 后，这个时候可以建立 TCP 连接，如下图：
 
-![](./tcp.drawio.svg)
+![](../.vuepress/public/assets/tcp.drawio.svg)
 
 在三次握手后就判断了对方的发送能力和接收能力都是正常的，从而成功建立连接。
 
-![](./tcp2.drawio.svg)
+![](../.vuepress/public/assets/tcp2.drawio.svg)
 
 在传输过程中，有可能出现以下两种情况：
 
@@ -186,7 +174,7 @@ HTTP 是使用 TCP 作为它的支撑运输协议，一旦 TCP 连接建立起�
 
 ![](../.vuepress/public/assets/2020-10-06-22-47-14-http1.0.png)
 
-HTTP 版本目前经历过 HTTP/0.9、HTTP/1.0 以及 HTTP/1.1 的发展，关于 HTTP 发展史，可以参考 https://blog.poetries.top/browser-working-principle/guide/part6/lesson29.html#%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE-http-0-9。
+HTTP 版本目前经历过 HTTP/0.9、HTTP/1.0 以及 HTTP/1.1 的发展，关于 HTTP 简史，可以参考文章 [https://blog.poetries.top/browser-working-principle/guide/part6/lesson29.html#%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE-http-0-9](https://blog.poetries.top/browser-working-principle/guide/part6/lesson29.html#%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE-http-0-9) 以及 [w3c/Protocols](https://www.w3.org/Protocols/)
 
 HTTP/1.0 每进行一次 HTTP 通信都需要经历 TCP 连接、传输 HTTP 数据和断开 TCP 连接三个阶段。
 
@@ -239,13 +227,15 @@ HTTP/2 的出现是为了解决 HTTP/1.1 的主要问题：
 
 **至于 HTTP/2 是如何解决的呢？**
 
-HTTP/2 的思路就是一个域名只使用一个 TCP 长连接来传输数据，这样整个页面资源的下载过程只需要一次慢启动，同时也避免了多个 TCP 连接竞争带宽所带来的问题。
+HTTP/2 的思路就是一个域名只使用一个 TCP 长连接来传输数据，采用多路复用机制，允许同时通过单一的 HTTP/2 连接发起多重的请求-响应信息。
 
-HTTP/2 支持资源的并行请求，从而解决队列阻塞问题，如下图：
+![](../.vuepress/public/assets/2020-10-09-23-34-24.png)
+
+这样整个页面资源的下载过程只需要一次慢启动，同时也避免了多个 TCP 连接竞争带宽所带来的问题。
+
+HTTP/2 使用**多路复用机制**（从不同套接字中收集数据块进行拼接），从途中你会发现每个请求都有一个对应的 ID，如 stream1 表示 index.html 的请求，stream2 表示 foo.css 的请求。浏览器任何时候都可以将请求发送给服务器，而不需要等待其他请求的完成，而服务器也可以随意发送请求，因为每份数据都有对应的 ID，浏览器接收后，会筛选出相同 ID 的内容，将其拼接为完整的 HTTP 响应数据。具体实现见[HTTP/2 多路复用的实现](https://blog.poetries.top/browser-working-principle/guide/part6/lesson30.html#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E7%9A%84%E5%AE%9E%E7%8E%B0)
 
 ![](../.vuepress/public/assets/2020-10-06-23-50-09-http2.png)
-
-HTTP/2 使用**多路复用机制**（从不同套接字中收集数据块进行拼接），从途中你会发现每个请求都有一个对应的 ID，如 stream1 表示 index.html 的请求，stream2 表示 foo.css 的请求。浏览器可以讲请求发送给服务器，而服务器也可以随意发送请求，因为每份数据都有对应的 ID，浏览器接收后，会筛选出相同 ID 的内容，将其拼接为完整的 HTTP 响应数据。具体实现见[HTTP/2 多路复用的实现](https://blog.poetries.top/browser-working-principle/guide/part6/lesson30.html#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E7%9A%84%E5%AE%9E%E7%8E%B0)
 
 **其他的性能优化：**
 
@@ -257,7 +247,7 @@ HTTP/2 使用**多路复用机制**（从不同套接字中收集数据块进行
 
 <!-- 先大概了解，后续再拿实践，相关生态实现也还没，需要开发支持 http2 的服务器，也要协商好浏览器的发送 -->
 <!-- 值得一提的是，vite 的实现 -->
-<!-- 如何查看 HTTP/2 -->
+<!-- 如何查看 HTTP/2，后续可以实现添加 demo，优化，先保证基本关。事后可以实战下。 -->
 
 HTTP/2 协议规范于 2015 年 5 月正式发布，我们可以看看淘宝网。
 
@@ -267,7 +257,9 @@ HTTP/2 协议规范于 2015 年 5 月正式发布，我们可以看看淘宝网�
 
 假若我们暂时不能升级到 HTTP/2，但我们还可以通过 pre-机制做些优化的。
 
-**prefetch**：对资源预提取，向浏览器指示即使页面中未检测到它也可以下载给定资源。资源下载优先级低，在浏览器空闲时下载但不进行解析。
+**prefetch**：对资源预提取，向浏览器指示即使页面中未检测到它也可以下载给定资源，然后缓存起来。资源下载优先级低，在浏览器空闲时下载但不进行解析。
+
+当 SPA 项目使用了路由分割动态加载的时候，我们从一个页面跳转到另一个页面的时候，浏览器会动态加载新页面所需要的 js 资源，然后执行渲染。
 
 ```html
 <link href="css/AnaDataEyeAnalysis.4be3a798.css" rel="prefetch" />
@@ -285,6 +277,10 @@ HTTP/2 协议规范于 2015 年 5 月正式发布，我们可以看看淘宝网�
 <link href="js/app.a748d987.js" rel="preload" as="script" />
 ```
 
+对比：
+- 当前页面肯定用到的资源用 `preload` （资源优先级 highest）
+- 下一个页面会用到的 `prefetch`（资源优先级 lowest）
+
 在 vue-cli3 生成的项目中，进行路由设置懒加载：
 
 ```js
@@ -301,6 +297,8 @@ export default {
 ```
 
 webpack 插件会自动处理，动态生成 preload 和 prefetch 的 link 标签插入到 html 中。
+
+
 
 <!-- 这两个值在 vue-cli 项目中就可以看到 -->
 <!-- [prefetch 和 preload 及 webpack 的相关处理](https://juejin.im/post/6844904142402502669#heading-3) -->
@@ -329,7 +327,7 @@ webpack 插件会自动处理，动态生成 preload 和 prefetch 的 link 标�
 
 ### 分布式
 
-除了把同一个系统部署到多台服务器上形成集群，还可以将一个系统拆分成多个业务单元，这就是**分布式**的概念。例如一个门户网站里面可能有登录、视频、图片等，每一个都可以拆分出来独立部署，而且每一个都可以弄成集群，视频服务集群，图片服务集群。
+除了把同一个系统部署到多台服务器上形成集群，还可以将一个系统拆分成多个业务单元，这就是**分布式**的概念。例如一个门户网站里面可能有登录、视频、图片等，每一个都可以拆分出来独立部署，而且每一个都可以弄成集群，视频服务集群，图片服务集群。分布式还可以是把主系统与子系统分离，比如微前端、微服务。
 
 简单的分布式处理可以是把静态资源与动态资源分离：
 - 动静分离是将网站静态资源（HTML、JavaScript、CSS、img 等文件）与后台应用分开部署。

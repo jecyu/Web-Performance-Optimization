@@ -1,0 +1,21 @@
+{
+  "name": "file-merge",
+  "version": "0.0.1",
+  "description": "using webpack to merge multiple file",
+  "main": "main.js",
+  "author": "Jecyu",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "serve": "webpack-dev-server  webpack.config.js"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
+}

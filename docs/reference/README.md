@@ -40,38 +40,66 @@
 
 ## 网络
 
+### 资源请求
+
 - [Loading Performance](https://developers.google.com/web/fundamentals/performance/get-started)
 - 在服务器架构中，集群、负载均衡、分布式有什么区别吗？ - baby mini 的回答 - 知乎
   https://www.zhihu.com/question/20695647/answer/219141748
 - [Fast load times](https://web.dev/fast/#optimize-for-network-quality)
 - [[译] 关于渐进式 Web 应用，你应该知道的一切](https://juejin.im/entry/6844903461645991943)
-- [Vue 项目骨架屏注入实践](https://juejin.im/post/6844903661726859272)
-- [认识 Skeleton Screen【屏幕加载骨架】](https://juejin.im/post/6844903505958813710)
 - [Beginner’s Guide: What is a Domain Name and How Do Domains Work?](https://www.wpbeginner.com/beginners-guide/beginners-guide-what-is-a-domain-name-and-how-do-domains-work/)
-- DNS解析的过程是什么，求详细的？ - wuxinliulei的回答 - 知乎
-https://www.zhihu.com/question/23042131/answer/66571369
-- [访问CSDN, Proxy negotiation时间过长问题的复现分析及解决](https://www.youyong.top/article/115943bcd03e1)
+- DNS 解析的过程是什么，求详细的？ - wuxinliulei 的回答 - 知乎
+  https://www.zhihu.com/question/23042131/answer/66571369
+- [访问 CSDN, Proxy negotiation 时间过长问题的复现分析及解决](https://www.youyong.top/article/115943bcd03e1)
 - [Resource Hints - What is Preload, Prefetch, and Preconnect?](https://www.keycdn.com/blog/resource-hints)
 - [Resource Hints](https://www.w3.org/TR/resource-hints/#example-1) W3C 规范
 - [Preload, Prefetch And Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)
-- [web性能优化(二)：针对TCP传输过程中的堵塞](https://juejin.im/post/6844904064522649614#heading-4)
+- [web 性能优化(二)：针对 TCP 传输过程中的堵塞](https://juejin.im/post/6844904064522649614#heading-4)
 - [“非主流”的纯前端性能优化](https://juejin.im/post/6875487459627827208#heading-5)
 - [浏览器中的网络](https://blog.poetries.top/browser-working-principle/guide/part6/lesson29.html#%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE-http-0-9)
 - [prefetch 和 preload 及 webpack 的相关处理](https://juejin.im/post/6844904142402502669#heading-3)
 - [Preload, Prefetch and Preconnect: Speed Up your Website with Resource Hints](https://blog.dareboost.com/en/2020/05/preload-prefetch-preconnect-resource-hints/)
-- [CDN原理及为自己的网站部署](https://www.jianshu.com/p/18e74c088133)
-- [Nginx+Tomcat集群环境搭建
-](https://www.jianshu.com/p/ba996d83f02a)
-- [大型网站分布式架构（七）—— Nginx整合Tomcat实现动静分离](https://blog.csdn.net/weixin_37490221/article/details/82109766)
+- [CDN 原理及为自己的网站部署](https://www.jianshu.com/p/18e74c088133)
+- [Nginx+Tomcat 集群环境搭建
+  ](https://www.jianshu.com/p/ba996d83f02a)
+- [大型网站分布式架构（七）—— Nginx 整合 Tomcat 实现动静分离](https://blog.csdn.net/weixin_37490221/article/details/82109766)
 - [KeepAlive，你优化了吗](https://51write.github.io/2014/04/09/keepalive/)
 - [HTTP keep-alive 二三事](https://lotabout.me/2019/Things-about-keepalive/)
-- [HTTP Keep-Alive模式](https://www.cnblogs.com/skynet/archive/2010/12/11/1903347.html)
+- [HTTP Keep-Alive 模式](https://www.cnblogs.com/skynet/archive/2010/12/11/1903347.html)
 
+### 资源下载
+
+- [资源合并与压缩](https://zhuanlan.zhihu.com/p/109334378)
+- [首屏加载速度优化](https://zhuanlan.zhihu.com/p/56121620)
+- [如何”有效“减小 js 包的体积](https://zhuanlan.zhihu.com/p/44095804)
+- [How to use Webpack Bundle Analyzer](https://www.youtube.com/watch?v=ltlxjq4YEKU) video
+- [探索 HTTP 传输中 gzip 压缩的秘密](https://segmentfault.com/a/1190000012800222)
+- [有没有简单的方法来查看 Chrome 中的压缩量？](https://www.it-swarm.asia/zh/gzip/%e6%9c%89%e6%b2%a1%e6%9c%89%e7%ae%80%e5%8d%95%e7%9a%84%e6%96%b9%e6%b3%95%e6%9d%a5%e6%9f%a5%e7%9c%8bchrome%e4%b8%ad%e7%9a%84%e5%8e%8b%e7%bc%a9%e9%87%8f%ef%bc%9f/957350015/)
+- [如何使用 GZIP 来优化你的网站](https://zhuanlan.zhihu.com/p/64973956)
+- [你知道 Chrome Network ，Size 和 Time 为什么有两行参数吗？](https://juejin.im/post/5c78aa2ae51d4575e963dc62)
+- [HTTP 压缩，浏览器是如何解析的](http://caibaojian.com/http-gzip.html)
+- [vue cli 加载速度优化](https://www.jianshu.com/p/0d58dd08f5d1)
+- [如何使用 GZIP 来优化你的网站](https://zhuanlan.zhihu.com/p/64973956)
+- [探索 HTTP 传输中 gzip 压缩的秘密](https://segmentfault.com/a/1190000012800222)
+- [你真的了解 gzip 吗？](https://juejin.im/entry/58709b9a128fe1006b29cd5d)
+- [gZip compression with Node Express.js server explained. Enable Text Compression.
+  ](https://www.youtube.com/watch?v=vt3jGhy56qI) 视频
+- [Tomcat 启用 GZIP 压缩，提升 web 性能](https://www.cnblogs.com/DDgougou/p/8675504.html)
+- [http 数据协商](https://zhuanlan.zhihu.com/p/45140046)
+- [简单聊聊 GZIP 的压缩原理与日常应用](https://juejin.im/post/6844903661575880717#heading-2)
+
+### 资源渲染
+
+- [浅谈script标签的defer和async](https://segmentfault.com/a/1190000006778717)
+- [SSR 、CSR、预渲染、同构等首屏优化技术要如何选择？](https://time.geekbang.org/dailylesson/detail/100028455)
+- [C端服务端渲染（SSR）和性能优化实践](https://time.geekbang.org/dailylesson/detail/100032811)
+- [Vue 项目骨架屏注入实践](https://juejin.im/post/6844903661726859272)
+- [认识 Skeleton Screen【屏幕加载骨架】](https://juejin.im/post/6844903505958813710)
+  
 ### 图片
 
 - [三种图表技术 SVG、Canvas、WebGL 3D 比较](https://cloud.tencent.com/developer/article/1506088)
 - [SVG 与 HTML5 的 canvas 各有什么优点，哪个更有前途？](https://www.zhihu.com/question/19690014)
-
 - [渲染引擎：Canvas or SVG](https://g2.antv.vision/zh/docs/manual/tutorial/renderer)
 - [web 地图引擎的技术演进](https://mp.weixin.qq.com/s/U8wGi85BavBxFa8DcxAurw) 百度地图引擎的技术演讲，从 SVG 到 Canvas、WebGL。
 - [2D Canvas 的渲染优化](https://zhuanlan.zhihu.com/p/110495143) Canvas 渲染优化，从思路上讲解异步渲染、拾取加速和局部渲染三个方面。
@@ -82,6 +110,9 @@ https://www.zhihu.com/question/23042131/answer/66571369
 - [图片处理不用愁，给你十个小帮手](https://juejin.im/post/5ef0dfe26fb9a058753589ac?utm_source=gold_browser_extension#heading-20)
 - [Tinypng](https://tinypng.com/) 图片无损压缩网站
 - [Docsmall](https://docsmall.com/) 不仅仅能压缩图片的压缩网站，还支持 GIF、PDF 的压缩
+- [WEB 前端无损数据压缩方案等运用](https://juejin.im/post/6858803658042130440)
+- [Webpack 之 treeShaking](https://mp.weixin.qq.com/s/Ue0kNOMQS7mH-2-9BhYk8Q)
+- [手把手实现图片懒加载+Vue封装](https://github.com/amandakelake/blog/issues/46)
 
 ## 缓存
 
@@ -112,6 +143,8 @@ https://www.zhihu.com/question/23042131/answer/66571369
 - [[译]尤雨溪：Vue3 的设计过程](https://juejin.im/post/5ecf58b9f265da76e97d39da?utm_source=gold_browser_extension#heading-9) vue3 中如何克服虚拟 dom 的性能瓶颈
 - [对 virtual-dom 的一些理解](https://zhuanlan.zhihu.com/p/25630842)
 - [2020 ArcGIS 空间信息技术开发者大会](http://developer.geoscene.cn/)
+- [Comparing jspdf vs. pdfkit vs. pdfmake
+  ](https://npmcompare.com/compare/jspdf,pdfkit,pdfmake)
 
 ### 大数据
 
@@ -147,8 +180,6 @@ https://www.zhihu.com/question/23042131/answer/66571369
 - [JavaScript 是如何工作的: CSS 和 JS 动画底层原理及如何优化它们的性能](https://segmentfault.com/a/1190000017927665)
 - [前端性能优化指南[6]--Web 性能标准](https://juejin.im/post/6844904152317820935#heading-0)
 - [前端性能优化指南[7]--Web 性能指标](https://juejin.im/post/6844904153869713416#heading-10)
-- 掘金小册：前端性能优化原理与实践
-- 《JavaScript 高级程序设计》
 - [8 个提高 JS 性能的方法](https://mp.weixin.qq.com/s/wG08-mhjqgLToOKvQNvOgg)
 - [如何快速提升 JSON.stringify() 的性能？](https://mp.weixin.qq.com/s/zg_AMRqDO5w-M1RePlDZRQ)——保存表单条件就是用的 JSON.stringify()，另外后端抱怨存的东西太大了。还有在使用 `get` 请求接口时，参数是对象时，也需要做`stringify()`的处理。
 - [如何实现高性能的在线 PDF 预览](https://juejin.im/post/5ed3974ae51d45784d7ca7a5?utm_source=gold_browser_extension)
@@ -170,3 +201,5 @@ https://www.zhihu.com/question/23042131/answer/66571369
 - 《JavaScript 高级程序设计 3》
 - 《性能优化权威指南》
 - 《高性能 JavaScript》
+- 掘金小册：前端性能优化原理与实践
+- 《深入浅出 Webpack》
