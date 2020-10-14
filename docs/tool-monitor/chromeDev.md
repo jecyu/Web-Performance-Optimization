@@ -1,9 +1,5 @@
 # 唯快不破，Chrome DevTools 性能优化手把手教学
 
-<!-- ![](../.vuepress/public/assets/2020-08-31-09-19-07-http-process.png) -->
-
-performance 和 network、memory 要体现出跟官方文档不一样的地方，实战为主。
-
 ## 前言
 
 什么因素会影响 Web 应用的性能，如何使用即时监测工具 ChromeDevTools 来分析呢？
@@ -29,11 +25,6 @@ Chrome 的开发者工具各有自己的侧重点，如 Network 工具的瀑布�
 
 本文使用的 chrome 版本为：85 版本
 
-<!-- 写作目的：理清 network 和 performance 尽可能清楚的一切。 -->
-
-<!-- 工具篇着重是 performance 和 network 其他的，先放下后续探索，明天先完成 performance 的-->
-<!-- 把 network、performance、memory 三者最前 -->
-
 **文章大纲**
 
 - 分析面板介绍
@@ -44,8 +35,6 @@ Chrome 的开发者工具各有自己的侧重点，如 Network 工具的瀑布�
   - Performance
   - Memory
 - 实时监控
-
-<!-- Network 首屏细节？ -->
 
 ## 分析面板介绍
 
@@ -157,7 +146,7 @@ Lighthouse 主要从 性能（Performance）、无障碍使用（Accessibility�
 - `Speed Index`：速度指标是一个页面加载性能指标，向你展示明显填充页面内容的速度，此指标的分数越低越好。
 - `Larget Contentful Paint`：表示`可视区“内容”最大的可见元素开始出现在屏幕上`的时间点。
 - `Time to Interactive`：可互动时间，页面中的大多数网络资源完成加载并且 CPU 在很长一段时间都很空闲所需的时间。此时可以预期 CPU 非常空闲，可以及时的处理用户的交互操作。
-- `Total Blocking Time`：
+- `Total Blocking Time`：总的阻塞时间
 - `Cumulative Layout Shift`：衡量视觉稳定性，比如页面内容的意外移动。
 
 可以点击蓝色切换按钮，查看详细的信息，也可以看看这篇文章 [解读 Web 性能体验和质量指标](./indicator.md)
@@ -194,8 +183,6 @@ Lighthouse 主要从 性能（Performance）、无障碍使用（Accessibility�
 可以看每个条目的 showMore，从优秀的网站学习技巧，然后迁移到自己的项目上来。
 
 ## Network（重点）
-
-<!-- performance 和 network、memory 要体现出跟官方文档不一样的地方，实战为主。而不是文档的照搬，是否搬一部分还是怎么样呢？ -->
 
 接下来我们看看你 Network 网络面板的具体细节，Network 用于了解请求和下载的资源文件并优化网页`加载`性能。
 
@@ -332,9 +319,9 @@ Filters（过滤器）：使用这些选项可以控制在请求列表中显示�
 
 也可以将鼠标悬停在资源的 Timeline（时间轴）图表上，查看此相同的信息。
 
-<!-- 所有网络请求都被视为资源。当它们通过网络检索时，分为不同的生命周期。除了可视化面板外，我们也可以通过 Resoure Timing API 查看关于每个单独资源接收时间的详细信息。Timing API 这块可用于迷你监控平台
+所有网络请求都被视为资源。当它们通过网络检索时，分为不同的生命周期。除了可视化面板外，我们也可以通过 Resoure Timing API 查看关于每个单独资源接收时间的详细信息。
 
-![performance-roadmap](../.vuepress/public/assets/performance-roadmap-1.png) -->
+![performance-roadmap](../.vuepress/public/assets/performance-roadmap-1.png)
 
 更多的 Network 面板操作细节，建议看 [Network Analysis Reference](https://developers.google.com/web/tools/chrome-devtools/network/reference#top_of_page)。
 
@@ -369,13 +356,10 @@ Filters（过滤器）：使用这些选项可以控制在请求列表中显示�
 
 #### 加载缓慢
 
-如果你看到 `Content Download`（内容下载）阶段花费了很多时间，提高服务响应速度、并行下载等优化措施帮助不大。主要的解决方案是<u>发送更少的字节</u>。（比如，下载一张高质量的大图，可能是几兆，这个时候你需要优化图片）、对资源进行压缩。
-
-<!-- 这里可以联系到 webpack 工具的打包优化 -->
+如果你看到 `Content Download`（内容下载）阶段花费了很多时间，提高服务响应速度、并行下载等优化措施帮助不大。主要的解决方案是<u>发送更少的字节</u>。（比如，下载一张高质量的大图，可能是几兆，这个时候你就需要优化图片）、对资源进行压缩。
 
 ### 实战例子
 
-<!-- 地图服务 -->
 
 #### 清远首屏加载缓慢
 
@@ -420,19 +404,6 @@ Filters（过滤器）：使用这些选项可以控制在请求列表中显示�
 知道这个细节后，我们可以得出：
 
 - 把无关紧要的 js 不要放在负责渲染的 js 前面，比如首屏渲染。
-
-<!-- 关于这部分描述：可以进一步看看《高性能 JavaScript 编程》有这部分的描述-->
-
-<!-- 关于 prefetch\preload 的处理-->
-
-<!-- ### 打印底图（网络阻塞、地图出错导致打印问题）
-
-这块后面再补充，再把 performance 过了。
-
-- 阻塞细节
-- 阻塞问题 -->
-
-<!-- 关于懒加载、动态加载、打包压缩等后续在网络篇进一步说 -->
 
 ## Performance（重点）
 
@@ -1418,9 +1389,9 @@ Performance 时间轴，使用该工具可以在你意识到页面开始变慢�
 
 其他的很多对象在你看来就像是在你代码的生存期内产生的，这些对象可能包含了事件监听器以及特定对象，就像是下面这样：
 
-### 内存泄漏原因及避免总结
-
-> 参考 https://github.com/zhansingsong/js-leakage-patterns
+<!-- ### 内存泄漏原因及避免总结 -->
+<!-- 
+> 参考 https://github.com/zhansingsong/js-leakage-patterns -->
 
 #### 使用闭包要及时注意，有 DOM 元素的引用要及时清理。
 
@@ -2024,7 +1995,7 @@ function animate(callback) {
 
 即使浏览器大于 60 FPS，也可以计算为 16.66ms 去调用，保证动画的执行时间是一致的，低于 60 的话可以以一个文档的数字来处理避免波动。
 
-<!-- 另外也可以将 requestAnimationFrame 帧率降低： -->
+另外也可以将 requestAnimationFrame 帧率降低：
 
 ```js
 
