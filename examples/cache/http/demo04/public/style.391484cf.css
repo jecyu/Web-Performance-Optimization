@@ -1,0 +1,18 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    /* background: linear-gradient(black, white); */
+  }
+  
+  #step2-result {
+    padding-left: 0;
+  }
+  
+  #step2-result > li {
+    list-style: none;
+    margin-bottom: 2em;
+  }
+  
+  #step2-result > li > img {
+    display: block;
+    max-width: 144px;
+  }

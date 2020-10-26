@@ -116,14 +116,39 @@
 
 ## 缓存
 
+### 浏览器缓存
+
+#### HTTP 缓存
+
+- [Chrome HTTP 缓存](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn)
+- [MDN HTTP 缓存](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ)
+- [离线指南](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/?hl=zh-cn#%E6%B7%B1%E5%85%A5%E9%98%85%E8%AF%BB)
+- [Caching Headers - Supercharged](https://www.youtube.com/watch?v=aN8wMQVaNvs)
 - [How to Clear Your DNS Cache (Mac, Windows, Chrome)](https://www.wpbeginner.com/wp-tutorials/how-to-clear-your-dns-cache-mac-windows-chrome/#:~:text=Clear%20DNS%20Cache%20in%20Chrome,-Google%20Chrome%20also&text=First%2C%20you%20need%20to%20enter,press%20enter%20on%20your%20keyboard.&text=This%20will%20load%20Chrome's%20net,clear%20up%20its%20DNS%20cache.)
-- [不要用 JWT 替代 session 管理（上）：全面了解 Token,JWT,OAuth,SAML,SSO](https://zhuanlan.zhihu.com/p/38942172?utm_source=wechat_session&utm_medium=social&utm_oi=710800537397764096)
-- [Web 缓存机制系列](http://www.alloyteam.com/2012/03/web-cache-1-web-cache-overview/)
+- [大公司里怎样开发和部署前端代码？](https://www.zhihu.com/question/20790576)
+- [Configuring HTTP caching behavior](https://web.dev/codelab-http-cache/)
+- [用node实践HTTP缓存控制](https://github.com/renjie1996/Maple-FrontEnd-Blog/issues/2)
+- [第 35 题：请求时浏览器缓存 from memory cache 和 from disk cache 的依据是什么，哪些数据什么时候存放在 Memory Cache 和 Disk Cache中？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/53)
+- [一文读懂前端缓存](https://zhuanlan.zhihu.com/p/44789005)
+- [设计一个无懈可击的浏览器缓存方案：关于思路，细节，ServiceWorker，以及HTTP/2](https://zhuanlan.zhihu.com/p/28113197)
+- [f5到底刷新了点什么，你知道吗](https://juejin.im/post/6844903725543194631#heading-8)
+- [理清HTTP缓存的一些概念](http://caibaojian.com/http-cache-code.html)
+- [vue项目部署的最佳实践](https://juejin.im/post/6844904149633466376)
+- [浏览器缓存知识小结及应用](https://www.cnblogs.com/lyzg/p/5125934.html#_label2)
 - [HTTP 缓存机制一二三](https://zhuanlan.zhihu.com/p/29750583)
+- [Web 缓存机制系列](http://www.alloyteam.com/2012/03/web-cache-1-web-cache-overview/)
+
+#### 本地存储
+
+- [网页存储概览](https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/?hl=zh-cn#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B)
 - [很全很全的前端本地存储讲解](https://segmentfault.com/a/1190000012578794#item-6)
 - [浏览器里的本地数据库：IndexedDB](https://juejin.im/post/5da2d9cae51d4577e86d0db2)
 - [indexedDB 使用](https://juejin.im/post/5dbcdd7cf265da4d407125c9)
 - [使用 IndexedDB](https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+
+### 应用层缓存
+
+- [不要用 JWT 替代 session 管理（上）：全面了解 Token,JWT,OAuth,SAML,SSO](https://zhuanlan.zhihu.com/p/38942172?utm_source=wechat_session&utm_medium=social&utm_oi=710800537397764096)
 
 ## 渲染
 

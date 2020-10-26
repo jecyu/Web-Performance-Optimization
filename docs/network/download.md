@@ -818,7 +818,7 @@ svg-sprite-loader 是直接 svg 写入 html 中。 -->
 
 通过 webpack loader 或 plugin 构建时压缩挺好的，不过会可能会拖慢打包时间，特别是自动化部署时，线上安装压缩包的依赖慢（image-webpack-loader 3.56MB）。
 
-另外对于 vuecli 项目中，只有在 src 里的文件才会经过打包处理，换言之，在 public 里的图片是不会被打包压缩的。
+另外对于 vuecli 项目中，只有在 src 里的被引入的文件才会经过打包处理，换言之，直接通过 ajax 请求的 public 里的图片是不会被打包压缩的。
 
 ![](../.vuepress/public/assets/2020-10-12-23-02-51.png)
 

@@ -88,7 +88,7 @@ module.exports = {
         title: "缓存篇",
         sidebarDepth: 4,
         collapsable: false,
-        children: ["cache/", "cache/browser"],
+        children: ["cache/", "cache/browser-cache", "cache/browser-localStorage", "cache/webapp"],
       },
       {
         title: "渲染篇",
