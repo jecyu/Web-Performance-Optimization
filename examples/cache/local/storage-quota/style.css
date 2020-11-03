@@ -1,0 +1,25 @@
+/* CSS files add styling rules to your content */
+
+body {
+    font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+    margin: 1em;
+  }
+  
+  h1 {
+    color: #3949AB;
+    margin: 0;
+  }
+  
+  button[disabled] {
+    opacity: 0.5;
+  }
+  
+  button {
+    margin-bottom: 1em;
+    padding: 1em;
+  }
+  
+  button.toggle-on {
+    background-color: #3949AB;
+    color: white;
+  }

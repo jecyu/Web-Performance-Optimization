@@ -140,6 +140,8 @@
 
 #### 本地存储
 
+- [Storage for the web](https://web.dev/storage-for-the-web/)
+- [https://storage-quota.glitch.me/](https://storage-quota.glitch.me/)
 - [网页存储概览](https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/?hl=zh-cn#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B)
 - [很全很全的前端本地存储讲解](https://segmentfault.com/a/1190000012578794#item-6)
 - [浏览器里的本地数据库：IndexedDB](https://juejin.im/post/5da2d9cae51d4577e86d0db2)

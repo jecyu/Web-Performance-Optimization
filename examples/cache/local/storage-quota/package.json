@@ -1,0 +1,6 @@
+{
+    "scripts": {
+      "start": "ws --port 3000 --log.format combined --directory . --blacklist '/.env' '/.data' '/.data/(.*)' '/.git' '/.git/(.*)'"
+    }
+  }
+  

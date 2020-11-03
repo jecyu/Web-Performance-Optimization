@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Storage & Quota Test</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <script>
+      if (window.location.protocol === "http:") {
+        window.location.href = "https:" + window.location.href.substring(5);
+      }
+    </script>
+
+    <script type="module">
+      import {
+        get,
+        set,
+        clear,
+        keys,
+        del,
+      } from "https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval.mjs";
+      window.idbKV = {
+        get: get,
+        set: set,
+        clear: clear,
+        keys: keys,
+        del: del,
+      };
+    </script>
+    <meta name="theme-color" content="#3f51b5" />
+    <link rel="manifest" href="/manifest.json" />
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <h1>Storage &amp; Quota Test</h1>
+
+    <p>
+      <b>Quota:</b>
+      <span id="quota">not supported</span><br />
+      <b>Used:</b>
+      <span id="used">not supported</span><br />
+      <b>Remaining:</b>
+      <span id="remaining">not supported</span>
+    </p>
+    <p>
+      <b>Persistent:</b>
+      <code id="persistResult">not supported</code>
+    </p>
+    <p>
+      <b>Items Stored:</b><br />
+      <code id="countTotal">calculating...</code> (total) <br />
+      <code id="countIDB">calculating...</code> (IndexedDB) <br />
+      <code id="countCache">calculating...</code> (Cache API) <br />
+      <code id="countLocalStorage">calculating...</code> (LocalStorage) <br />
+      <code id="countSessionStorage">calculating...</code> (SessionStorage)
+    </p>
+
+    <button id="buttAddIDB" type="button">
+      Add 1MB to IndexedDB
+    </button>
+
+    <button id="buttFillIDB" type="button">
+      Fill IndexedDB (<span id="fillIDBStatus">off</span>)
+    </button>
+
+    <br />
+
+    <button id="buttAddCaches" type="button">
+      Add 1MB to Cache Storage
+    </button>
+
+    <button id="buttFillCaches" type="button">
+      Fill Cache Storage (<span id="fillCachesStatus">off</span>)
+    </button>
+
+    <br />
+
+    <button id="buttAddLocal" type="button">
+      Add 1MB to LocalStorage
+    </button>
+
+    <button id="buttAddSession" type="button">
+      Add 1MB to SessionStorage
+    </button>
+
+    <br />
+
+    <button id="buttPersist" type="button" disabled>
+      Request Persistent Storage</button
+    ><br />
+
+    <button id="buttClear" type="button">
+      Clear all storage</button
+    ><br />
+
+    <button id="buttInstall" disabled type="button">
+      Install
+    </button>
+
+    <p>
+      <a href="https://glitch.com/edit/#!/storage-quota?path=script.js"
+        >See source</a
+      >
+    </p>
+  </body>
+</html>

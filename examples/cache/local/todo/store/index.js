@@ -1,0 +1,1 @@
+// 可以使用 indexDB、localStorage、sessionStorage 来进行存储技术

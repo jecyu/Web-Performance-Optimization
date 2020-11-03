@@ -16,12 +16,11 @@ app.use(
       //设置 Cookie 过期时间
       // res.setHeader("Set-Cookie", ["username=Jecyu;max-age=0", "job=web development"]);
       // res.setHeader("Set-Cookie", ["username=Jecyu;max-age=5", "job=web development"]);
-      res.setHeader("Set-Cookie", [
-        // 一定是同域（当前）之间的访问，不能把 domain 的值设置成非主域的域名。
-        "username=Jecyu;domain=baidu.com;path=/",
-        "job=web development;httpOnly=true;",
-        "age=26;",
-      ]);
+      // res.setHeader("Set-Cookie", [
+      //   // 一定是同域（当前）之间的访问，不能把 domain 的值设置成非主域的域名。
+      //   "username=Jecyu;domain=baidu.com;path=/",
+      //   "job=web development;httpOnly=true;",
+      // ]);
     },
   })
 );
