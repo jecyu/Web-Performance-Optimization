@@ -42,8 +42,9 @@ const app = http
             const expires = new Date();
             expires.setTime(expires.getTime() + 10000); // 10秒
             response.setHeader("Expires", expires.toUTCString());
+
             // Cache-Control max-age 缓存
-            // response.setHeader("Cache-Control", "max-age=" + Expires.maxAge);
+            response.setHeader("Cache-Control", "max-age=" + Expires.maxAge);
 
             // 正常写文件
             response.writeHead(200, {

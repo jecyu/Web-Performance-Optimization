@@ -1,0 +1,192 @@
+{
+    "root": {
+        "data": {
+            "id": "c74amowwi940",
+            "created": 1605489784357,
+            "text": "缓存篇"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c74anvej7lc0",
+                    "created": 1605489876848,
+                    "text": "http 缓存"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c74c92n0p280",
+                            "created": 1605494359356,
+                            "text": "缓存策略",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c74aoiy8yk80",
+                                    "created": 1605489928106,
+                                    "text": "强缓存"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c74c7sqg8js0",
+                                            "created": 1605494259431,
+                                            "text": "Cache-Control/Expires"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c74aokex7rk0",
+                                    "created": 1605489931291,
+                                    "text": "协商缓存"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c74c81n2mqw0",
+                                            "created": 1605494278818,
+                                            "text": "Last-Modified/If-Modified-Since"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c74c8d8e1ts0",
+                                            "created": 1605494304052,
+                                            "text": "Etag/If-Modified-Since"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c74c8w00zig0",
+                            "created": 1605494344905,
+                            "text": "如何废弃和更新缓存的资源"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c74anxfsbts0",
+                    "created": 1605489881277,
+                    "text": "本地存储技术",
+                    "layout_right_offset": {
+                        "x": 1,
+                        "y": 17
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c74aopo2u8w0",
+                            "created": 1605489942728,
+                            "text": "Cookie"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c74aorbt1q80",
+                            "created": 1605489946340,
+                            "text": "WebStorage"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c74aot8e2ts0",
+                            "created": 1605489950487,
+                            "text": "CacheStorage"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c74aoxgor8g0",
+                            "created": 1605489959696,
+                            "text": "IndexedDB"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c74ap37f4800",
+                    "created": 1605489972196,
+                    "text": "Web 运行时缓存",
+                    "layout_right_offset": {
+                        "x": -11,
+                        "y": 9
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c74asmke6zs0",
+                            "created": 1605490249432,
+                            "text": "缓存技术",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c74arin0n5s0",
+                                    "created": 1605490162519,
+                                    "text": "高阶函数"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c74arev69wg0",
+                                    "created": 1605490154305,
+                                    "text": "闭包"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c74asr3ozko0",
+                            "created": 1605490259306,
+                            "text": "应用"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c74assibqq00",
+                                    "created": 1605490262368,
+                                    "text": "单例"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c74asvtfuxs0",
+                                    "created": 1605490269570,
+                                    "text": "前端 api 响应数据"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "classic-compact",
+    "version": "1.4.43"
+}

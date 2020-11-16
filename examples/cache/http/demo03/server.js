@@ -15,9 +15,10 @@ app.use(
     lastModified: false,
     cacheControl: false, 
     setHeaders: (res, path) => {
-      // res.setHeader("Cache-Control", "no-cache");
-      // res.setHeader("Cache-Control", "no-store");
-      // res.setHeader("Cache-Control", "no-cahce, max-age=60");
+      // res.setHeader("Cache-Control", "no-cahce, max-age=60"); // 可以关闭协商缓存
+      // res.setHeader("Cache-Control", "no-store, max-age=60");
+
+      res.setHeader("Cache-Control", "no-cache"); // 开启这个，配置开启协商缓存
 
       // res.setHeader("Cache-Control", "public, max-age=60");
       // const hashRegExp = new RegExp("\\.[0-9a-f]{8}\\.");

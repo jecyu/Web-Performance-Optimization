@@ -1,0 +1,108 @@
+<!--
+ * @Author: Jecyu
+ * @Date: 2020-11-12 08:36:45
+ * @LastEditors: Jecyu
+ * @LastEditTime: 2020-11-12 20:19:23
+ * @FilePath: /examples/cache/local/indexdb/base/demo02/index.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>indexedDB</title>
+  </head>
+  <body>
+    <script>
+      if (window.indexedDB) {
+        console.log("IndexedDB is supported");
+        // 创建数据库
+        const request = self.indexedDB.open("EXAMPLE_DB", 1);
+        // let db;
+
+        // Once onupgradeneeded event handler exits successfully, a success event is triggered. In the success event handler, we are going to add some products to the products store.
+        request.onsuccess = function(event) {
+          console.log("[onsuccess]", request.result);
+          // some sample products data
+          const products = [
+            { id: 1, name: "Red Men T-Shirt", price: "$3.99" },
+            { id: 2, name: "Pink Women Shorts", price: "$3.99" },
+            { id: 3, name: "Nike white Shoes", price: "$300" },
+          ];
+
+          // get database from event
+          const db = event.target.result; // === request.result
+
+          // create transaction from database
+          const transaction = db.transaction("products", "readwrite");
+
+          // add success event handleer for transaction
+          // you should also add onerror, onabort event handlers
+          transaction.onsuccess = function(event) {
+            console.log("[Transaction] ALL DONE!");
+          };
+
+          // get store from transaction
+          // returns IDBObjectStore instance
+          const productsStore = transaction.objectStore("products");
+
+          // put products data in productsStore
+          products.forEach(function(product) {
+            const db_op_req = productsStore.add(product);
+            db_op_req.onsuccess = function(event) {
+              console.log(event.target.result == product.id); // true
+            };
+            db_op_req.onerror = function(event) {
+              // handle error
+            };
+          });
+
+          // count number of objects in store
+          productsStore.count().onsuccess = function(event) {
+            console.log(
+              "[Transaction - COUNT] number of products in store",
+              event.target.result
+            );
+          };
+
+          // get product with id 1
+          productsStore.get(1).onsuccess = function(event) {
+            console.log(
+              "[Transaction -GET] product with id 1",
+              event.target.result
+            );
+          };
+
+          // update product with id 1
+          products[0].name = "Blue Men T-shirt";
+          productsStore.put(products[0]).onsuccess = function(event) {
+            console.log(
+              "[Transaction - PUT product with id 1",
+              event.target.result
+            );
+          };
+
+          // delete product with id 2
+          productsStore.delete(2).onsuccess = function(event) {
+            console.log("[Transaction - DELETE] deleted with id 2");
+          };
+        };
+
+        request.onerror = function(event) {
+          console.log("[onerror]", request.error);
+        };
+
+        // onupgradeneeded event is triggered when we are trying to create a new database or trying to upgrade the database with a new version. This is a great place to create the object store.
+        request.onupgradeneeded = function(event) {
+          // create object store from db or event.target.result
+          const db = event.target.result;
+          const store = db.createObjectStore("products", { keyPath: "id" });
+
+          // create unique index on keyPath === 'id'
+          store.createIndex("products_id_unique", "id", { unique: true });
+        };
+      }
+    </script>
+  </body>
+</html>

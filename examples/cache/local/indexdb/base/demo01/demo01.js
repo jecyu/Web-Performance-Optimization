@@ -2,7 +2,7 @@
  * @Description:
  * @Author: Jecyu
  * @Date: 2020-06-18 16:15:34
- * @LastEditTime: 2020-06-18 17:41:29
+ * @LastEditTime: 2020-11-03 14:36:28
  * @LastEditors: Jecyu
  */
 
@@ -26,7 +26,7 @@ DBRequestLink.onsuccess = function(event) {
 DBRequestLink.onupgradeneeded = function(event) {
   const db = event.target.result;
   let objectStore;
-  // 创建一个数据库存储对象，并指定主键
+  // 创建一个数据库存储对象，并指定主键  （创建表）
   // if (!db.objectStoreNames.contains("person")) {
     objectStore = db.createObjectStore("person", {
       keyPath: "id",
@@ -42,6 +42,7 @@ DBRequestLink.onupgradeneeded = function(event) {
   objectStore.createIndex("id", "id", {
     unique: true,
   });
+  // 创建字段
   objectStore.createIndex("name", "name");
   objectStore.createIndex("age", "age");
   objectStore.createIndex("sex", "sex");

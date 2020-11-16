@@ -147,9 +147,16 @@
 - [浏览器里的本地数据库：IndexedDB](https://juejin.im/post/5da2d9cae51d4577e86d0db2)
 - [indexedDB 使用](https://juejin.im/post/5dbcdd7cf265da4d407125c9)
 - [使用 IndexedDB](https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [使用localStorage必须了解的点](https://imweb.io/topic/5590a443fbb23aae3d5e450a)
+- [How to use IndexedDB to build Progressive Web Apps
+](https://medium.com/jspoint/indexeddb-your-second-step-towards-progressive-web-apps-pwa-dcbcd6cc2076)
+- [Service Workers! Your first step towards Progressive Web Apps (PWA)](https://medium.com/jspoint/service-workers-your-first-step-towards-progressive-web-apps-pwa-e4e11d1a2e85#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ5NDZiMTM3NzM3Yjk3MzczOGU1Mjg2YzIwOGI2NmU3YTM5ZWU3YzEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2MDUwMTk4MDUsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwNjI2MDM3MDYzNjE0NDQyNDAxMSIsImVtYWlsIjoiamVjeXUubGluQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJuYW1lIjoiSmFjb2IgTGluIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdpT19hY2xWcUhfVUwySG9YMHplV3J1d3k1ZU4zRnhPRjd5dmdoaD1zOTYtYyIsImdpdmVuX25hbWUiOiJKYWNvYiIsImZhbWlseV9uYW1lIjoiTGluIiwiaWF0IjoxNjA1MDIwMTA1LCJleHAiOjE2MDUwMjM3MDUsImp0aSI6IjFhMzczNTMxY2E0YzRiYzFkZGU3MzA5ODEwZmM0OWNjMzNlN2EzOTIifQ.WpZ5Noz4DK1Mu79SaCwWPKZlhgH6KrBwDQDplxx5wYlefPj-wq8qJfnJI0xQcmhKlHxT7pl4O7CERArVQ93CQved1czkrRyj_FY9RkqFQfNMWs_UYtGQyICNm4JuALKF14gvyzITmIHuwQSZSE0QlloZ6HoFr7T1jwmo9jPMWwfhnyU3Mm_ZF-iGCbUH7VJ73yrredqj93UU7QogAxn7vn5c_2zrnXT75YBF65mtc7Cia9djMomwMgPwCTpDBYxl-tszbyjyjrZuxtWKTsOfvRimVdpNkTMGXNxsQ05eXAN1GZfJ8CMM_Ka0XYazQw9Y4S2-1v6VWV-5MvSHyFtNGQ)
+- [pwa 实战](https://lavas-project.github.io/pwa-book/chapter03.html)
 
 ### 应用层缓存
 
+- [前端 api 请求缓存方案](https://mp.weixin.qq.com/s/dE1xgSKpwmepBcFx9a5iCw)
+- [《精读函数缓存》](https://mp.weixin.qq.com/s/bvep2BfQGGaqKkfd5f3LKg)
 - [不要用 JWT 替代 session 管理（上）：全面了解 Token,JWT,OAuth,SAML,SSO](https://zhuanlan.zhihu.com/p/38942172?utm_source=wechat_session&utm_medium=social&utm_oi=710800537397764096)
 
 ## 渲染
