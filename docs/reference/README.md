@@ -126,6 +126,7 @@
 - [Caching Headers - Supercharged](https://www.youtube.com/watch?v=aN8wMQVaNvs)
 - [How to Clear Your DNS Cache (Mac, Windows, Chrome)](https://www.wpbeginner.com/wp-tutorials/how-to-clear-your-dns-cache-mac-windows-chrome/#:~:text=Clear%20DNS%20Cache%20in%20Chrome,-Google%20Chrome%20also&text=First%2C%20you%20need%20to%20enter,press%20enter%20on%20your%20keyboard.&text=This%20will%20load%20Chrome's%20net,clear%20up%20its%20DNS%20cache.)
 - [大公司里怎样开发和部署前端代码？](https://www.zhihu.com/question/20790576)
+- [什么是蓝绿部署、滚动发布和灰度发布？](https://zhuanlan.zhihu.com/p/42671353)
 - [Configuring HTTP caching behavior](https://web.dev/codelab-http-cache/)
 - [用node实践HTTP缓存控制](https://github.com/renjie1996/Maple-FrontEnd-Blog/issues/2)
 - [第 35 题：请求时浏览器缓存 from memory cache 和 from disk cache 的依据是什么，哪些数据什么时候存放在 Memory Cache 和 Disk Cache中？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/53)

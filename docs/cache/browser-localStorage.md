@@ -801,7 +801,7 @@ localStorage 本质上是对字符串的读取，如果存储内容多的话会�
 
 ## Cache API
 
-用外行术语来说，**Cache 是请求-响应键/值对对象的容器**。
+**Cache 是请求-响应键/值对对象的容器**。
 
 缓存涉及对象的离线存储，这些对象是“请求”和“响应”的键值对。Cache 接口为这些被缓存的对象提供了一种存储机制。「CacheStorage」 接口表示 Cache 对象的存储，可以存储资源以供离线使用，以及生成对请求的自定义响应。
 
@@ -923,11 +923,13 @@ self.addEventListener("fetch", function(event) {
 
 在上面的 sw.js Service Worker 文件中，我们创建了 cacheName 变量来存储 Cache 对象的唯一名称。 在 filesToCache 数组中，我们存储需要缓存的文件的路径。 在 Service Worker 的 install 事件处理程序内部，我们使用具有 Promise 的 event.waitUntil 方法阻止安装。
 
+完整测试例子演示：pwa 例子。
 #### 内联响应
 
 另外，你还可以使用 Response 构造函数来缓存内联响应。 这样，您可以最大程度地减少网络负载，但会增加 Service Worker 文件的大小。
 
 ```js
+// 缓存页面，503/404
 Response("<h1>Service Unavailable</h1>", {
   status: 503,
   statusText: "Service Unavailable",
@@ -1077,6 +1079,7 @@ IndexedDB 和 CacheAPI 都适合做 PWA 应用，提升用户体验。对于 PC 
 - [使用IndexedDB管理3D WebGL资产](https://blog.csdn.net/dingshi7798/article/details/105867570) 对于 **3D WebGL** 的开发者来说，加载大量的 hdr、glb、gltf 等文件往往是很令人头疼的。而IndexedDB 不仅可以储存字符串，还可以储存二进制数据（ArrayBuffer 对象和 Blob 对象），所以我们可以把图片或者 3D 模型文件转化成 Blob 格式的文件，存在 IndexedDB 中，就可以解决免去二次加载时网络请求的时间。
 - [W3C Web 游戏技术研讨会](https://www.w3.org/2018/12/games-workshop/report.zh.html)
 
+<!-- 缓存首屏页面，下次就不用重新跑？ -->
 <!-- IndexDB + Web Worker/Service Worker -->
 <!-- Service Worker 不支持 IE -->
 <!-- shared Worker 只有 Chrome 实现 -->

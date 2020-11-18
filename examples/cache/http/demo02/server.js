@@ -40,7 +40,7 @@ const app = http
             const raw = fs.createReadStream(filePath);
             // Expires 缓存
             const expires = new Date();
-            expires.setTime(expires.getTime() + 10000); // 10秒
+            expires.setTime(expires.getTime() + 5000); // 10秒
             response.setHeader("Expires", expires.toUTCString());
 
             // Cache-Control max-age 缓存

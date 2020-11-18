@@ -22,6 +22,7 @@ Web 运行时缓存本质上就是用空间（缓存存储）换时间（跳过�
 - 应用场景 ajax 请求
 - vue 单页面应用缓存的最佳实践 -->
 <!-- **阅读时长**：20min -->
+
 ## 编码基本缓存技术
 
 <!-- ### 函数缓存 -->
@@ -31,7 +32,7 @@ Web 运行时缓存本质上就是用空间（缓存存储）换时间（跳过�
 
 ### 基本示例
 
-假设又一个获取行政区划的函数 getChanceOfRain，每次调用都要花 100ms 计算：
+假设又一个获取天气的函数 getChanceOfRain，每次调用都要花 100ms 计算：
 
 ```js
 import { getChanceOfRain } from "magic-weather-calculator";
@@ -69,8 +70,8 @@ function showWeatherReport() {
   let result = memoizedGetChanceOfRain();
   console.log("The chance of rain tomorrow is:", result);
 }
-
 ```
+
 ### 闭包 + 高阶函数
 
 可以把缓存函数抽离出来，运行闭包和高阶函数：
@@ -104,37 +105,39 @@ let memoizedGetCosmicRaysProbability = memoize(getCosmicRaysProbability);
 
 <!-- ### 建立一个全局的 Modal 框 -->
 <!-- ### 前端缓存当前展开的树节点 -->
+
 ### 封装一个 LocalStorage 缓存类
 
 ```js
 // 先实现一个基础的StorageBase类，把getItem和setItem方法放在它的原型链上
-function StorageBase () {}
-StorageBase.prototype.getItem = function (key){
-    return localStorage.getItem(key)
-}
-StorageBase.prototype.setItem = function (key, value) {
-    return localStorage.setItem(key, value)
-}
+function StorageBase() {}
+StorageBase.prototype.getItem = function(key) {
+  return localStorage.getItem(key);
+};
+StorageBase.prototype.setItem = function(key, value) {
+  return localStorage.setItem(key, value);
+};
 
 // 以闭包的形式创建一个引用自由变量的构造函数
-const Storage = (function(){
-    let instance = null
-    return function(){
-        // 判断自由变量是否为null
-        if(!instance) {
-            // 如果为null则new出唯一实例
-            instance = new StorageBase()
-        }
-        return instance
+const Storage = (function() {
+  let instance = null;
+  return function() {
+    // 判断自由变量是否为null
+    if (!instance) {
+      // 如果为null则new出唯一实例
+      instance = new StorageBase();
     }
-})()
+    return instance;
+  };
+})();
 
-// 这里其实不用 new Storage 的形式调用，直接 Storage() 也会有一样的效果 
-const storage1 = new Storage()
-const storage2 = new Storage()
+// 这里其实不用 new Storage 的形式调用，直接 Storage() 也会有一样的效果
+const storage1 = new Storage();
+const storage2 = new Storage();
 ```
 
 上面这种缓存方式在设计模式中就是一个单例，前端的应用有全局建立一个模态框，vuex 的 install 函数。
+
 ### 前端 api 请求响应数据缓存
 
 缓存指定服务的基本信息，后期减少请求次数。

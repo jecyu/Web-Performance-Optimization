@@ -27,21 +27,21 @@
 
 在浏览器中，大部分情况下浏览器会在 js 和图片等文件解析执行后直接存入内存缓存中，那么当刷新页面时只需直接从内存缓存中读取(from memory cache)；而 css 文件则会存入硬盘文件中，所以每次渲染页面都需要从硬盘读取缓存(from disk cache)
 
-浏览器获取缓存的顺序为 Memory Cache、Disk Cache、Service Worker Cache（至于 Push Cache 属于 HTTP2 待验证）。
+浏览器获取缓存的顺序为 Service Worker Cache、Memory Cache、Disk Cache、（至于 Push Cache 属于 HTTP2 待验证）。
 
 除了以上的缓存位置外，浏览器还提供一些本地存储方案，包括 **Cookie**、**IndexedDB** 和 **LocalStorage** 等，这些将在另外一篇文章中：[浏览器之本地存储—Cookie、Web Storage、IndexedDB](./browser-localStorage.md) 讲述 。
 
-本章主要讲述常用的 HTTP 的缓存机制，主要讲解如何通过 HTTP 请求头与响应头来控制资源的缓存与读取。
+本章主要讲述常用的 HTTP 的缓存机制，主要讲解如何通过 **HTTP 请求头与响应头**来控制资源的缓存与读取。
 
 **目标读者**：希望了解浏览器加载的资源什么时候被缓存，什么时候资源缓存又失效。
 
 **文章大纲**：
 
 - HTTP 缓存机制探秘
-- 用户行为对浏览器的缓存策略的影响
 - 强缓存详解
 - 协商缓存详解
-- HTTP 缓存的最佳实践
+- 如何废弃和更新缓存的资源
+- 项目实战：进行资源更新时，为什么一定要手动清除缓存
 
 **阅读时长**：25 min
 
@@ -52,7 +52,6 @@
 - memory cache -->
 <!-- 工具结合 chrome network + wireshark -->
 <!-- - DNS Cache -->
-
 <!-- 头脑风暴
 - 如何辨别
   - hash 在资源更新的作用
@@ -183,31 +182,31 @@ Expires 指缓存过期的时间，超过了这个时间点就代表资源过期
 
 2. 由于上一次请求没有任何响应缓存头设置，这个时候关闭 Tab 页面，然后再次访问页面，可以看到资源仍然从源服务器中获取。
    ![](../.vuepress/public/assets/2020-10-20-22-24-05.png)
-   ![](../.vuepress/public/assets/2020-11-15-23-18-27.png)
-
+ 
 3. 现在给服务器响应头添加 Expires 设置，并重复 1、2 两个步骤。再次访问时，可以看到资源从 disk cache 获取。
    ![](../.vuepress/public/assets/2020-10-20-22-16-37.png)
+   ![](../.vuepress/public/assets/2020-11-15-23-18-27.png)
 
-4. 如果你在第 2 个步骤不是关闭当前 tab 页面，而是按 F5 刷新页面，请求 html 资源的请求头自动携带了 `max-age: 0`， 会先跟服务器通信验证，由于不存在协商缓存头。而其他资源 css、图片资源仍然从 memory cache 中获取。
+4. 如果你在第 2 个步骤不是关闭当前 tab 页面，而是按 F5（Command + R） 刷新页面，请求 html 资源的请求头自动携带了 `max-age: 0`， 会先跟服务器通信验证，由于不存在协商缓存头。而其他资源 css、图片资源仍然从 memory cache 中获取。
    ![](../.vuepress/public/assets/2020-10-20-22-27-35.png)
 
    ![](../.vuepress/public/assets/2020-10-20-22-26-26.png)
 
-   如果你按 Crtl + F5 刷新的话，则所有的资源都会添加 `Cache-Control: no-cache` 请求头，因为没有设置协商缓存，因此所有资源都重新从源服务器获取。
+   如果你按 Crtl + F5 (或 Command + Shift + R)刷新的话，则所有的资源都会添加 `Cache-Control: no-cache` 请求头，因为没有设置协商缓存，因此所有资源都重新从源服务器获取。
 
    ![](../.vuepress/public/assets/2020-11-13-10-32-11.png)
 
 **完整测试例子**：[example/cache/http/demo01](https://github.com/Jecyu/Web-Performance-Optimization/tree/master/examples/cache/http/demo01/server.js)
 
-现在我们给 expires 一个特写：
+现在我们给 Expires 一个特写：
 
 ```bash
 Expires: Fri, 13 Nov 2020 02:25:55 GMT
 ```
 
-Expires 其实是一个时间戳，这里只不过是格式化的显示。在我们再次向服务器请求相同的资源时，浏览器就会先对比本地时间和 Expires 的时间戳，如果本地时间小于 Expires 设定的过期时间，那么就直接去缓存中取这个资源。
+`Expires` 其实是一个时间戳，这里只不过是格式化的显示。在我们再次向服务器请求相同的资源时，浏览器就会先对比本地时间和 `Expires` 的时间戳，如果本地时间小于 `Expires` 设定的过期时间，那么就直接去缓存中取这个资源。
 
-由于时间戳是服务器来定义的，而本地时间的取值却来自客户端，因此 Expires 的工作机制对客户端时间与服务器时间之间的一致性提出了极高的要求。如果服务器与客户端存在误差（时差、用户修改），将会导致意外的结果，那么 Expires 将无法达到我们的预期。
+由于时间戳是服务器来定义的，而本地时间的取值却来自客户端，因此 `Expires` 的工作机制对客户端时间与服务器时间之间的一致性提出了极高的要求。如果服务器与客户端存在误差（时差、用户修改），将会导致意外的结果，那么 `Expires` 将无法达到我们的预期。
 
 ### Cache-Control
 
@@ -219,7 +218,7 @@ Expires 允许我们通过**绝对的时间戳**来控制缓存的过期时间�
 
 这里仍然使用 Expire 里提到的例子，主要证明 Cache-Control 的优先级更高：
 
-1. 不设置设置服务器强制缓存头的情况下，首次访问网站首页，netwokr 表格图如下：（注意：对于同一页面同时请求重复的资源，浏览器不会再发起该请求）
+1. 不设置设置服务器强制缓存头的情况下，首次访问网站首页，Network 表格图如下：（注意：对于同一页面同时请求重复的资源，浏览器不会再发起该请求）
    ![](../.vuepress/public/assets/2020-10-20-22-24-05.png)
 
 2. 服务器开启 `Cache-Control` 缓存设置，进入页面后，关闭 tag 页面，重新打开，可以看到资源从 disk cache 获取。
@@ -314,16 +313,14 @@ app.use(
   - 一个页面中如果有两个相同的请求 (例如两个 src 相同的 `<img>`，两个 href 相同的 `<link>`)都实际只会被请求最多一次，避免浪费。 -->
 
 ### 其他补充：Pragma 与 Vary
-
 #### Pragma 头
 
-Pragma 是 HTTP/1.0 标准中定义的一个 header 属性，请求中包含 Pragma 的效果跟在头信息中定义 Cache-Control: no-cache 相同，但是 HTTP 的响应头没有明确定义这个属性，所以它不能拿来完全替代 HTTP/1.1 中定义的 Cache-control 头。通常定义 Pragma 以向后兼容基于 HTTP/1.0 的客户端。
-
+`Pragma` 是 HTTP/1.0 标准中定义的一个 header 属性，请求中包含 `Pragma` 的效果跟在头信息中定义 `Cache-Control: no-cache` 相同，但是 HTTP 的响应头没有明确定义这个属性，所以它不能拿来完全替代 HTTP/1.1 中定义的 `Cache-control` 头。通常定义 `Pragma` 以向后兼容基于 HTTP/1.0 的客户端。
 #### Vary 响应
 
 HTTP 响应头决定了对于后续的请求头，如何判断是请求一个新的资源还是使用缓存的文件。
 
-当缓存服务器收到一个请求，只有当前的请求和原始（缓存）的请求头跟缓存的响应头里的 Vary 都匹配，才能使用缓存的响应。
+当缓存服务器收到一个请求，只有当前的请求和原始（缓存）的请求头跟缓存的响应头里的 `Vary` 都匹配，才能使用缓存的响应。
 
 ![](../.vuepress/public/assets/2020-11-15-21-25-49.png)
 
@@ -343,9 +340,8 @@ HTTP 响应头决定了对于后续的请求头，如何判断是请求一个新
 
 协商缓存有两对值，分别是
 
-- Etag/If-Modified-Since
-- Last-Modified/If-Modified-Since
-
+- `Etag/If-Modified-Since`
+- `Last-Modified/If-Modified-Since`
 ### Last-Modified/If-Modified-Since
 
 `Last-Modified` 是一个时间戳，如果我们启用了协商缓存，它会在首次请求时随着 Response Headers 返回：
@@ -354,7 +350,7 @@ HTTP 响应头决定了对于后续的请求头，如何判断是请求一个新
 Last-Modified: Fri, 27 Oct 2017 06:35:57 GMT
 ```
 
-随后我们每次请求时，会带上一个叫 `If-Modified-Since` 的时间戳字段，它的值正是上一次 response 返回给它的 last-modified 值：
+随后我们每次请求时，会带上一个叫 `If-Modified-Since` 的时间戳字段，它的值正是上一次 response 返回给它的 `Last-modified` 值：
 
 ```bash
 If-Modified-Since: Fri, 27 Oct 2017 06:35:57 GMT
@@ -362,7 +358,7 @@ If-Modified-Since: Fri, 27 Oct 2017 06:35:57 GMT
 
 服务器接收到这个时间戳后，会比对该时间戳和资源在服务器上的最后修改时间是否一致，并在 Response Headers 中添加新的 `Last-Modified` 值；否则，Response Headers 不会再添加 `Last-Modified` 字段。
 
-**注意**：如果响应头中有 Last-modified 而没有 Expire 或 Cache-Control 时，浏览器会有自己的算法来推算出一个时间缓存该文件多久，不同浏览器得出的时间不一样。
+**注意**：如果响应头中有 `Last-modified` 而没有 `Expire` 或 `Cache-Control` 时，浏览器会有自己的算法来推算出一个时间缓存该文件多久，不同浏览器得出的时间不一样。
 
 还是前面的例子，index.html 和 style.css、logo 图片。为了说明 Last—Modified 的操作，这里的 server.js 使用原生的 node 实现：
 
@@ -424,7 +420,7 @@ const app = http.createServer(function(request, response) {
 
 ### Etag/If-Modified-Since
 
-使用 Last-Modified 会存在一些弊端，这其中最常见的就有两个场景：
+使用 `Last-Modified` 会存在一些弊端，这其中最常见的就有两个场景：
 
 - 当我们编辑了文件，但文件的内容没有变。<u>服务端并不清楚我们是否真正改变了文件，它仍然通过最后编辑时间进行判断。</u>因此在这个资源在再次被请求时，会被当作新资源，进而引发一次完整的响应——不该重新请求的时候，也会重新请求。
 - 当我们修改文件的速度过快时（比如花了 100ms 完成了改动），由于 `If-Modified-Since` 只能检查到以`秒`为最小计量单位的时间差，所以它是感知不到这个改动的——该重新请求的时候，反而没有重新请求了。
@@ -445,7 +441,7 @@ If-None-Match: W/"2237-1566200378000"
 
 ![](../.vuepress/public/assets/2020-10-14-23-07-11.png)
 
-<u>Etag 的生成过程需要服务器额外开销，</u>会影响服务端的性能，这是它的弊端。因此启用 Etag 需要我们审时度势。Etag 并不能替代 Last-Modified，它只能作为 Last-Modified 的补充和强化存在。Etag 在感知文件变化上比 Last-Modified 更加准确，优先级也更高。**当 Etag 和 Last-Modified 同时存在时，以 Etag 为准**。
+<u>Etag 的生成过程需要服务器额外开销，</u>会影响服务端的性能，这是它的弊端。<!--如何设置呢？因此启用 Etag 需要我们审时度势。Etag 并不能替代 Last-Modified，它只能作为 Last-Modified 的补充和强化存在。-->Etag 在感知文件变化上比 Last-Modified 更加准确，优先级也更高。**当 Etag 和 Last-Modified 同时存在时，以 Etag 为准**。 
 
 以前面的例子说明，服务端配置如下：
 
@@ -479,7 +475,7 @@ const listener = app.listen(process.env.PORT, function() {
    - request url: /
    - request url: /style.css
    - request url: /logo.png
-     chrome 对 ETag 和 Last—Modified 的处理有区别，为了保证设置了协商缓存并起作用的情况下，每个资源向服务器进行验证。因此建议一定要设置 ETag，
+     chrome 对 ETag 和 Last—Modified 的处理有区别，为了保证设置了协商缓存并起作用的情况下，每个资源向服务器进行验证。因此建议一定要设置 ETag。
 
 2. 这个时候对 css 进行更改，并刷新页面，会获取到最新的资源。
    ![](../.vuepress/public/assets/2020-10-21-00-54-51.png)
@@ -640,9 +636,9 @@ html body {
   - task-manager.c2553364.js.gz
   - `<link href=js/task-manager.c2553364.js rel=prefetch>`
 
-部署到服务器上，再次访问当前页面，出现的效果。
+部署到服务器上，再次访问当前页面，出现与更新 index.html 的效果。
 
-3. 更新 json、图片
+<!-- 3. 更新 json、图片 -->
 
 <!--
 设置了 max-age，不同版本的问题，除了 CDN 先后顺序外，还有就是同样的缓存时间，先请求的资源与后请求的请求不匹配问题。 -->
@@ -689,7 +685,7 @@ html body {
 - 系统有用到 service cache，没有处理好更新策略，浏览器优先命中它。
 - webpack 打包本身的设置 hash 问题，hash、contenthash、chunkhash。（webpack 4x）
 
-`vue inspect --> vue2webpack.test.js` -->
+`vue inspect --vue2webpack.test.js` -->
 ### 服务器如何进行配置以符合最佳实践原则
 #### 最佳实践
 
