@@ -731,6 +731,54 @@ app.use(
 
 3. 所有的资源配置，都添加 hash 根据内容去处理。
 
+#### 以 Tomcat 9.0 设置为例：
+
+Tomcat 9.0 默认对所有资源都配置了协商缓存。
+
+我们可以通过以下配置，对 css、js、image 资源设置强缓存，过期时间为5分钟：
+
+而 index.html 还是走的协商缓存，这样的话，只要前端资源打包更新后，用户访问 index.html 都是最新的，如果引用的资源有变化，则会引用最新的资源比如 js，不受缓存影响。
+
+如果没有变化，则会重用之前的缓存。
+
+```xml
+<filter>
+ <filter-name>ExpiresFilter</filter-name>
+ <filter-class>org.apache.catalina.filters.ExpiresFilter</filter-class>
+ <init-param>
+    <param-name>ExpiresByType image</param-name>
+    <param-value>access plus 5 minutes</param-value>
+ </init-param>
+ <!-- <init-param>
+    <param-name>ExpiresByType html</param-name>
+    <param-value>access plus 0 minutes</param-value>
+ </init-param> -->
+ <init-param>
+    <param-name>ExpiresByType text/css</param-name>
+    <param-value>access plus 5 minutes</param-value>
+ </init-param>
+ <init-param>
+    <param-name>ExpiresByType application/javascript</param-name>
+    <param-value>access plus 5 minutes</param-value>
+ </init-param>
+</filter>
+
+
+
+  <!-- ==================== Built In Filter Mappings ====================== -->
+
+<filter-mapping>
+ <filter-name>ExpiresFilter</filter-name>
+ <url-pattern>/*</url-pattern>
+ <dispatcher>REQUEST</dispatcher>
+</filter-mapping>
+```
+
+![](../.vuepress/public/assets/2020-11-21-22-30-15.png)
+
+再次访问，从 dist cache 中获取：
+
+![](../.vuepress/public/assets/2020-11-21-22-31-49.png)
 <!-- **完整测试例子**：cache/http/demo04 -->
 
 <!-- #### 实施方案

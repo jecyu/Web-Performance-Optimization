@@ -188,6 +188,56 @@ Webpack 中 Gzip 压缩操作的存在，事实上就是为了在构建过程中
 
 Gzip 压缩背后的原理，<u>是在一个文本文件中找出一些重复出现的字符串、临时替换它们，从而使整个文件变小。</u>根据这个原理，文件中代码的重复率越高，那么压缩的效率就越高，使用 Gzip 的收益也就越大。反之亦然。详细可以参考 [gzip 原理与实现](https://blog.csdn.net/imquestion/article/details/16439)
 
+##### 资源加载 gzip 处理
+Tomcat 9.0+
+
+#静态资源：寻找压缩文件 #前端先压缩好文件
+// vue.config.js
+const CompressionPlugin = require("compression-webpack-plugin");
+
+const productionGzipExtensions = ["js", "css"];
+
+new CompressionPlugin({
+filename: "[path].gz[query]",
+algorithm: "gzip", // 压缩算法
+test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")\$"), // 压缩的资源
+threshold: 10240, // 资源大于 10240B = 10 KB 时会被压缩
+minRatio: 0.8, // 压缩比率
+});
+#Tomcat 配置
+Tomcat 默认已经开启支持寻找预先压缩的文件。 ，只需要修改 conf/web.xml 文件，添加以下配置即可。
+
+    <servlet>
+        ...
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>gzip</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        ...
+    </servlet>
+
+#针对 API 动态资源请求：实时压缩
+修改 server.xml，并进行 tomcat 的重启。
+
+before
+
+<Connector port="8080" protocol="HTTP/1.1" compression="on" compressibleMimeType="text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json,application/xml"  compressionMinSize="2048"  />
+After 添加 useSendfile，和设置端口为 80，其他端口设置待研究。
+
+    <Connector port="80" protocol="HTTP/1.1" compression="on" compressibleMimeType="text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json,application/xml"  compressionMinSize="2048" useSendfile="false" />
+
+这里要注意的是：port 为 80 而不是 8080，另外一定要添加 useSendfile 属性并设置为 false，否则有可能不会压缩。这个 useSendfile 属性来保护 CPU 使用率，详情可以看对应的 tomcat 配置文档（connector 部分）。
+
+connector 的作用主要是拦截请求，进行响应。
+
+访问地址： http:80//localhost/dist-notzip
+
+而不是 http:8080//localhost/dist-notzip
+
+#
+
 <!-- 运维系统 -->
 
 #### 运行时压缩
@@ -851,7 +901,6 @@ img.srcset 属性用于设置不同屏幕密度下，image 自动加载不同的
 <!-- css 背景图片 -->
 
 <!--后续可以考虑封装成一个 vue 组件  -->
-
 
 <!-- 后面补充 -->
 
