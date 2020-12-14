@@ -315,6 +315,7 @@ history 模式对权限路由是否影响
 
 实现骨架屏方案：
 
+- 使用图片代替，图片可以参考 semantic 这里 https://semantic-ui.com/collections/grid.html#relaxed
 - 自动生成。
 - 手动编写。
 

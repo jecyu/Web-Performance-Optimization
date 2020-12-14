@@ -19,7 +19,7 @@
 - who：对于 web 繁多复杂的指标不知道如何入手的前端工程师。
 - when：当他读完本文后，能够知道从哪些常用指标入手，进行对 Web 应用的性能分析。
 
-本文主要介绍常用的性能指标，更多的指标可以参考 https://www.w3.org/TR/ 官方文档。
+本文主要介绍常用的性能指标，更多的指标可以参考 [https://www.w3.org/TR/](https://www.w3.org/TR/) 官方文档。
 
 **文章大纲**
 
@@ -45,11 +45,13 @@
 - 内容呈现相关（FP、FCP、FMP 等）
 - 交互响应相关（FID、FPS 等）
 
-上面的分类不太直观，我们直接看看整体的流程：DNS -> TCP -> Requesting -> WebServer -> Transfering -> Parsing。
+上面的分类不太直观，我们直接看看整体的流程：
+
+DNS -> TCP -> Requesting -> WebServer -> Transfering -> Parsing
 
 可以通过 Performance 接口可以获取到当前页面与性能相关的信息，与浏览器对应的状态如下图：
 
-![](../.vuepress/public/assets/2020-08-31-09-19-07-http-process.png)
+![](../.vuepress/public/assets/2020-12-09-14-51-37.png)
 
 左边部分代表的是网络传输层面的过程，右边部分代表了服务器传输回字节后浏览器的各种事件状态，这个阶段包含了浏览器对文档的解析、DOM 树构建、布局、绘制等。
 
@@ -68,10 +70,10 @@
 
 ### 传统指标 FP、FCP、LCP、DCL、FMP、L
 
-随便打开一个网站如掘金网（PS：可以分别对比访问慢的网站与访问快的网站），然后打开 chrome 控制台，为了更好地查看性能的指标记录，我们设置 Network 为 Slow 3G。
+随便打开一个网站如掘金网（PS：可以分别对比访问慢的网站与访问快的网站），然后打开 chrome 控制台，为了更好地查看性能的指标记录，我们设置 Network 为 「Slow 3G」。
 
-1. 点击 performance 选项
-2. 点击重新加载记录
+1. 点击 「Performance」 选项。
+2. 点击重新加载记录 「reload」按钮。
 3. 加载完毕，即可看到 Timings 时间线上，分别显示 FP、FCP、FMP、DCL、L、LCP 等几个指标，进行点击可以看到各个指标的使用时间。
 
 ![fp、fcp](../.vuepress/public/assets/index-1.png)

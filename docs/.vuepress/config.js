@@ -1,7 +1,7 @@
 module.exports = {
-  markdown: {
-    lineNumbers: true,
-  },
+  // markdown: {
+  //   lineNumbers: true, // 取消数字，避免同步问题
+  // },
   plugins: [
     "vuepress-plugin-zooming",
     {
