@@ -118,7 +118,7 @@ DNS -> TCP -> Requesting -> WebServer -> Transfering -> Parsing
   font-family: "Pacifico";
   font-style: normal;
   font-weight: 400;
-  src: local("Pacifico Regular"), local("Pacifico-Regular"),
+  src: local("Pacifico Regular"), localp("Pacifico-Regular"),
     url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2)
       format("woff2");
   font-display: swap;
@@ -130,6 +130,7 @@ DNS -> TCP -> Requesting -> WebServer -> Transfering -> Parsing
 #### FMP（First Meaningful Paint）首次有效渲染
 
 `FMP`：首次有效绘制，标记主角元素渲染完成的时间点，主角元素可以是视频网站的视频控件，内容网站的页面框架也可以是资源网站的头图等。
+
 反映主要内容出现在页面上所需的时间，也侧面反映了服务器输出任意数据的速度。`FMP` 时间过长一般意味着 `JavaScript` 阻塞了主线程，也有可能是后端/服务器的问题。
 
 ![FMP](../.vuepress/public/assets/index-4.png)
@@ -138,8 +139,9 @@ DNS -> TCP -> Requesting -> WebServer -> Transfering -> Parsing
 
 当 `DOMContentLoaded` 事件触发时，仅当 `DOM` 加载完成，不包括样式表，图片（譬如如果有 async 加载的脚本就不一定完成）。
 
-<!-- ##### 如何改善 -->
+![](../.vuepress/public/assets/2020-12-14-14-01-03.png)
 
+在文档中没有脚本时，浏览器解析完文档便能触发 DOMContentLoaded 事件；如果文档中包含脚本，则脚本会阻塞文档的解析。
 #### LCP（Larget Contentful Paint）
 
 表示`可视区“内容”最大的可见元素开始出现在屏幕上`的时间点，也就是下面的文章封面图的区域。
@@ -162,6 +164,8 @@ window.addEventListener("load", (event) => {
 ```
 
 `DomContentloaded`事件与 `onLoad` 事件的区别是，浏览器解析 `HTML` 这个操作完成后立刻触发 `DomContentloaded` 事件，而只有页面所有资源都加载完毕后（比如图片，CSS），才会触发 `onLoad` 事件。
+
+详细看这个网页：https://testdrive-archive.azurewebsites.net/HTML5/DOMContentLoaded/Default.html
 
 ### 重要指标
 
@@ -220,7 +224,6 @@ FPS 是来自视频或者游戏里的概念，即是每秒的帧数，代表视�
 在浏览器中如何监控帧率呢？
 
 ##### 查看帧率
-
 ###### 第一种方法
 
 打开 chrome 浏览器控制台，点击左上角工具栏，找到 `More Tools` 中的 `rendering`，勾选上 `FPS meter`。
@@ -231,7 +234,7 @@ FPS 是来自视频或者游戏里的概念，即是每秒的帧数，代表视�
 
 注意，网页不是随时都需要刷新帧，这个工具看到的是每次更新的 `FPS` 值。
 
-可以配合通过以下的操作，进行帧率的观察。
+可以配合通过以下的操作，进一步观察进行帧率。
 
 - 修改 DOM
 - 修改样式表
@@ -268,7 +271,7 @@ FPS 是来自视频或者游戏里的概念，即是每秒的帧数，代表视�
 
 ##### 如何改善 FPS
 
-如果想达到 60 帧的刷新率，就意味着 JavaScript 线程每个任务的耗时，**必须少于 16 毫秒**。一个解决办法就是使用 Web Worker，主线程只用于 UI 渲染，然后跟 UI 渲染不相干的任务，都放在 Worker 线程里。
+如果想达到 60 帧的刷新率，就意味着 JavaScript 线程每个任务的耗时，**必须少于 16 毫秒**。一个解决办法就是使用 [Web Worker，主线程只用于 UI 渲染，然后跟 UI 渲染不相干的任务，都放在 Worker 线程里，详细可以看 [Parallel programming in JavaScript using Web Workers](https://medium.com/jspoint/achieving-parallelism-in-javascript-using-web-workers-8f921f2d26db)。
 
 FPS 是 web 性能优化中的一个重要指标，我们可以通过监控这个指标以此来指导优化。
 
